@@ -16,6 +16,7 @@
 		F60A42D7217EC65B00AF9F6B /* StandardIncreasable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42D6217EC65B00AF9F6B /* StandardIncreasable.swift */; };
 		F60A42D9217EC74800AF9F6B /* StandardConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42D8217EC74800AF9F6B /* StandardConfigurable.swift */; };
 		F60A42DB217EC7DB00AF9F6B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42DA217EC7DB00AF9F6B /* Extensions.swift */; };
+		F60A42DD217ED28E00AF9F6B /* StandardTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42DC217ED28E00AF9F6B /* StandardTimer.swift */; };
 		F6D2A4122179FDD800B1B934 /* Zench.h in Headers */ = {isa = PBXBuildFile; fileRef = F6D2A4102179FDD800B1B934 /* Zench.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		F60A42D6217EC65B00AF9F6B /* StandardIncreasable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardIncreasable.swift; sourceTree = "<group>"; };
 		F60A42D8217EC74800AF9F6B /* StandardConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardConfigurable.swift; sourceTree = "<group>"; };
 		F60A42DA217EC7DB00AF9F6B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F60A42DC217ED28E00AF9F6B /* StandardTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTimer.swift; sourceTree = "<group>"; };
 		F6D2A40D2179FDD800B1B934 /* Zench.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zench.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D2A4102179FDD800B1B934 /* Zench.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Zench.h; sourceTree = "<group>"; };
 		F6D2A4112179FDD800B1B934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				F60A42CD217EC15C00AF9F6B /* StandardKeyboardNotificationUserInfo.swift */,
 				F60A42CF217EC1D800AF9F6B /* StandardSize.swift */,
+				F60A42DC217ED28E00AF9F6B /* StandardTimer.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				F60A42D7217EC65B00AF9F6B /* StandardIncreasable.swift in Sources */,
 				F60A42D3217EC3C200AF9F6B /* ViewControllerExtensions.swift in Sources */,
 				F60A42CC217EC0A300AF9F6B /* StandardViewController.swift in Sources */,
+				F60A42DD217ED28E00AF9F6B /* StandardTimer.swift in Sources */,
 				F60A42D9217EC74800AF9F6B /* StandardConfigurable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
