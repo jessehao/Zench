@@ -1,0 +1,180 @@
+//
+//  StandardViewController.swift
+//  Zench
+//
+//  Created by Jesse Hao on 2018/10/23.
+//  Copyright © 2018 Snoware. All rights reserved.
+//
+
+import UIKit
+
+/// The base view controller of Zench. `ViewType` is type of the view which the controller retained.
+/// **DO NOT** override initializer if you **REALLY** need to.
+class StandardViewController<ViewType:UIView>: BaseViewController, UIGestureRecognizerDelegate {
+	// MARK: - Interface
+	/// The unique main view which the controller retained. Use this property after `viewDidLoad`.
+	let mainView = ViewType()
+	/// The flag of force the view controller using the `cancelBarButtonItem` in spite it could pop from the navigation controller.
+	/// - `nil`: automatic determines whether need to shows the `cancelBarButtonItem`
+	var forceUsingCancelBarButtonItem:Bool? { return nil }
+	/// The flag of whether the view controller using the `defaultRightNavigationBarButtonItem`.
+	var defaultRightNavigationBarButtonItemConfiguration:((UIBarButtonItem) -> Void)? { return nil }
+	/// The default title of the controller
+	var defaultTitle:String? { return nil }
+	
+	/// The flag of whether the navigation bar is hidden by default. The view controller detect this flag when view will appear.
+	var isNavigationBarHiddenByDefault:Bool { return false }
+	
+	var automaticallyAdjustsScrollViewInsetsByDefault:Bool { return false }
+	
+	// MARK: - Components
+	/// Returns a bar button item that dismiss the controller. **configured in `StandardViewController.configNavigationItem`**
+	var cancelBarButtonItem:UIBarButtonItem? { return self.navigationItem.leftBarButtonItem }
+	/// Returns a bar button item that as a default on the right side of navigation bar. Add this when you need it. **configured in `StandardViewController.configNavigationItem`**
+	var defaultRightNavigationBarButtonItem:UIBarButtonItem? { return self.navigationItem.rightBarButtonItem }
+	
+	// MARK: - Lifecycle
+	override func loadView() {
+		self.view = self.mainView
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+		self.configNavigationItem(self.navigationItem)
+		self.configMainView(self.mainView)
+		self.prepareTargets()
+		self.addToNotificationCenter()
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.navigationController?.setNavigationBarHidden(self.isNavigationBarHiddenByDefault, animated: true)
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		self.endEditing()
+		super.viewWillDisappear(animated)
+	}
+	
+	// MARK: - Actions
+	
+	/// the touch event handler of the default right navigation bar button item.
+	///
+	/// - Parameter sender: the action sender
+	@objc func defaultRightNavigationBarButtonTouched(sender:UIBarButtonItem) {}
+	
+	/// the touch event handler of the cancel bar button item.
+	@objc func cancelBarButtonTouched() { self.dismiss(animated: true) }
+	
+	/// Called immediately prior to the display of the keyboard. **configured in `StandardViewController.addToNotificationCenter`**
+	///
+	/// - Parameter userInfo: The userInfo contains information about the keyboard.
+	func keyboardWillShow(userInfo:StandardKeyboardNotificationUserInfo) {}
+	
+	/// Called immediately prior to the dismissal of the keyboard.  **configured in `StandardViewController.addToNotificationCenter`**
+	///
+	/// - Parameter userInfo: The userInfo contains information about the keyboard.
+	func keyboardWillHide(userInfo:StandardKeyboardNotificationUserInfo) {}
+	
+	/// Called immediately prior to a change in the keyboard’s frame.  **configured in `StandardViewController.addToNotificationCenter`**
+	///
+	/// - Parameter userInfo: The userInfo contains information about the keyboard.
+	func keyboardWillChangeFrame(userInfo:StandardKeyboardNotificationUserInfo) {}
+	
+	// MARK: - Operations
+	override func setup() {
+		super.setup()
+		self.title = self.defaultTitle
+		self.configTabBarItem(self.tabBarItem)
+		self.automaticallyAdjustsScrollViewInsets = self.automaticallyAdjustsScrollViewInsetsByDefault
+	}
+	/// override this when configure the main view.
+	///
+	/// - Parameter mainView: the main view instance of the controller.
+	func configMainView(_ mainView:ViewType) {}
+	
+	/// override this function when configure the navigation item.
+	///
+	/// - Parameter navigationItem: the navigationItem instance of the controller.
+	func configNavigationItem(_ navigationItem:UINavigationItem) {
+		if let configuration = self.defaultRightNavigationBarButtonItemConfiguration {
+			let item = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(defaultRightNavigationBarButtonTouched(sender:)))
+			configuration(item)
+			navigationItem.rightBarButtonItem = item
+			
+		}
+		if self.forceUsingCancelBarButtonItem == true || (self.forceUsingCancelBarButtonItem == nil && !self.canPopSelfFromNavigationController) {
+			navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancelBarButtonTouched))
+		}
+	}
+	
+	func configTabBarItem(_ tabBarItem:UITabBarItem) {}
+	
+	/// override when you need to observe some `Notification.Name` s, and you don't have to remove them because the `StandardViewController` will handle it.
+	func addToNotificationCenter() {
+		self.listenToNotificationName(UIResponder.keyboardWillShowNotification) { [weak self] in
+			guard let `self` = self else { return }
+			self.keyboardWillShow(userInfo: StandardKeyboardNotificationUserInfo(withUserInfoDict: $0.userInfo!))
+		}
+		self.listenToNotificationName(UIResponder.keyboardWillHideNotification) { [weak self] in
+			guard let `self` = self else { return }
+			self.keyboardWillHide(userInfo: StandardKeyboardNotificationUserInfo(withUserInfoDict: $0.userInfo!))
+		}
+		self.listenToNotificationName(UIResponder.keyboardWillChangeFrameNotification) { [weak self] in
+			guard let `self` = self else { return }
+			self.keyboardWillChangeFrame(userInfo: StandardKeyboardNotificationUserInfo(withUserInfoDict: $0.userInfo!))
+		}
+	}
+	
+	/// override and fills with Target-Actions in.
+	func prepareTargets() {}
+	
+	func startLoading() {
+		self.setLoadingEnable(true)
+	}
+	
+	func stopLoading() {
+		self.setLoadingEnable(false)
+	}
+	
+	func setLoadingEnable(_ enable:Bool) {
+		self.mainView.isUserInteractionEnabled = !enable
+	}
+}
+
+// MARK: - Selector Helper
+extension StandardViewController {
+	/// add specific selector to observe a specific notification name of notification center.
+	///
+	/// - Parameters:
+	///   - selector: the target selector when the notification received
+	///   - notificationName: the notification name that you wanna observe
+	func addSelector(_ selector:Selector, onNotificationName notificationName:Notification.Name) {
+		NotificationCenter.default.addObserver(self, selector: selector, name: notificationName, object: nil)
+	}
+	
+	/// Listen to a specific notification name and handles event when received
+	///
+	/// - Parameters:
+	///   - notificationName: the notification name that you wanna listen to
+	///   - handler: a handler called when notification received
+	func listenToNotificationName(_ notificationName:Notification.Name, using handler:@escaping (Notification) -> Void) {
+		NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil, using: handler)
+	}
+}
+
+// MARK: - Generic Helper
+extension StandardViewController {
+	func dial(number:String) -> Bool {
+		let tel = "telprompt://" + number
+		guard let url = URL(string: tel) else { return false }
+		UIApplication.shared.openURL(url)
+		return true
+	}
+	
+	func copyToPasteboard(withString string:String) {
+		UIPasteboard.general.string = string
+	}
+}
