@@ -1,5 +1,5 @@
 //
-//  BaseView.swift
+//  BaseButton.swift
 //  Zench
 //
 //  Created by Jesse Hao on 2018/10/24.
@@ -8,9 +8,7 @@
 
 import UIKit
 
-class BaseView: UIView {
-	var defaultBackgroundColor:UIColor { return .white }
-	
+class BaseButton: UIButton {
 	// MARK: - Lifecycle
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -24,18 +22,14 @@ class BaseView: UIView {
 	
 	// MARK: - Operations
 	func setup() {
-		self.backgroundColor = self.defaultBackgroundColor
 		self.prepareSubviews()
 		self.makeConstraints()
-		self.prepareTargets()
 	}
 	func prepareSubviews() {}
 	func makeConstraints() {}
-	func prepareTargets() {}
 }
 
-
-class StandardShapeView: BaseView {
+class StandardShapeButton: BaseButton {
 	override class var layerClass : AnyClass { return CAShapeLayer.self }
 	var shapeLayer:CAShapeLayer { return self.layer as! CAShapeLayer }
 	
@@ -52,4 +46,4 @@ class StandardShapeView: BaseView {
 	}
 }
 
-// TODO: Standard Gradient View
+// TODO: Standard Gradient Button

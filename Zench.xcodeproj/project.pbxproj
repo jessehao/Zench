@@ -19,6 +19,13 @@
 		F60A42DD217ED28E00AF9F6B /* StandardTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42DC217ED28E00AF9F6B /* StandardTimer.swift */; };
 		F65D1A7E21806E02006CF3D5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A7D21806E02006CF3D5 /* BaseView.swift */; };
 		F65D1A802180717F006CF3D5 /* StandardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A7F2180717F006CF3D5 /* StandardScrollView.swift */; };
+		F65D1A8221807347006CF3D5 /* BaseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8121807347006CF3D5 /* BaseControl.swift */; };
+		F65D1A8421807353006CF3D5 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8321807353006CF3D5 /* BaseButton.swift */; };
+		F65D1A8721807380006CF3D5 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8621807380006CF3D5 /* BaseTableViewCell.swift */; };
+		F65D1A89218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A88218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift */; };
+		F65D1A8B218073AB006CF3D5 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8A218073AB006CF3D5 /* BaseCollectionViewCell.swift */; };
+		F65D1A8D218073BC006CF3D5 /* StandardTableViewTextHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8C218073BC006CF3D5 /* StandardTableViewTextHeaderFooterView.swift */; };
+		F65D1A8F218074AC006CF3D5 /* StandardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8E218074AC006CF3D5 /* StandardButton.swift */; };
 		F6D2A4122179FDD800B1B934 /* Zench.h in Headers */ = {isa = PBXBuildFile; fileRef = F6D2A4102179FDD800B1B934 /* Zench.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -35,6 +42,13 @@
 		F60A42DC217ED28E00AF9F6B /* StandardTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTimer.swift; sourceTree = "<group>"; };
 		F65D1A7D21806E02006CF3D5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		F65D1A7F2180717F006CF3D5 /* StandardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardScrollView.swift; sourceTree = "<group>"; };
+		F65D1A8121807347006CF3D5 /* BaseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControl.swift; sourceTree = "<group>"; };
+		F65D1A8321807353006CF3D5 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		F65D1A8621807380006CF3D5 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		F65D1A88218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
+		F65D1A8A218073AB006CF3D5 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		F65D1A8C218073BC006CF3D5 /* StandardTableViewTextHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableViewTextHeaderFooterView.swift; sourceTree = "<group>"; };
+		F65D1A8E218074AC006CF3D5 /* StandardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardButton.swift; sourceTree = "<group>"; };
 		F6D2A40D2179FDD800B1B934 /* Zench.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zench.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D2A4102179FDD800B1B934 /* Zench.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Zench.h; sourceTree = "<group>"; };
 		F6D2A4112179FDD800B1B934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,8 +77,11 @@
 		F60A42C5217EBFD200AF9F6B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F65D1A90218075F8006CF3D5 /* Table View */,
+				F65D1A8521807363006CF3D5 /* Controls */,
 				F65D1A7D21806E02006CF3D5 /* BaseView.swift */,
 				F65D1A7F2180717F006CF3D5 /* StandardScrollView.swift */,
+				F65D1A8A218073AB006CF3D5 /* BaseCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -103,6 +120,26 @@
 				F60A42DA217EC7DB00AF9F6B /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F65D1A8521807363006CF3D5 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				F65D1A8121807347006CF3D5 /* BaseControl.swift */,
+				F65D1A8321807353006CF3D5 /* BaseButton.swift */,
+				F65D1A8E218074AC006CF3D5 /* StandardButton.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		F65D1A90218075F8006CF3D5 /* Table View */ = {
+			isa = PBXGroup;
+			children = (
+				F65D1A8621807380006CF3D5 /* BaseTableViewCell.swift */,
+				F65D1A88218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift */,
+				F65D1A8C218073BC006CF3D5 /* StandardTableViewTextHeaderFooterView.swift */,
+			);
+			path = "Table View";
 			sourceTree = "<group>";
 		};
 		F6D2A4032179FDD800B1B934 = {
@@ -219,13 +256,20 @@
 				F60A42DB217EC7DB00AF9F6B /* Extensions.swift in Sources */,
 				F60A42D0217EC1D800AF9F6B /* StandardSize.swift in Sources */,
 				F60A42CE217EC15C00AF9F6B /* StandardKeyboardNotificationUserInfo.swift in Sources */,
+				F65D1A8D218073BC006CF3D5 /* StandardTableViewTextHeaderFooterView.swift in Sources */,
 				F60A42D5217EC5E600AF9F6B /* Protocols.swift in Sources */,
 				F60A42D7217EC65B00AF9F6B /* StandardIncreasable.swift in Sources */,
 				F60A42D3217EC3C200AF9F6B /* ViewControllerExtensions.swift in Sources */,
+				F65D1A8B218073AB006CF3D5 /* BaseCollectionViewCell.swift in Sources */,
+				F65D1A89218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift in Sources */,
+				F65D1A8F218074AC006CF3D5 /* StandardButton.swift in Sources */,
 				F60A42CC217EC0A300AF9F6B /* StandardViewController.swift in Sources */,
 				F60A42DD217ED28E00AF9F6B /* StandardTimer.swift in Sources */,
+				F65D1A8221807347006CF3D5 /* BaseControl.swift in Sources */,
+				F65D1A8421807353006CF3D5 /* BaseButton.swift in Sources */,
 				F65D1A7E21806E02006CF3D5 /* BaseView.swift in Sources */,
 				F65D1A802180717F006CF3D5 /* StandardScrollView.swift in Sources */,
+				F65D1A8721807380006CF3D5 /* BaseTableViewCell.swift in Sources */,
 				F60A42D9217EC74800AF9F6B /* StandardConfigurable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
