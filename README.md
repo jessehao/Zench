@@ -9,4 +9,4 @@ Zench is an iOS develop framework for creative swifter.
 #### Main Queue
 
 - [x] Basic Kit
-- [ ] CocoaPods Support
+- [x] CocoaPods Support
