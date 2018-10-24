@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseCollectionViewCell: UITableViewHeaderFooterView {
+class BaseCollectionViewCell: UICollectionViewCell {
 	var indexPath:IndexPath?
 	
 	// MARK: - Lifecycle

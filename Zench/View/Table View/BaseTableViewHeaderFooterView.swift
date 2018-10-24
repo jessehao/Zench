@@ -24,7 +24,7 @@ class BaseTableViewHeaderFooterView: UITableViewHeaderFooterView {
 	func setup() {
 		self.prepareSubviews()
 		self.makeConstraints()
-		self.contentView.backgroundColor = FLLColor.backgroundGray
+		self.contentView.backgroundColor = .clear
 	}
 	
 	func prepareSubviews() {}
