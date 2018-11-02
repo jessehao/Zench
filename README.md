@@ -6,6 +6,11 @@
 
 Zench is an iOS develop framework for creative swifter.
 
+## Installation
+```
+pod 'zench'
+```
+
 ## Todos
 
 #### Main Queue
