@@ -13,4 +13,4 @@ Zench is an iOS develop framework for creative swifter.
 - [x] Basic Kit
 - [x] CocoaPods Support
 - [ ] Extension wrapper
-- [ ] Table View
+- [x] Table View
