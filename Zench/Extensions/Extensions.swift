@@ -36,3 +36,7 @@ extension UIFont {
 		return UIFont(name: fontStr, size: size)!
 	}
 }
+
+extension String {
+	var localizedString:String { return NSLocalizedString(self, comment: "") }
+}
