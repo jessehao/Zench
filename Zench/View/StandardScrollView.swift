@@ -8,20 +8,20 @@
 
 import UIKit
 
-class StandardScrollView: BaseView {
+open class StandardScrollView: BaseView {
 	var defaultKeyboardDismissMode:UIScrollView.KeyboardDismissMode { return UIScrollView.KeyboardDismissMode.onDrag }
 	
 	// MARK: - Components
-	let scrollView = UIScrollView()
-	let contentView = UIView()
+	public let scrollView = UIScrollView()
+	public let contentView = UIView()
 	
 	// MARK: - Operations
-	override func setup() {
+	open override func setup() {
 		super.setup()
 		self.configScrollView(self.scrollView)
 	}
 	
-	func configScrollView(_ scrollView:UIScrollView) {
+	open func configScrollView(_ scrollView:UIScrollView) {
 		if #available(iOS 11.0, *) {
 			scrollView.contentInsetAdjustmentBehavior = .never
 		}
@@ -29,13 +29,13 @@ class StandardScrollView: BaseView {
 		scrollView.backgroundColor = .clear
 	}
 	
-	override func prepareSubviews() {
+	open override func prepareSubviews() {
 		super.prepareSubviews()
 		self.addSubview(self.scrollView)
 		self.scrollView.addSubview(self.contentView)
 	}
 	
-	override func makeConstraints() {
+	open override func makeConstraints() {
 		super.makeConstraints()
 		if let superview = self.scrollView.superview {
 			self.scrollView.topAnchor.constraint(equalTo: superview.topAnchor)

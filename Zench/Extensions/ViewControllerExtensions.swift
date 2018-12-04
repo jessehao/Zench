@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension UIViewController {
-	static func currentViewController() -> UIViewController? {
+public extension UIViewController {
+    public static func currentViewController() -> UIViewController? {
 		var controller = UIApplication.shared.keyWindow?.rootViewController
 		while true {
 			if controller is UITabBarController {
@@ -30,21 +30,21 @@ extension UIViewController {
 		return controller
 	}
 	
-	var keyWindow:UIWindow? { return UIApplication.shared.keyWindow }
+	public var keyWindow:UIWindow? { return UIApplication.shared.keyWindow }
 	
-	var canPopSelfFromNavigationController:Bool {
+	public var canPopSelfFromNavigationController:Bool {
 		return self.navigationController != nil && self.navigationController?.rootViewController != self
 	}
 	
-	func removeFromNotificationCenter() {
+	public func removeFromNotificationCenter() {
 		NotificationCenter.default.removeObserver(self)
 	}
 	
-	func withNavigationController() -> UINavigationController {
+	public func withNavigationController() -> UINavigationController {
 		return UINavigationController(rootViewController: self)
 	}
 }
 
-extension UINavigationController {
-	var rootViewController:UIViewController? { return self.viewControllers.first }
+public extension UINavigationController {
+	public var rootViewController:UIViewController? { return self.viewControllers.first }
 }

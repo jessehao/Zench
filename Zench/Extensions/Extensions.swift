@@ -16,8 +16,8 @@ extension UIControl.State : Hashable {
 	}
 }
 
-extension UIFont {
-	class func pingFangSCFont(ofSize size:CGFloat, weight:UIFont.Weight) -> UIFont {
+public extension UIFont {
+	public class func pingFangSCFont(ofSize size:CGFloat, weight:UIFont.Weight) -> UIFont {
 		var fontStr = "PingFangSC-"
 		switch weight {
 		case Weight.semibold:
@@ -37,6 +37,6 @@ extension UIFont {
 	}
 }
 
-extension String {
-	var localizedString:String { return NSLocalizedString(self, comment: "") }
+public extension String {
+    public var localizedString:String { return NSLocalizedString(self, comment: "") }
 }

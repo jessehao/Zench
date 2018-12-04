@@ -9,24 +9,27 @@
 postfix operator ++
 prefix operator ++
 
-protocol StandardIncreasable {
-	mutating func increaseOneUnit()
+public protocol StandardIncreasable {
+    mutating func increaseOneUnit()
 }
 
-extension StandardIncreasable {
-	@discardableResult static prefix func ++ (value:inout Self) -> Self {
+public extension StandardIncreasable {
+	@discardableResult public static prefix func ++ (value:inout Self) -> Self {
 		value.increaseOneUnit()
 		return value
 	}
 	
-	@discardableResult static postfix func ++ (value:inout  Self) -> Self {
+	@discardableResult public static postfix func ++ (value:inout  Self) -> Self {
 		defer { value.increaseOneUnit() }
 		return value
 	}
 }
 
-extension Int : StandardIncreasable {
-	mutating func increaseOneUnit() {
+public extension BinaryInteger where Self : StandardIncreasable {
+    mutating public func increaseOneUnit() {
 		self += 1
 	}
 }
+
+extension Int : StandardIncreasable {}
+extension UInt : StandardIncreasable {}

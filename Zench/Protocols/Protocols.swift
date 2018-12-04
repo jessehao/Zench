@@ -6,15 +6,15 @@
 //  Copyright © 2018 Snoware. All rights reserved.
 //
 
-protocol StandardLeisurelyInitializer {
-	init()
+public protocol StandardLeisurelyInitializer {
+    init()
 }
 
 // MARK: - Copying
-protocol StandardDuplicatable {
-	func duplicate() throws -> Self
+public protocol StandardDuplicatable {
+    func duplicate() throws -> Self
 }
 
-extension StandardDuplicatable where Self : Codable {
-	func duplicate() throws -> Self { return try JSONDecoder().decode(Self.self, from: try JSONEncoder().encode(self)) }
+public extension StandardDuplicatable where Self : Codable {
+	public func duplicate() throws -> Self { return try JSONDecoder().decode(Self.self, from: try JSONEncoder().encode(self)) }
 }

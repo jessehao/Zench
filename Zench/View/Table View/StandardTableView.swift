@@ -8,23 +8,23 @@
 
 import UIKit
 
-protocol StandardTableViewDataSource: UITableViewDataSource {
+public protocol StandardTableViewDataSource: UITableViewDataSource {
 	func tableViewWillLoadData()
 	func tableViewDidLoadData()
 }
 
-extension StandardTableViewDataSource {
+public extension StandardTableViewDataSource {
 	func tableViewWillLoadData() {}
 	func tableViewDidLoadData() {}
 }
 
-protocol StandardTableViewDelegate: UITableViewDelegate {}
+public protocol StandardTableViewDelegate: UITableViewDelegate {}
 
-class StandardTableView: UITableView {
-	weak var standardDataSource:StandardTableViewDataSource? { didSet { self.dataSource = self.standardDataSource } }
-	weak var standardDelegate:StandardTableViewDelegate? { didSet { self.delegate = self.standardDelegate } }
+open class StandardTableView: UITableView {
+	open weak var standardDataSource:StandardTableViewDataSource? { didSet { self.dataSource = self.standardDataSource } }
+	open weak var standardDelegate:StandardTableViewDelegate? { didSet { self.delegate = self.standardDelegate } }
 	
-	override func reloadData() {
+    open override func reloadData() {
 		self.standardDataSource?.tableViewWillLoadData()
 		super.reloadData()
 		DispatchQueue.main.async { [weak self] in

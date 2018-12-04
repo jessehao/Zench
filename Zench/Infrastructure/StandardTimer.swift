@@ -6,19 +6,19 @@
 //  Copyright © 2018 Snoware. All rights reserved.
 //
 
-class StandardTimer: NSObject {
+open class StandardTimer: NSObject {
 	private var timer:Timer?
 	
 	// MARK: - Properties
 	private(set) var isCountingDown:Bool = false
 	private(set) var seconds:UInt = 60
-	var initialSeconds:UInt = 60
+	open var initialSeconds:UInt = 60
 	// Event Handlers
-	var countingDownEventHandlers:[(UInt) -> Void] = []
-	var countDownDidEndEventHandlers:[() -> Void] = []
+	open var countingDownEventHandlers:[(UInt) -> Void] = []
+	open var countDownDidEndEventHandlers:[() -> Void] = []
 	
 	// MARK: - Lifecycle
-	convenience init(seconds:UInt) {
+    public convenience init(seconds:UInt) {
 		self.init()
 		self.initialSeconds = seconds
 	}
@@ -36,7 +36,7 @@ class StandardTimer: NSObject {
 	}
 	
 	// MARK: - Operations
-	func start() {
+	open func start() {
 		self.timer?.invalidate()
 		self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timerCountingDown), userInfo: nil, repeats: true)
 		self.isCountingDown = true
@@ -44,7 +44,7 @@ class StandardTimer: NSObject {
 		self.timer?.fire()
 	}
 	
-	func start(withCountDownEventHandler eventHandler:@escaping (UInt) -> Void) {
+	open func start(withCountDownEventHandler eventHandler:@escaping (UInt) -> Void) {
 		self.countingDownEventHandlers.append(eventHandler)
 		self.start()
 	}

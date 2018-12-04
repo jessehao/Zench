@@ -8,23 +8,23 @@
 
 import UIKit
 
-class StandardButton: BaseButton {
+open class StandardButton: BaseButton {
 	private var backgroundColorDict:[UIControl.State:UIColor] = [:]
 	
 	// MARK: - Interface
-	var foregroundColor:UIColor? {
+	open var foregroundColor:UIColor? {
 		get { return self.titleColor(for: .normal) }
 		set { self.setTitleColor(newValue, for: .normal) }
 	}
 	
-	var isLoading:Bool = false {
+	open var isLoading:Bool = false {
 		didSet {
 			guard self.isLoading != oldValue else { return }
 			self.setLoadingEnable(self.isLoading)
 		}
 	}
 	
-	override var isEnabled: Bool {
+	open override var isEnabled: Bool {
 		get { return super.isEnabled }
 		set {
 			super.isEnabled = newValue
@@ -32,7 +32,7 @@ class StandardButton: BaseButton {
 		}
 	}
 	
-	override var isHighlighted: Bool {
+	open override var isHighlighted: Bool {
 		get { return super.isHighlighted }
 		set {
 			super.isHighlighted = newValue
@@ -40,7 +40,7 @@ class StandardButton: BaseButton {
 		}
 	}
 	
-	override var isSelected: Bool {
+	open override var isSelected: Bool {
 		get { return super.isSelected }
 		set {
 			super.isSelected = newValue
@@ -48,10 +48,10 @@ class StandardButton: BaseButton {
 		}
 	}
 	
-	var isTitleLabelHidden:Bool = false { didSet { self.titleLabel?.layer.opacity = self.isTitleLabelHidden ? 0 : 1 } }
+	open var isTitleLabelHidden:Bool = false { didSet { self.titleLabel?.layer.opacity = self.isTitleLabelHidden ? 0 : 1 } }
 	
 	// MARK: - Components
-	let activityIndicator:UIActivityIndicatorView = {
+	public let activityIndicator:UIActivityIndicatorView = {
 		let retval = UIActivityIndicatorView()
 		retval.stopAnimating()
 		retval.hidesWhenStopped = true
@@ -59,12 +59,12 @@ class StandardButton: BaseButton {
 	}()
 	
 	// MARK: - Operations
-	override func setup() {
+	open override func setup() {
 		super.setup()
 		self.titleLabel?.font = UIFont.pingFangSCFont(ofSize: 15, weight: .medium)
 	}
 	
-	func setLoadingEnable(_ enable:Bool) {
+	open func setLoadingEnable(_ enable:Bool) {
 		self.isEnabled = !enable
 		self.isTitleLabelHidden = enable
 		if enable {
@@ -74,23 +74,23 @@ class StandardButton: BaseButton {
 		}
 	}
 	
-	func setBackgroundColor(_ color: UIColor?, for state: UIControl.State) {
+	open func setBackgroundColor(_ color: UIColor?, for state: UIControl.State) {
 		self.backgroundColorDict[state] = color
 		if self.state == state {
 			self.redrawBackgroundColor()
 		}
 	}
 	
-	func redrawBackgroundColor() {
+	open func redrawBackgroundColor() {
 		self.backgroundColor = self.backgroundColorDict[self.state] ?? self.backgroundColorDict[.normal]
 	}
 	
-	override func prepareSubviews() {
+	open override func prepareSubviews() {
 		super.prepareSubviews()
 		self.addSubview(self.activityIndicator)
 	}
 	
-	override func makeConstraints() {
+	open override func makeConstraints() {
 		super.makeConstraints()
 		if let superview = self.activityIndicator.superview {
 			self.activityIndicator.centerXAnchor.constraint(equalTo: superview.centerXAnchor)

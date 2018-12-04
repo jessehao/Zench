@@ -8,8 +8,8 @@
 
 import UIKit
 
-class BaseView: UIView {
-	var defaultBackgroundColor:UIColor { return .white }
+open class BaseView: UIView {
+	open var defaultBackgroundColor:UIColor { return .white }
 	
 	// MARK: - Lifecycle
 	override init(frame: CGRect) {
@@ -17,29 +17,29 @@ class BaseView: UIView {
 		self.setup()
 	}
 	
-	required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.setup()
 	}
 	
 	// MARK: - Operations
-	func setup() {
+	open func setup() {
 		self.backgroundColor = self.defaultBackgroundColor
 		self.prepareSubviews()
 		self.makeConstraints()
 		self.prepareTargets()
 	}
-	func prepareSubviews() {}
-	func makeConstraints() {}
-	func prepareTargets() {}
+	open func prepareSubviews() {}
+	open func makeConstraints() {}
+	open func prepareTargets() {}
 }
 
 
-class StandardShapeView: BaseView {
-	override class var layerClass : AnyClass { return CAShapeLayer.self }
-	var shapeLayer:CAShapeLayer { return self.layer as! CAShapeLayer }
+open class StandardShapeView: BaseView {
+    override open class var layerClass : AnyClass { return CAShapeLayer.self }
+	open var shapeLayer:CAShapeLayer { return self.layer as! CAShapeLayer }
 	
-	func setDashedBorder(withThickness thickness:CGFloat,
+	open func setDashedBorder(withThickness thickness:CGFloat,
 						 borderColor:UIColor,
 						 dotWidth:NSNumber = 2,
 						 separatorWidth:NSNumber = 2) {

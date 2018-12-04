@@ -6,40 +6,40 @@
 //  Copyright © 2018 Snoware. All rights reserved.
 //
 
-protocol StandardConfigurable {
+public protocol StandardConfigurable {
 	@discardableResult mutating func withConfiguration(_ configuration:(inout Self) -> Void) -> Self
 }
 
-extension StandardConfigurable {
+public extension StandardConfigurable {
 	@discardableResult mutating func withConfiguration(_ configuration:(inout Self) -> Void) -> Self {
 		configuration(&self)
 		return self
 	}
 }
 
-protocol StandardClassConfigurable : class {}
+public protocol StandardClassConfigurable : class {}
 
-extension StandardClassConfigurable {
+public extension StandardClassConfigurable {
 	@discardableResult func withConfiguration(_ configuration:(Self) -> Void) -> Self {
 		configuration(self)
 		return self
 	}
 }
 
-protocol StandardConfigurableInitializer {
+public protocol StandardConfigurableInitializer {
 	static func newWithConfiguration(_ configuration:(inout Self) -> Void) -> Self
 }
 
-extension StandardConfigurableInitializer where Self : StandardLeisurelyInitializer & StandardConfigurable {
+public extension StandardConfigurableInitializer where Self : StandardLeisurelyInitializer & StandardConfigurable {
 	static func newWithConfiguration(_ configuration:(inout Self) -> Void) -> Self {
 		var retval = Self()
 		return retval.withConfiguration(configuration)
 	}
 }
 
-protocol StandardClassConfigurableInitializer : class {}
+public protocol StandardClassConfigurableInitializer : class {}
 
-extension StandardClassConfigurableInitializer where Self : StandardLeisurelyInitializer & StandardClassConfigurable {
+public extension StandardClassConfigurableInitializer where Self : StandardLeisurelyInitializer & StandardClassConfigurable {
 	static func newWithConfiguration(_ configuration:(Self) -> Void) -> Self {
 		let retval = Self()
 		return retval.withConfiguration(configuration)

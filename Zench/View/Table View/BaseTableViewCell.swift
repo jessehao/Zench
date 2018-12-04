@@ -8,10 +8,10 @@
 
 import UIKit
 
-class BaseTableViewCell: UITableViewCell {
-	var defaultSelectionStyle:UITableViewCell.SelectionStyle { return .default }
-	var indexPath:IndexPath?
-	var defaultBackgroundColor:UIColor { return .white }
+open class BaseTableViewCell: UITableViewCell {
+	open var defaultSelectionStyle:UITableViewCell.SelectionStyle { return .default }
+	open var indexPath:IndexPath?
+	open var defaultBackgroundColor:UIColor { return .white }
 	
 	// MARK: - Lifecycle
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -19,13 +19,13 @@ class BaseTableViewCell: UITableViewCell {
 		self.setup()
 	}
 	
-	required init?(coder aDecoder: NSCoder) {
+	public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.setup()
 	}
 	
 	// MARK: - Operations
-	func setup() {
+	open func setup() {
 		self.prepareSubviews()
 		self.makeConstraints()
 		self.prepareForTargets()
@@ -33,7 +33,7 @@ class BaseTableViewCell: UITableViewCell {
 		self.selectionStyle = self.defaultSelectionStyle
 	}
 	
-	func prepareSubviews() {}
-	func makeConstraints() {}
-	func prepareForTargets() {}
+	open func prepareSubviews() {}
+	open func makeConstraints() {}
+	open func prepareForTargets() {}
 }

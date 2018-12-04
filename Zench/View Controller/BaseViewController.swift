@@ -8,12 +8,12 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
-	var defaultContentSize:CGSize? { return nil }
-	private(set) var viewDidLoaded:Bool = false
+open class BaseViewController: UIViewController {
+	open var defaultContentSize:CGSize? { return nil }
+	public private(set) var viewDidLoaded:Bool = false
 	
 	// MARK: - Interface
-	var identifier:String = ""
+	open var identifier:String = ""
 	
 	// MARK: - Lifecycle
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -21,12 +21,12 @@ class BaseViewController: UIViewController {
 		self.setup()
 	}
 	
-	required init?(coder aDecoder: NSCoder) {
+	public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.setup()
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
+	open override func viewWillAppear(_ animated: Bool) {
 		self.viewDidLoaded = true
 		super.viewWillAppear(animated)
 	}
@@ -35,13 +35,13 @@ class BaseViewController: UIViewController {
 	
 	// MARK: - Operations
 	/// Instead of init functions. revoke this when you want to initialize the controller.
-	func setup() {
+	open func setup() {
 		if let size = self.defaultContentSize {
 			self.preferredContentSize = size
 		}
 	}
 	
-	func endEditing(force:Bool = false) {
+	open func endEditing(force:Bool = false) {
 		self.view.endEditing(force)
 	}
 }

@@ -6,21 +6,21 @@
 //  Copyright © 2018 Snoware. All rights reserved.
 //
 
-struct StandardKeyboardNotificationUserInfo {
-	var animationCurve:UIView.AnimationCurve?
-	var animationDuration:Double?
-	var isLocal:Bool?
-	var beginFrame:CGRect?
-	var endFrame:CGRect?
+public struct StandardKeyboardNotificationUserInfo {
+	public var animationCurve:UIView.AnimationCurve?
+	public var animationDuration:Double?
+	public var isLocal:Bool?
+	public var beginFrame:CGRect?
+	public var endFrame:CGRect?
 	
-	init() {}
+	public init() {}
 	
-	init(withUserInfoDict userInfo:[AnyHashable : Any]) {
+	public init(withUserInfoDict userInfo:[AnyHashable : Any]) {
 		self.init()
 		self.setValues(withUserInfoDict: userInfo)
 	}
 	
-	mutating func setValues(withUserInfoDict userInfo:[AnyHashable : Any]) {
+	public mutating func setValues(withUserInfoDict userInfo:[AnyHashable : Any]) {
 		self.animationCurve = UIView.AnimationCurve(rawValue: Int(truncating: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! NSNumber))
 		self.animationDuration = Double(truncating: userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber)
 		self.isLocal = Bool(truncating: userInfo[UIResponder.keyboardIsLocalUserInfoKey] as! NSNumber)

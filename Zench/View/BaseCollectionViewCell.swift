@@ -8,8 +8,8 @@
 
 import UIKit
 
-class BaseCollectionViewCell: UICollectionViewCell {
-	var indexPath:IndexPath?
+open class BaseCollectionViewCell: UICollectionViewCell {
+	open var indexPath:IndexPath?
 	
 	// MARK: - Lifecycle
 	override init(frame: CGRect) {
@@ -17,19 +17,19 @@ class BaseCollectionViewCell: UICollectionViewCell {
 		self.setup()
 	}
 	
-	required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.setup()
 	}
 	
 	// MARK: - Operations
-	func setup() {
+	open func setup() {
 		self.prepareSubviews()
 		self.makeConstraints()
 		self.prepareTargets()
 	}
 	
-	func prepareSubviews() {}
-	func makeConstraints() {}
-	func prepareTargets() {}
+	open func prepareSubviews() {}
+	open func makeConstraints() {}
+	open func prepareTargets() {}
 }

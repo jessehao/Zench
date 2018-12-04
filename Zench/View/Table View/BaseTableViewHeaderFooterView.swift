@@ -8,25 +8,25 @@
 
 import UIKit
 
-class BaseTableViewHeaderFooterView: UITableViewHeaderFooterView {
+open class BaseTableViewHeaderFooterView: UITableViewHeaderFooterView {
 	// MARK: - Lifecycle
 	override init(reuseIdentifier: String?) {
 		super.init(reuseIdentifier: reuseIdentifier)
 		self.setup()
 	}
 	
-	required init?(coder aDecoder: NSCoder) {
+	public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.setup()
 	}
 	
 	// MARK: - Operations
-	func setup() {
+	open func setup() {
 		self.prepareSubviews()
 		self.makeConstraints()
 		self.contentView.backgroundColor = .clear
 	}
 	
-	func prepareSubviews() {}
-	func makeConstraints() {}
+	open func prepareSubviews() {}
+	open func makeConstraints() {}
 }

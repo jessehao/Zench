@@ -8,25 +8,25 @@
 
 import UIKit
 
-class BaseButton: UIButton {
+open class BaseButton: UIButton {
 	// MARK: - Lifecycle
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setup()
 	}
 	
-	required init?(coder aDecoder: NSCoder) {
+	public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.setup()
 	}
 	
 	// MARK: - Operations
-	func setup() {
+	open func setup() {
 		self.prepareSubviews()
 		self.makeConstraints()
 	}
-	func prepareSubviews() {}
-	func makeConstraints() {}
+	open func prepareSubviews() {}
+	open func makeConstraints() {}
 }
 
 class StandardShapeButton: BaseButton {

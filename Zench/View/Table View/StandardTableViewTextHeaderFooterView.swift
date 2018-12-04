@@ -8,9 +8,9 @@
 
 import UIKit
 
-class StandardTableViewTextHeaderFooterView: BaseTableViewHeaderFooterView {
+open class StandardTableViewTextHeaderFooterView: BaseTableViewHeaderFooterView {
 	// MARK: - Interface
-	var title:String? {
+	open var title:String? {
 		get { return self.label.text }
 		set { self.label.text = newValue }
 	}
@@ -24,12 +24,12 @@ class StandardTableViewTextHeaderFooterView: BaseTableViewHeaderFooterView {
 	}()
 	
 	// MARK: - Operations
-	override func prepareSubviews() {
+	open override func prepareSubviews() {
 		super.prepareSubviews()
 		self.contentView.addSubview(self.label)
 	}
 	
-	override func makeConstraints() {
+	open override func makeConstraints() {
 		super.makeConstraints()
 		if let superview = self.label.superview {
 			self.label.leftAnchor.constraint(equalTo: superview.leftAnchor, constant: 15)
