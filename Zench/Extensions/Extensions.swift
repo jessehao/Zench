@@ -38,5 +38,16 @@ public extension UIFont {
 }
 
 public extension String {
+	mutating func add(suffix:String) { self += suffix }
+	mutating func add(prefix:String) { self = prefix + self }
+	func stringWith(suffix:String) -> String { return self + suffix }
+	func stringWith(prefix:String) -> String { return prefix + self }
+	func stringWith(prefix:String, suffix:String) -> String { return "\(prefix)\(self)\(suffix)" }
     public var localizedString:String { return NSLocalizedString(self, comment: "") }
+	func attributedString(withAttributes attributes:[NSAttributedString.Key:Any]) -> NSAttributedString { return NSAttributedString(string: self, attributes: attributes) }
+	func mutableAttributedString(withAttributes attributes:[NSAttributedString.Key:Any]) -> NSMutableAttributedString { return NSMutableAttributedString(string: self, attributes: attributes) }
+}
+
+public extension LosslessStringConvertible {
+	var string:String { return String(self) }
 }

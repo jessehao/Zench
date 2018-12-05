@@ -19,6 +19,7 @@
 		F60A42DD217ED28E00AF9F6B /* StandardTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42DC217ED28E00AF9F6B /* StandardTimer.swift */; };
 		F619948721B785030029EF00 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619948621B785030029EF00 /* Pattern.swift */; };
 		F619948C21B7B6160029EF00 /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619948B21B7B6160029EF00 /* Namespace.swift */; };
+		F619948E21B7C89E0029EF00 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619948D21B7C89E0029EF00 /* ViewExtensions.swift */; };
 		F62E661D218C0661001E7DE9 /* StandardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E661C218C0661001E7DE9 /* StandardTableViewController.swift */; };
 		F62E661F218C06BE001E7DE9 /* StandardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E661E218C06BE001E7DE9 /* StandardTableView.swift */; };
 		F62E6622218C089B001E7DE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E6624218C089B001E7DE9 /* Localizable.strings */; };
@@ -48,6 +49,7 @@
 		F60A42DC217ED28E00AF9F6B /* StandardTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTimer.swift; sourceTree = "<group>"; };
 		F619948621B785030029EF00 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
 		F619948B21B7B6160029EF00 /* Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
+		F619948D21B7C89E0029EF00 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		F62E661C218C0661001E7DE9 /* StandardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableViewController.swift; sourceTree = "<group>"; };
 		F62E661E218C06BE001E7DE9 /* StandardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableView.swift; sourceTree = "<group>"; };
 		F62E6623218C089B001E7DE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				F60A42D2217EC3C200AF9F6B /* ViewControllerExtensions.swift */,
 				F60A42DA217EC7DB00AF9F6B /* Extensions.swift */,
 				F619948B21B7B6160029EF00 /* Namespace.swift */,
+				F619948D21B7C89E0029EF00 /* ViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				F60A42DD217ED28E00AF9F6B /* StandardTimer.swift in Sources */,
 				F65D1A8221807347006CF3D5 /* BaseControl.swift in Sources */,
 				F65D1A8421807353006CF3D5 /* BaseButton.swift in Sources */,
+				F619948E21B7C89E0029EF00 /* ViewExtensions.swift in Sources */,
 				F619948721B785030029EF00 /* Pattern.swift in Sources */,
 				F65D1A7E21806E02006CF3D5 /* BaseView.swift in Sources */,
 				F62E661D218C0661001E7DE9 /* StandardTableViewController.swift in Sources */,
