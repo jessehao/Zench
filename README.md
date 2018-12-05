@@ -17,5 +17,4 @@ pod 'zench'
 
 - [x] Basic Kit
 - [x] CocoaPods Support
-- [ ] Extension wrapper
 - [x] Table View
