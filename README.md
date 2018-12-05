@@ -18,3 +18,10 @@ pod 'zench'
 - [x] Basic Kit
 - [x] CocoaPods Support
 - [x] Table View
+
+
+
+## Ideas
+
+- I'm not sure if **extension namespace** is actually necessary.
+
