@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseButton: UIButton {
+open class BaseButton: UIButton, ViewPatternProtocol {
 	// MARK: - Lifecycle
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -27,6 +27,7 @@ open class BaseButton: UIButton {
 	}
 	open func prepareSubviews() {}
 	open func makeConstraints() {}
+	open func prepareTargets() {}
 }
 
 class StandardShapeButton: BaseButton {

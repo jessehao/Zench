@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseView: UIView {
+open class BaseView: UIView, ViewPatternProtocol {
 	open var defaultBackgroundColor:UIColor { return .white }
 	
 	// MARK: - Lifecycle

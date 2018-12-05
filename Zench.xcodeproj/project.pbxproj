@@ -17,6 +17,7 @@
 		F60A42D9217EC74800AF9F6B /* StandardConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42D8217EC74800AF9F6B /* StandardConfigurable.swift */; };
 		F60A42DB217EC7DB00AF9F6B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42DA217EC7DB00AF9F6B /* Extensions.swift */; };
 		F60A42DD217ED28E00AF9F6B /* StandardTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42DC217ED28E00AF9F6B /* StandardTimer.swift */; };
+		F619948721B785030029EF00 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619948621B785030029EF00 /* Pattern.swift */; };
 		F62E661D218C0661001E7DE9 /* StandardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E661C218C0661001E7DE9 /* StandardTableViewController.swift */; };
 		F62E661F218C06BE001E7DE9 /* StandardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E661E218C06BE001E7DE9 /* StandardTableView.swift */; };
 		F62E6622218C089B001E7DE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E6624218C089B001E7DE9 /* Localizable.strings */; };
@@ -44,6 +45,7 @@
 		F60A42D8217EC74800AF9F6B /* StandardConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardConfigurable.swift; sourceTree = "<group>"; };
 		F60A42DA217EC7DB00AF9F6B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F60A42DC217ED28E00AF9F6B /* StandardTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTimer.swift; sourceTree = "<group>"; };
+		F619948621B785030029EF00 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
 		F62E661C218C0661001E7DE9 /* StandardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableViewController.swift; sourceTree = "<group>"; };
 		F62E661E218C06BE001E7DE9 /* StandardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableView.swift; sourceTree = "<group>"; };
 		F62E6623218C089B001E7DE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				F60A42D4217EC5E600AF9F6B /* Protocols.swift */,
 				F60A42D6217EC65B00AF9F6B /* StandardIncreasable.swift */,
 				F60A42D8217EC74800AF9F6B /* StandardConfigurable.swift */,
+				F619948621B785030029EF00 /* Pattern.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				F60A42DD217ED28E00AF9F6B /* StandardTimer.swift in Sources */,
 				F65D1A8221807347006CF3D5 /* BaseControl.swift in Sources */,
 				F65D1A8421807353006CF3D5 /* BaseButton.swift in Sources */,
+				F619948721B785030029EF00 /* Pattern.swift in Sources */,
 				F65D1A7E21806E02006CF3D5 /* BaseView.swift in Sources */,
 				F62E661D218C0661001E7DE9 /* StandardTableViewController.swift in Sources */,
 				F65D1A802180717F006CF3D5 /* StandardScrollView.swift in Sources */,

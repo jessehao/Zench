@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseViewController: UIViewController {
+open class BaseViewController: UIViewController, ViewControllerPatternProtocol {
 	open var defaultContentSize:CGSize? { return nil }
 	public private(set) var viewDidLoaded:Bool = false
 	

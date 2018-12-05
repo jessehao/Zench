@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseCollectionViewCell: UICollectionViewCell {
+open class BaseCollectionViewCell: UICollectionViewCell, ViewPatternProtocol {
 	open var indexPath:IndexPath?
 	
 	// MARK: - Lifecycle

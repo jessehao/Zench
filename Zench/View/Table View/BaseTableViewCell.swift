@@ -8,7 +8,8 @@
 
 import UIKit
 
-open class BaseTableViewCell: UITableViewCell {
+open class BaseTableViewCell: UITableViewCell, ViewPatternProtocol {
+	
 	open var defaultSelectionStyle:UITableViewCell.SelectionStyle { return .default }
 	open var indexPath:IndexPath?
 	open var defaultBackgroundColor:UIColor { return .white }
@@ -28,12 +29,12 @@ open class BaseTableViewCell: UITableViewCell {
 	open func setup() {
 		self.prepareSubviews()
 		self.makeConstraints()
-		self.prepareForTargets()
+		self.prepareTargets()
 		self.backgroundColor = self.defaultBackgroundColor
 		self.selectionStyle = self.defaultSelectionStyle
 	}
 	
 	open func prepareSubviews() {}
 	open func makeConstraints() {}
-	open func prepareForTargets() {}
+	open func prepareTargets() {}
 }

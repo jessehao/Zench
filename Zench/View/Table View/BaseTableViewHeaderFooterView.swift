@@ -8,7 +8,8 @@
 
 import UIKit
 
-open class BaseTableViewHeaderFooterView: UITableViewHeaderFooterView {
+open class BaseTableViewHeaderFooterView: UITableViewHeaderFooterView, ViewPatternProtocol {
+	
 	// MARK: - Lifecycle
 	override init(reuseIdentifier: String?) {
 		super.init(reuseIdentifier: reuseIdentifier)
@@ -29,4 +30,5 @@ open class BaseTableViewHeaderFooterView: UITableViewHeaderFooterView {
 	
 	open func prepareSubviews() {}
 	open func makeConstraints() {}
+	open func prepareTargets() {}
 }

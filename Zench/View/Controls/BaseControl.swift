@@ -8,7 +8,8 @@
 
 import UIKit
 
-open class BaseControl: UIControl {
+open class BaseControl: UIControl, ViewPatternProtocol {
+	
 	// MARK: - Lifecycle
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -27,4 +28,5 @@ open class BaseControl: UIControl {
 	}
 	open func prepareSubviews() {}
 	open func makeConstraints() {}
+	open func prepareTargets() {}
 }
