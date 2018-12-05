@@ -6,7 +6,7 @@
 //  Copyright © 2018 Snoware. All rights reserved.
 //
 
-public protocol StandardLeisurelyInitializer {
+public protocol StandardNoParameterInitializable {
     init()
 }
 

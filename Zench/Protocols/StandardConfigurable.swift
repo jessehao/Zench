@@ -30,7 +30,7 @@ public protocol StandardConfigurableInitializer {
 	static func newWithConfiguration(_ configuration:(inout Self) -> Void) -> Self
 }
 
-public extension StandardConfigurableInitializer where Self : StandardLeisurelyInitializer & StandardConfigurable {
+public extension StandardConfigurableInitializer where Self : StandardNoParameterInitializable & StandardConfigurable {
 	static func newWithConfiguration(_ configuration:(inout Self) -> Void) -> Self {
 		var retval = Self()
 		return retval.withConfiguration(configuration)
@@ -39,7 +39,7 @@ public extension StandardConfigurableInitializer where Self : StandardLeisurelyI
 
 public protocol StandardClassConfigurableInitializer : class {}
 
-public extension StandardClassConfigurableInitializer where Self : StandardLeisurelyInitializer & StandardClassConfigurable {
+public extension StandardClassConfigurableInitializer where Self : StandardNoParameterInitializable & StandardClassConfigurable {
 	static func newWithConfiguration(_ configuration:(Self) -> Void) -> Self {
 		let retval = Self()
 		return retval.withConfiguration(configuration)

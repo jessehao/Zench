@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSObject : StandardLeisurelyInitializer, StandardClassConfigurable, StandardClassConfigurableInitializer {}
+extension NSObject : StandardNoParameterInitializable, StandardClassConfigurable, StandardClassConfigurableInitializer {}
 
 extension UIControl.State : Hashable {
 	public var hashValue: Int {
