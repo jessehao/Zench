@@ -4,7 +4,7 @@
 [![Cocoapods Version](https://img.shields.io/cocoapods/v/zench.svg)](https://cocoapods.org/pods/zench)
 [![Cocoapods Platform](http://img.shields.io/cocoapods/p/zench.svg)](https://www.apple.com/ios/)
 
-Zench is an iOS develop framework for creative swifter.
+Zench is an iOS develop framework for creative swifters.
 
 ## Installation
 ```

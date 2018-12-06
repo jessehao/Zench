@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "zench"
-  s.version      = "0.2.0"
+  s.name         = "Zench"
+  s.version      = "0.2.1"
   s.summary      = "An iOS develop framework for creative swifters."
 
   # This description is used to generate tags and improve search results.
