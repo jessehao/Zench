@@ -87,3 +87,46 @@ public extension UISwitch {
 		self.setOn(!self.isOn, animated: true)
 	}
 }
+
+public extension UITableView {
+	var hasCell:Bool {
+		return self.numberOfSections > 0 && self.numberOfRows(inSection: 0) > 0
+	}
+	
+	func registerCells(withDictionary dict:[String:AnyClass]) {
+		dict.forEach { self.register($1, forCellReuseIdentifier: $0) }
+	}
+	
+	var lastSection:Int? {
+		return self.numberOfSections > 0 ? self.numberOfSections - 1 : nil
+	}
+	
+	func lastRow(inSection section:Int) -> Int? {
+		let count = self.numberOfRows(inSection: section)
+		return count > 0 ? count - 1 : nil
+	}
+	
+	func indexPathForFirstCell() -> IndexPath? {
+		guard let section = (0..<self.numberOfSections).first(where: { self.numberOfRows(inSection: $0) > 0 }) else { return nil }
+		return [section, 0]
+	}
+	
+	func indexPathForLastCell() -> IndexPath? {
+		var row:Int = -1
+		guard let section = (0..<self.numberOfSections).last(where: {
+			row = self.numberOfRows(inSection: $0) - 1
+			return row >= 0
+		}) else { return nil }
+		return [section, row]
+	}
+	
+	func scrollToTopRow(animated:Bool = true) {
+		guard let indexPath = self.indexPathForFirstCell() else { return }
+		self.scrollToRow(at: indexPath, at: .top, animated: animated)
+	}
+	
+	func scrollToBottomRow(animated:Bool = true) {
+		guard let indexPath = self.indexPathForLastCell() else { return }
+		self.scrollToRow(at: indexPath, at: .bottom, animated: animated)
+	}
+}
