@@ -51,8 +51,7 @@ open class StandardTableViewController: StandardViewController<BaseView>, Standa
 	open func numberOfSections(in tableView: UITableView) -> Int { return 1 }
 	open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { return 0 }
 	open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let fatalRetval:UITableViewCell? = nil
-		return fatalRetval!
+		return UITableViewCell?.none!
 	}
 	
 	// MARK: - UITableView Delegate
