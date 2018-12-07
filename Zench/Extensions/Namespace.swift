@@ -29,7 +29,8 @@ public protocol ZenchTypeWrapperProtocol {
 
 public struct ZenchNamespaceWrapper<T> : ZenchTypeWrapperProtocol {
 	public var wrappedValue: T
-	public init(value: WrappedType) {
+	public init(value: T) {
 		self.wrappedValue = value
 	}
 }
+

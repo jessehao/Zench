@@ -33,6 +33,7 @@
 		F65D1A8B218073AB006CF3D5 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8A218073AB006CF3D5 /* BaseCollectionViewCell.swift */; };
 		F65D1A8D218073BC006CF3D5 /* StandardTableViewTextHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8C218073BC006CF3D5 /* StandardTableViewTextHeaderFooterView.swift */; };
 		F65D1A8F218074AC006CF3D5 /* StandardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8E218074AC006CF3D5 /* StandardButton.swift */; };
+		F6A73FCD21BA837E00C091A4 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619949821BA6FDF0029EF00 /* Preference.swift */; };
 		F6D2A4122179FDD800B1B934 /* Zench.h in Headers */ = {isa = PBXBuildFile; fileRef = F6D2A4102179FDD800B1B934 /* Zench.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		F619948621B785030029EF00 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
 		F619948B21B7B6160029EF00 /* Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
 		F619948D21B7C89E0029EF00 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		F619949821BA6FDF0029EF00 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		F62E661C218C0661001E7DE9 /* StandardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableViewController.swift; sourceTree = "<group>"; };
 		F62E661E218C06BE001E7DE9 /* StandardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableView.swift; sourceTree = "<group>"; };
 		F62E6623218C089B001E7DE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -102,13 +104,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F60A42C6217EBFD900AF9F6B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		F60A42C7217EBFDF00AF9F6B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +134,14 @@
 				F619948D21B7C89E0029EF00 /* ViewExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F619949E21BA709D0029EF00 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				F619949821BA6FDF0029EF00 /* Preference.swift */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 		F65D1A8521807363006CF3D5 /* Controls */ = {
@@ -181,10 +184,10 @@
 		F6D2A40F2179FDD800B1B934 /* Zench */ = {
 			isa = PBXGroup;
 			children = (
+				F619949E21BA709D0029EF00 /* Global */,
 				F60A42D1217EC3B000AF9F6B /* Extensions */,
 				F60A42C8217EBFE900AF9F6B /* Infrastructure */,
 				F60A42C7217EBFDF00AF9F6B /* Protocols */,
-				F60A42C6217EBFD900AF9F6B /* Model */,
 				F60A42C5217EBFD200AF9F6B /* View */,
 				F60A42C4217EBF9D00AF9F6B /* View Controller */,
 				F6D2A4102179FDD800B1B934 /* Zench.h */,
@@ -290,6 +293,7 @@
 				F65D1A8B218073AB006CF3D5 /* BaseCollectionViewCell.swift in Sources */,
 				F65D1A89218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift in Sources */,
 				F65D1A8F218074AC006CF3D5 /* StandardButton.swift in Sources */,
+				F6A73FCD21BA837E00C091A4 /* Preference.swift in Sources */,
 				F60A42CC217EC0A300AF9F6B /* StandardViewController.swift in Sources */,
 				F60A42DD217ED28E00AF9F6B /* StandardTimer.swift in Sources */,
 				F65D1A8221807347006CF3D5 /* BaseControl.swift in Sources */,

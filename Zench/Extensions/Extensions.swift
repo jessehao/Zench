@@ -46,8 +46,69 @@ public extension String {
     public var localizedString:String { return NSLocalizedString(self, comment: "") }
 	func attributedString(withAttributes attributes:[NSAttributedString.Key:Any]) -> NSAttributedString { return NSAttributedString(string: self, attributes: attributes) }
 	func mutableAttributedString(withAttributes attributes:[NSAttributedString.Key:Any]) -> NSMutableAttributedString { return NSMutableAttributedString(string: self, attributes: attributes) }
+	func date(withFormat format:String? = nil) -> Date? {
+		if let format = format {
+			return DateFormatter.zench.shared.date(from: self, format: format)
+		}
+		for format in  DateFormatter.zench.defaultDateStringParsingSet {
+			if let date = DateFormatter.zench.shared.date(from: self, format: format) {
+				return date
+			}
+		}
+		return nil
+	}
 }
 
 public extension LosslessStringConvertible {
 	var string:String { return String(self) }
+}
+
+public extension BinaryInteger {
+	var int:Int { return Int(self) }
+	var double:Double { return Double(self) }
+	var cgFloat:CGFloat { return CGFloat(self) }
+	var date:Date { return self.double.date }
+}
+
+public extension BinaryFloatingPoint {
+	var int:Int { return Int(self) }
+	var double:Double { return Double(self) }
+	var cgFloat:CGFloat { return CGFloat(self) }
+	var date:Date { return Date(timeIntervalSince1970: self.double) }
+}
+
+public extension BinaryFloatingPoint where Self : CVarArg {
+	func formattedString(withDecimalPlace place:UInt) -> String {
+		return String(format: "%.\(place)f", self)
+	}
+}
+
+public extension Date {
+	func string(withFormat format:String) -> String {
+		return DateFormatter.zench.shared.string(from: self, format: format)
+	}
+}
+
+public extension DateFormatter {
+	func date(from raw:String, format:String) -> Date? {
+		defer { self.dateFormat = self.dateFormat.string }
+		self.dateFormat = format
+		return self.date(from: raw)
+	}
+
+	func string(from date:Date, format:String) -> String {
+		defer { self.dateFormat = self.dateFormat.string }
+		self.dateFormat = format
+		return self.string(from: date)
+	}
+}
+
+extension DateFormatter : ZenchNamespaceWrappable {}
+public extension ZenchNamespaceWrapper where T == DateFormatter {
+	public static let shared = DateFormatter()
+	public static let defaultDateStringParsingSet:Set<String> = [
+		"y/MM/dd",
+		"y-MM-dd",
+		"y-MM"
+	]
 }
