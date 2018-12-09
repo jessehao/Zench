@@ -38,12 +38,14 @@ open class StandardScrollView: BaseView {
 	open override func makeConstraints() {
 		super.makeConstraints()
 		if let superview = self.scrollView.superview {
+			self.scrollView.translatesAutoresizingMaskIntoConstraints = false
 			self.scrollView.topAnchor.constraint(equalTo: superview.topAnchor)
 			self.scrollView.bottomAnchor.constraint(equalTo: superview.bottomAnchor)
 			self.scrollView.leftAnchor.constraint(equalTo: superview.leftAnchor)
 			self.scrollView.rightAnchor.constraint(equalTo: superview.rightAnchor)
 		}
 		if let superview = self.contentView.superview {
+			self.contentView.translatesAutoresizingMaskIntoConstraints = false
 			self.contentView.topAnchor.constraint(equalTo: superview.topAnchor)
 			self.contentView.bottomAnchor.constraint(equalTo: superview.bottomAnchor)
 			self.contentView.leftAnchor.constraint(equalTo: superview.leftAnchor)

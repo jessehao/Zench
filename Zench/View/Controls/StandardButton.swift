@@ -93,6 +93,7 @@ open class StandardButton: BaseButton {
 	open override func makeConstraints() {
 		super.makeConstraints()
 		if let superview = self.activityIndicator.superview {
+			self.activityIndicator.translatesAutoresizingMaskIntoConstraints = false
 			self.activityIndicator.centerXAnchor.constraint(equalTo: superview.centerXAnchor)
 			self.activityIndicator.centerYAnchor.constraint(equalTo: superview.centerYAnchor)
 		}

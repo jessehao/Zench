@@ -10,7 +10,7 @@ import UIKit
 
 open class BaseButton: UIButton, ViewPatternProtocol {
 	// MARK: - Lifecycle
-	override init(frame: CGRect) {
+	public override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setup()
 	}

@@ -32,6 +32,7 @@ open class StandardTableViewTextHeaderFooterView: BaseTableViewHeaderFooterView 
 	open override func makeConstraints() {
 		super.makeConstraints()
 		if let superview = self.label.superview {
+			self.label.translatesAutoresizingMaskIntoConstraints = false
 			self.label.leftAnchor.constraint(equalTo: superview.leftAnchor, constant: 15)
 			self.label.centerYAnchor.constraint(equalTo: superview.centerYAnchor)
 			self.label.topAnchor.constraint(equalTo: superview.topAnchor, constant: 10)

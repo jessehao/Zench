@@ -15,7 +15,7 @@ open class BaseTableViewCell: UITableViewCell, ViewPatternProtocol {
 	open var defaultBackgroundColor:UIColor { return .white }
 	
 	// MARK: - Lifecycle
-	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+	public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		self.setup()
 	}

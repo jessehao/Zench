@@ -11,7 +11,7 @@ import UIKit
 open class BaseTableViewHeaderFooterView: UITableViewHeaderFooterView, ViewPatternProtocol {
 	
 	// MARK: - Lifecycle
-	override init(reuseIdentifier: String?) {
+	public override init(reuseIdentifier: String?) {
 		super.init(reuseIdentifier: reuseIdentifier)
 		self.setup()
 	}

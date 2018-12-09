@@ -12,12 +12,12 @@ open class BaseCollectionViewCell: UICollectionViewCell, ViewPatternProtocol {
 	open var indexPath:IndexPath?
 	
 	// MARK: - Lifecycle
-	override init(frame: CGRect) {
+	public override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setup()
 	}
 	
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.setup()
 	}

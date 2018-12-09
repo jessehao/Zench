@@ -98,12 +98,11 @@ open class StandardTableViewController: StandardViewController<BaseView>, Standa
 	open func tableViewDidAdded() {}
 	
 	open func makeConstraintsFor(tableView:UITableView) {
-		if let superview = tableView.superview {
-			tableView.topAnchor.constraint(equalTo: superview.topAnchor)
-			tableView.bottomAnchor.constraint(equalTo: superview.bottomAnchor)
-			tableView.leftAnchor.constraint(equalTo: superview.leftAnchor)
-			tableView.rightAnchor.constraint(equalTo: superview.rightAnchor)
-		}
+		tableView.translatesAutoresizingMaskIntoConstraints = false
+		tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+		tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+		tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+		tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
 	}
 	
 	open func configTableView(_ tableView: StandardTableView) {

@@ -12,12 +12,12 @@ open class BaseView: UIView, ViewPatternProtocol {
 	open var defaultBackgroundColor:UIColor { return .white }
 	
 	// MARK: - Lifecycle
-	override init(frame: CGRect) {
+	public override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.setup()
 	}
 	
-    required public init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.setup()
 	}

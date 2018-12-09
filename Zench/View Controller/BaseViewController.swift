@@ -16,7 +16,7 @@ open class BaseViewController: UIViewController, ViewControllerPatternProtocol {
 	open var identifier:String = ""
 	
 	// MARK: - Lifecycle
-	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+	public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 		self.setup()
 	}
