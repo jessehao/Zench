@@ -9,6 +9,9 @@
 import Foundation
 
 extension NSObject : StandardNoParameterInitializable, StandardClassConfigurable, StandardClassConfigurableInitializer {}
+extension NSObject {
+	var className:String { return object_getClassName(self).string }
+}
 
 extension UIControl.State : Hashable {
 	public var hashValue: Int {
@@ -59,6 +62,20 @@ public extension String {
 	}
 }
 
+public extension StringProtocol {
+	var int:Int? { return Int(self) }
+	var int8:Int8? { return Int8(self) }
+	var int16:Int16? { return Int16(self) }
+	var int32:Int32? { return Int32(self) }
+	var int64:Int64? { return Int64(self) }
+	var uint:UInt? { return UInt(self) }
+	var uint8:UInt8? { return UInt8(self) }
+	var uint16:UInt16? { return UInt16(self) }
+	var uint32:UInt32? { return UInt32(self) }
+	var uint64:UInt64? { return UInt64(self) }
+	var double:Double? { return Double(self) }
+}
+
 public extension LosslessStringConvertible {
 	var string:String { return String(self) }
 }
@@ -101,6 +118,18 @@ public extension BinaryFloatingPoint where Self : CVarArg {
 	}
 }
 
+public extension Sequence where Element : Hashable {
+	func set() -> Set<Element> {
+		return Set(self)
+	}
+}
+
+public extension RangeReplaceableCollection where Index : Hashable {
+	mutating func remove(withIndexSet set:Set<Index>) {
+		set.forEach { self.remove(at: $0) }
+	}
+}
+
 public extension Date {
 	func string(withFormat format:String) -> String {
 		return DateFormatter.zench.shared.string(from: self, format: format)
@@ -121,6 +150,25 @@ public extension DateFormatter {
 	}
 }
 
+extension NotificationCenter {
+	func post(name aName: NSNotification.Name) {
+		self.post(name: aName, object: nil)
+	}
+}
+
+public extension JSONSerialization.WritingOptions {
+	public static var plain:JSONSerialization.WritingOptions { return JSONSerialization.WritingOptions(rawValue: 0) }
+}
+
+public extension UICollectionView.ScrollPosition {
+	public static var none:UICollectionView.ScrollPosition { return UICollectionView.ScrollPosition(rawValue: 0) }
+}
+
+extension UnsafePointer where Pointee == Int8 {
+	var string:String { return String(cString: self) }
+}
+
+// MARK: - Namespaced
 extension DateFormatter : ZenchNamespaceWrappable {}
 public extension ZenchNamespaceWrapper where T == DateFormatter {
 	public static let shared = DateFormatter()
