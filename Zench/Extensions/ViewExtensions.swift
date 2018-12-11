@@ -40,6 +40,10 @@ public extension UIView {
 		self.addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
 	}
 	
+	func addLongPressGesture(target:Any?, action:Selector?) {
+		self.addGestureRecognizer(UILongPressGestureRecognizer(target: target, action: action))
+	}
+	
 	func setShadow(withOpacity opacity:Float, offsetX:Double, offsetY:Double, blur:CGFloat, color:UIColor) {
 		self.layer.setShadow(withOpacity: opacity, offsetX: offsetX, offsetY: offsetY, blur: blur, color: color.cgColor)
 	}
@@ -128,5 +132,15 @@ public extension UITableView {
 	func scrollToBottomRow(animated:Bool = true) {
 		guard let indexPath = self.indexPathForLastCell() else { return }
 		self.scrollToRow(at: indexPath, at: .bottom, animated: animated)
+	}
+}
+
+
+extension UIMenuController : ZenchNamespaceWrappable {}
+public extension ZenchNamespaceWrapper where T : UIMenuController {
+	static func hideIfVisible(animated:Bool = true) {
+		if UIMenuController.shared.isMenuVisible {
+			UIMenuController.shared.setMenuVisible(false, animated: true)
+		}
 	}
 }
