@@ -131,6 +131,7 @@ public extension RangeReplaceableCollection where Index : Hashable {
 }
 
 public extension Date {
+	static let microsecondsPerSecond:UInt32 = 1000000
 	func string(withFormat format:String) -> String {
 		return DateFormatter.zench.shared.string(from: self, format: format)
 	}
