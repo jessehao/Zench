@@ -44,3 +44,20 @@ public extension StandardNotificationSupport {
 		NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil, using: handler)
 	}
 }
+
+// MARK: - Localizable
+public protocol StandardLocalizable {
+	func localizedDescription() -> String
+}
+
+public extension StandardLocalizable {
+	static func combinedLocalizedDescription(for localizables:StandardLocalizable...) -> String {
+		return localizables.reduce("") { $0 + $1.localizedDescription() }
+	}
+}
+
+public extension StandardLocalizable where Self : RawRepresentable, Self.RawValue == String {
+	func localizedDescription() -> String {
+		return self.rawValue.localizedString
+	}
+}

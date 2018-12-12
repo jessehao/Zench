@@ -46,7 +46,7 @@ public extension String {
 	func stringWith(suffix:String) -> String { return self + suffix }
 	func stringWith(prefix:String) -> String { return prefix + self }
 	func stringWith(prefix:String, suffix:String) -> String { return "\(prefix)\(self)\(suffix)" }
-    public var localizedString:String { return NSLocalizedString(self, comment: "") }
+    var localizedString:String { return NSLocalizedString(self, comment: "") }
 	func attributedString(withAttributes attributes:[NSAttributedString.Key:Any]) -> NSAttributedString { return NSAttributedString(string: self, attributes: attributes) }
 	func mutableAttributedString(withAttributes attributes:[NSAttributedString.Key:Any]) -> NSMutableAttributedString { return NSMutableAttributedString(string: self, attributes: attributes) }
 	func date(withFormat format:String? = nil) -> Date? {
