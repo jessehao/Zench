@@ -8,11 +8,9 @@
 
 import UIKit
 
-open class StandardTableViewController: StandardViewController<BaseView>, StandardTableViewDelegate, StandardTableViewDataSource {
-	
+open class StandardTableViewController: StandardViewController<UIView>, StandardTableViewDelegate, StandardTableViewDataSource {
 	// MARK: - Interface
 	open var style:UITableView.Style { return .plain }
-	open var baseView:BaseView? { return nil }
 	open private(set) lazy var tableView = StandardTableView(frame: .zero, style: self.style)
 	open var clearsSelectionOnViewWillAppear: Bool = false
 	open var deselectRowAfterSelected:Bool = false
@@ -20,7 +18,7 @@ open class StandardTableViewController: StandardViewController<BaseView>, Standa
 	
 	// MARK: - Lifecycle
 	open override func loadView() {
-		guard let baseView = self.baseView else {
+		guard let baseView = self.customBaseView() else {
 			super.loadView()
 			return
 		}
@@ -95,6 +93,8 @@ open class StandardTableViewController: StandardViewController<BaseView>, Standa
 	@objc open func refreshFooterPulled() {}
 	
 	// MARK: - Operation
+	open func customBaseView() -> UIView? { return nil }
+	
 	open func tableViewDidAdded() {}
 	
 	open func makeConstraintsFor(tableView:UITableView) {
