@@ -33,6 +33,8 @@
 		F65D1A8B218073AB006CF3D5 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8A218073AB006CF3D5 /* BaseCollectionViewCell.swift */; };
 		F65D1A8D218073BC006CF3D5 /* StandardTableViewTextHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8C218073BC006CF3D5 /* StandardTableViewTextHeaderFooterView.swift */; };
 		F65D1A8F218074AC006CF3D5 /* StandardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8E218074AC006CF3D5 /* StandardButton.swift */; };
+		F66242E721C104F700BDDBFF /* BaseTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66242E621C104F700BDDBFF /* BaseTextView.swift */; };
+		F66242E921C1059500BDDBFF /* StandardTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66242E821C1059500BDDBFF /* StandardTextView.swift */; };
 		F6A73FCD21BA837E00C091A4 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619949821BA6FDF0029EF00 /* Preference.swift */; };
 		F6D2A4122179FDD800B1B934 /* Zench.h in Headers */ = {isa = PBXBuildFile; fileRef = F6D2A4102179FDD800B1B934 /* Zench.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -66,6 +68,8 @@
 		F65D1A8A218073AB006CF3D5 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		F65D1A8C218073BC006CF3D5 /* StandardTableViewTextHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableViewTextHeaderFooterView.swift; sourceTree = "<group>"; };
 		F65D1A8E218074AC006CF3D5 /* StandardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardButton.swift; sourceTree = "<group>"; };
+		F66242E621C104F700BDDBFF /* BaseTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextView.swift; sourceTree = "<group>"; };
+		F66242E821C1059500BDDBFF /* StandardTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTextView.swift; sourceTree = "<group>"; };
 		F6D2A40D2179FDD800B1B934 /* Zench.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zench.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D2A4102179FDD800B1B934 /* Zench.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Zench.h; sourceTree = "<group>"; };
 		F6D2A4112179FDD800B1B934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 		F60A42C5217EBFD200AF9F6B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F66242E521C104E100BDDBFF /* Components */,
 				F65D1A90218075F8006CF3D5 /* Table View */,
 				F65D1A8521807363006CF3D5 /* Controls */,
 				F65D1A7D21806E02006CF3D5 /* BaseView.swift */,
@@ -163,6 +168,15 @@
 				F62E661E218C06BE001E7DE9 /* StandardTableView.swift */,
 			);
 			path = "Table View";
+			sourceTree = "<group>";
+		};
+		F66242E521C104E100BDDBFF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F66242E621C104F700BDDBFF /* BaseTextView.swift */,
+				F66242E821C1059500BDDBFF /* StandardTextView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		F6D2A4032179FDD800B1B934 = {
@@ -301,7 +315,9 @@
 				F619948E21B7C89E0029EF00 /* ViewExtensions.swift in Sources */,
 				F619948721B785030029EF00 /* Pattern.swift in Sources */,
 				F65D1A7E21806E02006CF3D5 /* BaseView.swift in Sources */,
+				F66242E921C1059500BDDBFF /* StandardTextView.swift in Sources */,
 				F62E661D218C0661001E7DE9 /* StandardTableViewController.swift in Sources */,
+				F66242E721C104F700BDDBFF /* BaseTextView.swift in Sources */,
 				F65D1A802180717F006CF3D5 /* StandardScrollView.swift in Sources */,
 				F65D1A8721807380006CF3D5 /* BaseTableViewCell.swift in Sources */,
 				F60A42D9217EC74800AF9F6B /* StandardConfigurable.swift in Sources */,
