@@ -83,6 +83,8 @@ open class StandardViewController<ViewType:UIView>: BaseViewController, UIGestur
 	/// - Parameter userInfo: The userInfo contains information about the keyboard.
 	open func keyboardWillChangeFrame(userInfo:StandardKeyboardNotificationUserInfo) {}
 	
+	open func keyboardDidShow(userInfo:StandardKeyboardNotificationUserInfo) {}
+	
 	// MARK: - Operations
 	open override func setup() {
 		super.setup()
@@ -125,6 +127,10 @@ open class StandardViewController<ViewType:UIView>: BaseViewController, UIGestur
 		self.listenToNotificationName(UIResponder.keyboardWillChangeFrameNotification) { [weak self] in
 			guard let `self` = self else { return }
 			self.keyboardWillChangeFrame(userInfo: StandardKeyboardNotificationUserInfo(withUserInfoDict: $0.userInfo!))
+		}
+		self.listenToNotificationName(UIResponder.keyboardDidShowNotification) { [weak self] in
+			guard let self = self else { return }
+			self.keyboardDidShow(userInfo: StandardKeyboardNotificationUserInfo(withUserInfoDict: $0.userInfo!))
 		}
 	}
 	
