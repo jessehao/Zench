@@ -39,17 +39,17 @@ open class StandardScrollView: BaseView {
 		super.makeConstraints()
 		if let superview = self.scrollView.superview {
 			self.scrollView.translatesAutoresizingMaskIntoConstraints = false
-			self.scrollView.topAnchor.constraint(equalTo: superview.topAnchor)
-			self.scrollView.bottomAnchor.constraint(equalTo: superview.bottomAnchor)
-			self.scrollView.leftAnchor.constraint(equalTo: superview.leftAnchor)
-			self.scrollView.rightAnchor.constraint(equalTo: superview.rightAnchor)
+			self.scrollView.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
+			self.scrollView.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
+			self.scrollView.leftAnchor.constraint(equalTo: superview.leftAnchor).isActive = true
+			self.scrollView.rightAnchor.constraint(equalTo: superview.rightAnchor).isActive = true
 		}
 		if let superview = self.contentView.superview {
 			self.contentView.translatesAutoresizingMaskIntoConstraints = false
-			self.contentView.topAnchor.constraint(equalTo: superview.topAnchor)
-			self.contentView.bottomAnchor.constraint(equalTo: superview.bottomAnchor)
-			self.contentView.leftAnchor.constraint(equalTo: superview.leftAnchor)
-			self.contentView.rightAnchor.constraint(equalTo: superview.rightAnchor)
+			self.contentView.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
+			self.contentView.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
+			self.contentView.leftAnchor.constraint(equalTo: superview.leftAnchor).isActive = true
+			self.contentView.rightAnchor.constraint(equalTo: superview.rightAnchor).isActive = true
 		}
 	}
 }

@@ -94,8 +94,8 @@ open class StandardButton: BaseButton {
 		super.makeConstraints()
 		if let superview = self.activityIndicator.superview {
 			self.activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-			self.activityIndicator.centerXAnchor.constraint(equalTo: superview.centerXAnchor)
-			self.activityIndicator.centerYAnchor.constraint(equalTo: superview.centerYAnchor)
+			self.activityIndicator.centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
+			self.activityIndicator.centerYAnchor.constraint(equalTo: superview.centerYAnchor).isActive = true
 		}
 	}
 }

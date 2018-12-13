@@ -33,10 +33,10 @@ open class StandardTableViewTextHeaderFooterView: BaseTableViewHeaderFooterView 
 		super.makeConstraints()
 		if let superview = self.label.superview {
 			self.label.translatesAutoresizingMaskIntoConstraints = false
-			self.label.leftAnchor.constraint(equalTo: superview.leftAnchor, constant: 15)
-			self.label.centerYAnchor.constraint(equalTo: superview.centerYAnchor)
-			self.label.topAnchor.constraint(equalTo: superview.topAnchor, constant: 10)
-			self.label.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -10)
+			self.label.leftAnchor.constraint(equalTo: superview.leftAnchor, constant: 15).isActive = true
+			self.label.centerYAnchor.constraint(equalTo: superview.centerYAnchor).isActive = true
+			self.label.topAnchor.constraint(equalTo: superview.topAnchor, constant: 10).isActive = true
+			self.label.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -10).isActive = true
 		}
 	}
 }
