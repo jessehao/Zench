@@ -52,6 +52,13 @@ public extension UIView {
 		self.layer.setBorder(withColor: color.cgColor, thickness: thickness)
 		self.layer.cornerRadius = cornerRadius
 	}
+	
+	var insetForSafeAreaOrZero:UIEdgeInsets {
+		if #available(iOS 11.0, *) {
+			return self.safeAreaInsets
+		}
+		return .zero
+	}
 }
 
 public extension UILabel {
