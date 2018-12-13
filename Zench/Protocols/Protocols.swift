@@ -58,16 +58,21 @@ public extension StandardPasteboardSupport {
 
 // MARK: - Animation Support
 public protocol StandardAnimationSupport {
-	func execute(animated:Bool, duration:TimeInterval, closure:@escaping () -> Void)
+	func execute(animated:Bool, duration:TimeInterval, closure:@escaping () -> Void, completeHandler:((Bool) -> Void)?)
 }
 
 public extension StandardAnimationSupport {
 	func execute(animated:Bool, duration:TimeInterval = 0.3, closure:@escaping () -> Void) {
+		self.execute(animated: animated, duration: duration, closure: closure, completeHandler: nil)
+	}
+	
+	func execute(animated:Bool, duration:TimeInterval = 0.3, closure:@escaping () -> Void, completeHandler:((Bool) -> Void)? = nil) {
 		guard animated else {
 			closure()
+			completeHandler?(true)
 			return
 		}
-		UIView.animate(withDuration: duration, animations: closure)
+		UIView.animate(withDuration: duration, animations: closure, completion: completeHandler)
 	}
 }
 
