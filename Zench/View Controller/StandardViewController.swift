@@ -158,8 +158,4 @@ public extension StandardViewController {
 		UIApplication.shared.openURL(url)
 		return true
 	}
-	
-	public func copyToPasteboard(withString string:String) {
-		UIPasteboard.general.string = string
-	}
 }

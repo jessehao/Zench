@@ -19,7 +19,7 @@ public extension StandardDuplicatable where Self : Codable {
 	public func duplicate() throws -> Self { return try JSONDecoder().decode(Self.self, from: try JSONEncoder().encode(self)) }
 }
 
-// MARK: - Supports
+// MARK: - Notification Support
 public protocol StandardNotificationSupport {
 	/// add specific selector to observe a specific notification name of notification center.
 	///
@@ -42,6 +42,17 @@ public extension StandardNotificationSupport {
 	
 	func listenToNotificationName(_ notificationName:Notification.Name, using handler:@escaping (Notification) -> Void) {
 		NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil, using: handler)
+	}
+}
+
+// MARK: - Pasteboard Support
+public protocol StandardPasteboardSupport {
+	func copyToGeneralPasteboard(withString string:String)
+}
+
+public extension StandardPasteboardSupport {
+	func copyToGeneralPasteboard(withString string:String) {
+		UIPasteboard.general.string = string
 	}
 }
 
