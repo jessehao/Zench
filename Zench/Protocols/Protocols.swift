@@ -56,6 +56,21 @@ public extension StandardPasteboardSupport {
 	}
 }
 
+// MARK: - Animation Support
+public protocol StandardAnimationSupport {
+	func execute(animated:Bool, duration:TimeInterval, closure:@escaping () -> Void)
+}
+
+public extension StandardAnimationSupport {
+	func execute(animated:Bool, duration:TimeInterval = 0.3, closure:@escaping () -> Void) {
+		guard animated else {
+			closure()
+			return
+		}
+		UIView.animate(withDuration: duration, animations: closure)
+	}
+}
+
 // MARK: - Localizable
 public protocol StandardLocalizable {
 	func localizedDescription() -> String
