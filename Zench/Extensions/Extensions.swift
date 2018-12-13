@@ -80,6 +80,11 @@ public extension LosslessStringConvertible {
 	var string:String { return String(self) }
 }
 
+public extension Numeric {
+	/// false if 0
+	var bool:Bool { return self != 0 }
+}
+
 public extension BinaryInteger {
 	var int:Int { return Int(self) }
 	var int8:Int8 { return Int8(self) }
@@ -115,6 +120,35 @@ public extension BinaryFloatingPoint {
 public extension BinaryFloatingPoint where Self : CVarArg {
 	func formattedString(withDecimalPlace place:UInt) -> String {
 		return String(format: "%.\(place)f", self)
+	}
+}
+
+public extension Bool {
+	var int:Int { return self ? 1 : 0 }
+	
+	var negation:Bool { return !self }
+	
+	@discardableResult
+	mutating func negate() -> Bool {
+		self = !self
+		return self
+	}
+}
+
+public extension Collection where Element == Bool {
+	func and() -> Bool {
+		guard self.count > 0 else { return false }
+		for i in self {
+			if i == false { return false }
+		}
+		return true
+	}
+	
+	func or() -> Bool {
+		for i in self {
+			if i == true { return true }
+		}
+		return false
 	}
 }
 
