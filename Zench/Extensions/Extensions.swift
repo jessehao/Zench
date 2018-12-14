@@ -199,8 +199,12 @@ public extension UICollectionView.ScrollPosition {
 	public static var none:UICollectionView.ScrollPosition { return UICollectionView.ScrollPosition(rawValue: 0) }
 }
 
-extension UnsafePointer where Pointee == Int8 {
+public extension UnsafePointer where Pointee == Int8 {
 	var string:String { return String(cString: self) }
+}
+
+public extension NSRange {
+	static var zero:NSRange { return NSRange(location: 0, length: 0) }
 }
 
 // MARK: - Namespaced
