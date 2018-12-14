@@ -142,6 +142,14 @@ public extension UITableView {
 	}
 }
 
+public extension UITextView {
+	func selectedIndexRange() -> Range<String.Index> {
+		let beginIndex = self.text.index(self.text.startIndex,
+										 offsetBy: self.selectedRange.location)
+		let endIndex = self.text.index(beginIndex, offsetBy: self.selectedRange.length)
+		return (beginIndex..<endIndex)
+	}
+}
 
 extension UIMenuController : ZenchNamespaceWrappable {}
 public extension ZenchNamespaceWrapper where T : UIMenuController {
