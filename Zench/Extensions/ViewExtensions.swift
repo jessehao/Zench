@@ -59,6 +59,19 @@ public extension UIView {
 		}
 		return .zero
 	}
+	
+	class func animateOrNot(_ animated:Bool, duration:TimeInterval, closure:@escaping () -> Void, completeHandler:((Bool) -> Void)?) {
+		guard animated else {
+			closure()
+			completeHandler?(true)
+			return
+		}
+		UIView.animate(withDuration: duration, animations: closure, completion: completeHandler)
+	}
+	
+	class func animateOrNot(_ animated:Bool, duration:TimeInterval = 0.3, closure:@escaping () -> Void) {
+		self.animateOrNot(animated, duration: duration, closure: closure, completeHandler: nil)
+	}
 }
 
 public extension UILabel {
