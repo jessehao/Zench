@@ -14,10 +14,15 @@ open class StandardTextView : BaseTextView {
 	
 	public private(set) var isPlaceholderHidden:Bool = false
 	
-	// get-only
+	/// The color of the text. (get-only)
 	open override var textColor: UIColor? {
 		get { return super.textColor }
 		set {}
+	}
+	
+	open override var selectedRange: NSRange {
+		get { return self.isPlaceholderHidden ? super.selectedRange : .zero }
+		set { super.selectedRange = self.isPlaceholderHidden ? newValue : .zero }
 	}
 	
 	open var placeholder = "" {
