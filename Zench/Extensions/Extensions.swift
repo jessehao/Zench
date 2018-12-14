@@ -13,6 +13,13 @@ extension NSObject {
 	var className:String { return object_getClassName(self).string }
 }
 
+extension Bundle {
+	static weak var zench:Bundle? = Bundle.framework(of: "Zench")
+	static func framework(of name:String) -> Bundle? {
+		return Bundle.allFrameworks.first { $0.bundleURL.lastPathComponent.contains(name.stringWith(suffix: ".framework")) }
+	}
+}
+
 extension UIControl.State : Hashable {
 	public var hashValue: Int {
 		return self.rawValue.hashValue
