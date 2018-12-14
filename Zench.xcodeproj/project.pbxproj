@@ -23,7 +23,7 @@
 		F62E661D218C0661001E7DE9 /* StandardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E661C218C0661001E7DE9 /* StandardTableViewController.swift */; };
 		F62E661F218C06BE001E7DE9 /* StandardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E661E218C06BE001E7DE9 /* StandardTableView.swift */; };
 		F62E6622218C089B001E7DE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E6624218C089B001E7DE9 /* Localizable.strings */; };
-		F62E6627218C0DB8001E7DE9 /* LocalizableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E6626218C0DB8001E7DE9 /* LocalizableString.swift */; };
+		F62E6627218C0DB8001E7DE9 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E6626218C0DB8001E7DE9 /* Localization.swift */; };
 		F65D1A7E21806E02006CF3D5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A7D21806E02006CF3D5 /* BaseView.swift */; };
 		F65D1A802180717F006CF3D5 /* StandardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A7F2180717F006CF3D5 /* StandardScrollView.swift */; };
 		F65D1A8221807347006CF3D5 /* BaseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8121807347006CF3D5 /* BaseControl.swift */; };
@@ -58,7 +58,7 @@
 		F62E661E218C06BE001E7DE9 /* StandardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableView.swift; sourceTree = "<group>"; };
 		F62E6623218C089B001E7DE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F62E6625218C0901001E7DE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		F62E6626218C0DB8001E7DE9 /* LocalizableString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableString.swift; sourceTree = "<group>"; };
+		F62E6626218C0DB8001E7DE9 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		F65D1A7D21806E02006CF3D5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		F65D1A7F2180717F006CF3D5 /* StandardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardScrollView.swift; sourceTree = "<group>"; };
 		F65D1A8121807347006CF3D5 /* BaseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControl.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 				F6D2A4102179FDD800B1B934 /* Zench.h */,
 				F6D2A4112179FDD800B1B934 /* Info.plist */,
 				F62E6624218C089B001E7DE9 /* Localizable.strings */,
-				F62E6626218C0DB8001E7DE9 /* LocalizableString.swift */,
+				F62E6626218C0DB8001E7DE9 /* Localization.swift */,
 			);
 			path = Zench;
 			sourceTree = "<group>";
@@ -301,7 +301,7 @@
 				F65D1A8D218073BC006CF3D5 /* StandardTableViewTextHeaderFooterView.swift in Sources */,
 				F60A42D5217EC5E600AF9F6B /* Protocols.swift in Sources */,
 				F619948C21B7B6160029EF00 /* Namespace.swift in Sources */,
-				F62E6627218C0DB8001E7DE9 /* LocalizableString.swift in Sources */,
+				F62E6627218C0DB8001E7DE9 /* Localization.swift in Sources */,
 				F60A42D7217EC65B00AF9F6B /* StandardDiscretable.swift in Sources */,
 				F60A42D3217EC3C200AF9F6B /* ViewControllerExtensions.swift in Sources */,
 				F65D1A8B218073AB006CF3D5 /* BaseCollectionViewCell.swift in Sources */,

@@ -69,6 +69,6 @@ public extension StandardLocalizable {
 
 public extension StandardLocalizable where Self : RawRepresentable, Self.RawValue == String {
 	func localizedDescription() -> String {
-		return self.rawValue.localizedString
+		return NSLocalizedString(self.rawValue, comment: "")
 	}
 }
