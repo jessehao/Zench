@@ -76,14 +76,16 @@ open class StandardTextView : BaseTextView {
 	}
 	
 	// MARK: - Events
-	@objc open func textViewTextDidBeginEditingReceived(notification:Notification) {
+	@objc
+	open func textViewTextDidBeginEditingReceived(notification:Notification) {
 		guard self == notification.object as? StandardTextView else { return }
 		if !self.isPlaceholderHidden {
 			self.hidePlaceholderInContentTextField()
 		}
 	}
 	
-	@objc open func textViewTextDidEndEditingNotificationReceived(notification:Notification) {
+	@objc
+	open func textViewTextDidEndEditingNotificationReceived(notification:Notification) {
 		guard self == notification.object as? StandardTextView else { return }
 		if self.text.isEmpty && self.isPlaceholderHidden {
 			self.showPlaceholderInContentTextField()
@@ -119,8 +121,14 @@ open class StandardTextView : BaseTextView {
 	}
 	
 	open func hidePlaceholderInContentTextField() {
-		super.textColor = self.foregroundTextColor
-		super.attributedText = nil
+		var attributes:[NSAttributedString.Key : Any] = [:]
+		if let font = self.font {
+			attributes[.font] = font
+		}
+		if let color = self.foregroundTextColor {
+			attributes[.foregroundColor] = color
+		}
+		super.attributedText = "".attributedString(withAttributes: attributes)
 		self.isPlaceholderHidden = true
 	}
 }
