@@ -12,7 +12,7 @@ open class StandardTextView : BaseTextView {
 	open class var defaultForegroundTextColor:UIColor { return .black }
 	open class var defaultPlaceholderTextColor:UIColor { return UIColor(red: 144 / 255.0, green: 144 / 255.0, blue: 144 / 255.0, alpha: 1) }
 	
-	public private(set) var isPlaceholderHidden:Bool = false
+	public private(set) var isPlaceholderHidden:Bool = true
 	
 	/// The color of the text. (get-only)
 	open override var textColor: UIColor? {
@@ -52,11 +52,13 @@ open class StandardTextView : BaseTextView {
 			return self.isPlaceholderHidden ? super.text : ""
 		}
 		set {
-			if newValue == nil || newValue.isEmpty {
-				self.showPlaceholderInContentTextField()
-				return
+			if !self.isFirstResponder {
+				if newValue == nil || newValue.isEmpty {
+					self.showPlaceholderInContentTextField()
+					return
+				}
+				self.hidePlaceholderInContentTextField()
 			}
-			self.hidePlaceholderInContentTextField()
 			super.text = newValue
 		}
 	}
@@ -66,11 +68,13 @@ open class StandardTextView : BaseTextView {
 			return self.isPlaceholderHidden ? super.attributedText : nil
 		}
 		set {
-			if newValue == nil || newValue?.string.isEmpty == true {
-				self.showPlaceholderInContentTextField()
-				return
+			if !self.isFirstResponder {
+				if newValue == nil || newValue?.string.isEmpty == true {
+					self.showPlaceholderInContentTextField()
+					return
+				}
+				self.hidePlaceholderInContentTextField()
 			}
-			self.hidePlaceholderInContentTextField()
 			super.attributedText = newValue
 		}
 	}
@@ -96,11 +100,6 @@ open class StandardTextView : BaseTextView {
 		super.setup()
 		super.textColor = StandardTextView.defaultForegroundTextColor
 		self.addToNotificationCenter()
-		if self.hasText {
-			self.hidePlaceholderInContentTextField()
-		} else {
-			self.showPlaceholderInContentTextField()
-		}
 	}
 	
 	open func addToNotificationCenter() {
@@ -108,7 +107,8 @@ open class StandardTextView : BaseTextView {
 		NotificationCenter.default.addObserver(self, selector: #selector(self.textViewTextDidEndEditingNotificationReceived), name: UITextView.textDidEndEditingNotification, object: nil)
 	}
 	
-	open func showPlaceholderInContentTextField() {
+	open func showPlaceholderInContentTextField(force:Bool = false) {
+		guard force || self.isPlaceholderHidden else { return }
 		var attributes:[NSAttributedString.Key : Any] = [:]
 		if let font = self.font {
 			attributes[.font] = font
@@ -120,7 +120,8 @@ open class StandardTextView : BaseTextView {
 		self.isPlaceholderHidden = false
 	}
 	
-	open func hidePlaceholderInContentTextField() {
+	open func hidePlaceholderInContentTextField(force:Bool = false) {
+		guard force || !self.isPlaceholderHidden else { return }
 		var attributes:[NSAttributedString.Key : Any] = [:]
 		if let font = self.font {
 			attributes[.font] = font
