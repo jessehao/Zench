@@ -2,7 +2,7 @@
 //  Namespace.swift
 //  Zench
 //
-//  Created by 郝泽 on 2018/12/5.
+//  Created by Jesse Hao on 2018/12/5.
 //  Copyright © 2018 Snoware. All rights reserved.
 //
 

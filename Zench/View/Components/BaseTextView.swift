@@ -2,7 +2,7 @@
 //  BaseTextView.swift
 //  Zench
 //
-//  Created by 郝泽 on 2018/12/12.
+//  Created by Jesse Hao on 2018/12/12.
 //  Copyright © 2018 Snoware. All rights reserved.
 //
 

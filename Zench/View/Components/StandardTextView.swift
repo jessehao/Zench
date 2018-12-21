@@ -2,7 +2,7 @@
 //  StandardTextView.swift
 //  Zench
 //
-//  Created by 郝泽 on 2018/12/12.
+//  Created by Jesse Hao on 2018/12/12.
 //  Copyright © 2018 Snoware. All rights reserved.
 //
 
@@ -58,6 +58,20 @@ open class StandardTextView : BaseTextView {
 			}
 			self.hidePlaceholderInContentTextField()
 			super.text = newValue
+		}
+	}
+	
+	open override var attributedText: NSAttributedString? {
+		get {
+			return self.isPlaceholderHidden ? super.attributedText : nil
+		}
+		set {
+			if newValue == nil || newValue?.string.isEmpty == true {
+				self.showPlaceholderInContentTextField()
+				return
+			}
+			self.hidePlaceholderInContentTextField()
+			super.attributedText = newValue
 		}
 	}
 	
