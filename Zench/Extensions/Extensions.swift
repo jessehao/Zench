@@ -212,6 +212,13 @@ public extension UnsafePointer where Pointee == Int8 {
 
 public extension NSRange {
 	static var zero:NSRange { return NSRange(location: 0, length: 0) }
+	var nilIfNotFound:NSRange? { return self.location == NSNotFound ? nil : self }
+}
+
+public extension NSString {
+	func rangeOrNil(of searchString: String, options mask: NSString.CompareOptions = [], range rangeOfReceiverToSearch: NSRange, locale: Locale?) -> NSRange? {
+		return self.range(of:searchString, options:mask, range: rangeOfReceiverToSearch, locale:locale).nilIfNotFound
+	}
 }
 
 // MARK: - Namespaced
