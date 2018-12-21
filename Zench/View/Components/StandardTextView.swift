@@ -61,20 +61,6 @@ open class StandardTextView : BaseTextView {
 		}
 	}
 	
-	open override var attributedText: NSAttributedString? {
-		get {
-			return self.isPlaceholderHidden ? super.attributedText : nil
-		}
-		set {
-			if newValue == nil || newValue?.string.isEmpty == true {
-				self.showPlaceholderInContentTextField()
-				return
-			}
-			self.hidePlaceholderInContentTextField()
-			super.attributedText = newValue
-		}
-	}
-	
 	// MARK: - Events
 	@objc open func textViewTextDidBeginEditingReceived(notification:Notification) {
 		guard self == notification.object as? StandardTextView else { return }
