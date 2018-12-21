@@ -216,8 +216,14 @@ public extension NSRange {
 }
 
 public extension NSString {
-	func rangeOrNil(of searchString: String, options mask: NSString.CompareOptions = [], range rangeOfReceiverToSearch: NSRange, locale: Locale?) -> NSRange? {
-		return self.range(of:searchString, options:mask, range: rangeOfReceiverToSearch, locale:locale).nilIfNotFound
+	func rangeOrNil(of searchString: String, options mask: NSString.CompareOptions = [], range rangeOfReceiverToSearch: NSRange? = nil, locale: Locale? = nil) -> NSRange? {
+		if let searchRange = rangeOfReceiverToSearch {
+			if let locale = locale {
+				return self.range(of:searchString, options:mask, range: searchRange, locale:locale).nilIfNotFound
+			}
+			return self.range(of:searchString, options:mask, range: searchRange).nilIfNotFound
+		}
+		return self.range(of:searchString, options:mask).nilIfNotFound
 	}
 }
 
