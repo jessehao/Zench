@@ -6,13 +6,13 @@
 //  Copyright © 2018 Snoware. All rights reserved.
 //
 
-import Foundation
-
+// MARK: - NSObject
 extension NSObject : StandardNoParameterInitializable, StandardClassConfigurable, StandardClassConfigurableInitializer, StandardNotificationSupport {}
 extension NSObject {
 	var className:String { return object_getClassName(self).string }
 }
 
+// MARK: - Bundle
 extension Bundle {
 	static weak var zench:Bundle? = Bundle.framework(of: "Zench")
 	static func framework(of name:String) -> Bundle? {
@@ -20,157 +20,7 @@ extension Bundle {
 	}
 }
 
-extension UIControl.State : Hashable {
-	public var hashValue: Int {
-		return self.rawValue.hashValue
-	}
-}
-
-public extension UIFont {
-	public class func pingFangSCFont(ofSize size:CGFloat, weight:UIFont.Weight) -> UIFont {
-		var fontStr = "PingFangSC-"
-		switch weight {
-		case Weight.semibold:
-			fontStr += "Semibold"
-		case Weight.light:
-			fontStr += "Light"
-		case Weight.medium:
-			fontStr += "Medium"
-		case Weight.bold:
-			fontStr += "Bold"
-		case Weight.regular:
-			fontStr += "Regular"
-		default:
-			fontStr += "Regular"
-		}
-		return UIFont(name: fontStr, size: size)!
-	}
-}
-
-public extension String {
-	mutating func add(suffix:String) { self += suffix }
-	mutating func add(prefix:String) { self = prefix + self }
-	func stringWith(suffix:String) -> String { return self + suffix }
-	func stringWith(prefix:String) -> String { return prefix + self }
-	func stringWith(prefix:String, suffix:String) -> String { return "\(prefix)\(self)\(suffix)" }
-    var localizedString:String { return NSLocalizedString(self, comment: "") }
-	func attributedString(withAttributes attributes:[NSAttributedString.Key:Any]) -> NSAttributedString { return NSAttributedString(string: self, attributes: attributes) }
-	func mutableAttributedString(withAttributes attributes:[NSAttributedString.Key:Any]) -> NSMutableAttributedString { return NSMutableAttributedString(string: self, attributes: attributes) }
-	func date(withFormat format:String? = nil) -> Date? {
-		if let format = format {
-			return DateFormatter.zench.shared.date(from: self, format: format)
-		}
-		for format in  DateFormatter.zench.defaultDateStringParsingSet {
-			if let date = DateFormatter.zench.shared.date(from: self, format: format) {
-				return date
-			}
-		}
-		return nil
-	}
-}
-
-public extension StringProtocol {
-	var int:Int? { return Int(self) }
-	var int8:Int8? { return Int8(self) }
-	var int16:Int16? { return Int16(self) }
-	var int32:Int32? { return Int32(self) }
-	var int64:Int64? { return Int64(self) }
-	var uint:UInt? { return UInt(self) }
-	var uint8:UInt8? { return UInt8(self) }
-	var uint16:UInt16? { return UInt16(self) }
-	var uint32:UInt32? { return UInt32(self) }
-	var uint64:UInt64? { return UInt64(self) }
-	var double:Double? { return Double(self) }
-}
-
-public extension LosslessStringConvertible {
-	var string:String { return String(self) }
-}
-
-public extension Numeric {
-	/// false if 0
-	var bool:Bool { return self != 0 }
-}
-
-public extension BinaryInteger {
-	var int:Int { return Int(self) }
-	var int8:Int8 { return Int8(self) }
-	var int16:Int16 { return Int16(self) }
-	var int32:Int32 { return Int32(self) }
-	var int64:Int64 { return Int64(self) }
-	var uint:UInt { return UInt(self) }
-	var uint8:UInt8 { return UInt8(self) }
-	var uint16:UInt16 { return UInt16(self) }
-	var uint32:UInt32 { return UInt32(self) }
-	var uint64:UInt64 { return UInt64(self) }
-	var double:Double { return Double(self) }
-	var cgFloat:CGFloat { return CGFloat(self) }
-	var date:Date { return self.double.date }
-}
-
-public extension BinaryFloatingPoint {
-	var int:Int { return Int(self) }
-	var int8:Int8 { return Int8(self) }
-	var int16:Int16 { return Int16(self) }
-	var int32:Int32 { return Int32(self) }
-	var int64:Int64 { return Int64(self) }
-	var uint:UInt { return UInt(self) }
-	var uint8:UInt8 { return UInt8(self) }
-	var uint16:UInt16 { return UInt16(self) }
-	var uint32:UInt32 { return UInt32(self) }
-	var uint64:UInt64 { return UInt64(self) }
-	var double:Double { return Double(self) }
-	var cgFloat:CGFloat { return CGFloat(self) }
-	var date:Date { return Date(timeIntervalSince1970: self.double) }
-}
-
-public extension BinaryFloatingPoint where Self : CVarArg {
-	func formattedString(withDecimalPlace place:UInt) -> String {
-		return String(format: "%.\(place)f", self)
-	}
-}
-
-public extension Bool {
-	var int:Int { return self ? 1 : 0 }
-	
-	var negation:Bool { return !self }
-	
-	@discardableResult
-	mutating func negate() -> Bool {
-		self = !self
-		return self
-	}
-}
-
-public extension Collection where Element == Bool {
-	func and() -> Bool {
-		guard self.count > 0 else { return false }
-		for i in self {
-			if i == false { return false }
-		}
-		return true
-	}
-	
-	func or() -> Bool {
-		for i in self {
-			if i == true { return true }
-		}
-		return false
-	}
-}
-
-public extension Sequence where Element : Hashable {
-	func set() -> Set<Element> {
-		return Set(self)
-	}
-}
-
-public extension RangeReplaceableCollection where Index : Hashable {
-	mutating func remove(withIndexSet set:Set<Index>) {
-		set.forEach { self.remove(at: $0) }
-	}
-}
-
+// MARK: - Date
 public extension Date {
 	static let microsecondsPerSecond:UInt32 = 1000000
 	func string(withFormat format:String) -> String {
@@ -192,42 +42,7 @@ public extension DateFormatter {
 	}
 }
 
-extension NotificationCenter {
-	func post(name aName: NSNotification.Name) {
-		self.post(name: aName, object: nil)
-	}
-}
-
-public extension JSONSerialization.WritingOptions {
-	public static var plain:JSONSerialization.WritingOptions { return JSONSerialization.WritingOptions(rawValue: 0) }
-}
-
-public extension UICollectionView.ScrollPosition {
-	public static var none:UICollectionView.ScrollPosition { return UICollectionView.ScrollPosition(rawValue: 0) }
-}
-
-public extension UnsafePointer where Pointee == Int8 {
-	var string:String { return String(cString: self) }
-}
-
-public extension NSRange {
-	static var zero:NSRange { return NSRange(location: 0, length: 0) }
-	var nilIfNotFound:NSRange? { return self.location == NSNotFound ? nil : self }
-}
-
-public extension NSString {
-	func rangeOrNil(of searchString: String, options mask: NSString.CompareOptions = [], range rangeOfReceiverToSearch: NSRange? = nil, locale: Locale? = nil) -> NSRange? {
-		if let searchRange = rangeOfReceiverToSearch {
-			if let locale = locale {
-				return self.range(of:searchString, options:mask, range: searchRange, locale:locale).nilIfNotFound
-			}
-			return self.range(of:searchString, options:mask, range: searchRange).nilIfNotFound
-		}
-		return self.range(of:searchString, options:mask).nilIfNotFound
-	}
-}
-
-// MARK: - Namespaced
+// MARK: Namespaced
 extension DateFormatter : ZenchNamespaceWrappable {}
 public extension ZenchNamespaceWrapper where T == DateFormatter {
 	public static let shared = DateFormatter()
@@ -236,4 +51,21 @@ public extension ZenchNamespaceWrapper where T == DateFormatter {
 		"y-MM-dd",
 		"y-MM"
 	]
+}
+
+// MARK: - Notification Center
+extension NotificationCenter {
+	func post(name aName: NSNotification.Name) {
+		self.post(name: aName, object: nil)
+	}
+}
+
+// MARK: - JSONSerialization.WritingOptions
+public extension JSONSerialization.WritingOptions {
+	public static var plain:JSONSerialization.WritingOptions { return JSONSerialization.WritingOptions(rawValue: 0) }
+}
+
+// MARK: - UnsafePointer
+public extension UnsafePointer where Pointee == Int8 {
+	var string:String { return String(cString: self) }
 }

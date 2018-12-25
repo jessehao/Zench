@@ -185,3 +185,34 @@ public extension ZenchNamespaceWrapper where T : UIMenuController {
 		}
 	}
 }
+
+extension UIControl.State : Hashable {
+	public var hashValue: Int {
+		return self.rawValue.hashValue
+	}
+}
+
+public extension UIFont {
+	public class func pingFangSCFont(ofSize size:CGFloat, weight:UIFont.Weight) -> UIFont {
+		var fontStr = "PingFangSC-"
+		switch weight {
+		case Weight.semibold:
+			fontStr += "Semibold"
+		case Weight.light:
+			fontStr += "Light"
+		case Weight.medium:
+			fontStr += "Medium"
+		case Weight.bold:
+			fontStr += "Bold"
+		case Weight.regular:
+			fontStr += "Regular"
+		default:
+			fontStr += "Regular"
+		}
+		return UIFont(name: fontStr, size: size)!
+	}
+}
+
+public extension UICollectionView.ScrollPosition {
+	public static var none:UICollectionView.ScrollPosition { return UICollectionView.ScrollPosition(rawValue: 0) }
+}

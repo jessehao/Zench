@@ -24,6 +24,9 @@
 		F62E661F218C06BE001E7DE9 /* StandardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E661E218C06BE001E7DE9 /* StandardTableView.swift */; };
 		F62E6622218C089B001E7DE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E6624218C089B001E7DE9 /* Localizable.strings */; };
 		F62E6627218C0DB8001E7DE9 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E6626218C0DB8001E7DE9 /* Localization.swift */; };
+		F64BF4A521D227B2009AE92C /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BF4A421D227B2009AE92C /* CollectionExtensions.swift */; };
+		F64BF4A721D22891009AE92C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BF4A621D22891009AE92C /* StringExtensions.swift */; };
+		F64BF4A921D228D5009AE92C /* NumericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BF4A821D228D5009AE92C /* NumericExtensions.swift */; };
 		F65D1A7E21806E02006CF3D5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A7D21806E02006CF3D5 /* BaseView.swift */; };
 		F65D1A802180717F006CF3D5 /* StandardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A7F2180717F006CF3D5 /* StandardScrollView.swift */; };
 		F65D1A8221807347006CF3D5 /* BaseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8121807347006CF3D5 /* BaseControl.swift */; };
@@ -59,6 +62,9 @@
 		F62E6623218C089B001E7DE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F62E6625218C0901001E7DE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F62E6626218C0DB8001E7DE9 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		F64BF4A421D227B2009AE92C /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
+		F64BF4A621D22891009AE92C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		F64BF4A821D228D5009AE92C /* NumericExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericExtensions.swift; sourceTree = "<group>"; };
 		F65D1A7D21806E02006CF3D5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		F65D1A7F2180717F006CF3D5 /* StandardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardScrollView.swift; sourceTree = "<group>"; };
 		F65D1A8121807347006CF3D5 /* BaseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControl.swift; sourceTree = "<group>"; };
@@ -137,6 +143,9 @@
 				F60A42DA217EC7DB00AF9F6B /* Extensions.swift */,
 				F619948B21B7B6160029EF00 /* Namespace.swift */,
 				F619948D21B7C89E0029EF00 /* ViewExtensions.swift */,
+				F64BF4A421D227B2009AE92C /* CollectionExtensions.swift */,
+				F64BF4A621D22891009AE92C /* StringExtensions.swift */,
+				F64BF4A821D228D5009AE92C /* NumericExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -297,6 +306,7 @@
 				F60A42DB217EC7DB00AF9F6B /* Extensions.swift in Sources */,
 				F62E661F218C06BE001E7DE9 /* StandardTableView.swift in Sources */,
 				F60A42D0217EC1D800AF9F6B /* StandardSize.swift in Sources */,
+				F64BF4A921D228D5009AE92C /* NumericExtensions.swift in Sources */,
 				F60A42CE217EC15C00AF9F6B /* StandardKeyboardNotificationUserInfo.swift in Sources */,
 				F65D1A8D218073BC006CF3D5 /* StandardTableViewTextHeaderFooterView.swift in Sources */,
 				F60A42D5217EC5E600AF9F6B /* Protocols.swift in Sources */,
@@ -305,6 +315,7 @@
 				F60A42D7217EC65B00AF9F6B /* StandardDiscretable.swift in Sources */,
 				F60A42D3217EC3C200AF9F6B /* ViewControllerExtensions.swift in Sources */,
 				F65D1A8B218073AB006CF3D5 /* BaseCollectionViewCell.swift in Sources */,
+				F64BF4A721D22891009AE92C /* StringExtensions.swift in Sources */,
 				F65D1A89218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift in Sources */,
 				F65D1A8F218074AC006CF3D5 /* StandardButton.swift in Sources */,
 				F6A73FCD21BA837E00C091A4 /* Preference.swift in Sources */,
@@ -320,6 +331,7 @@
 				F66242E721C104F700BDDBFF /* BaseTextView.swift in Sources */,
 				F65D1A802180717F006CF3D5 /* StandardScrollView.swift in Sources */,
 				F65D1A8721807380006CF3D5 /* BaseTableViewCell.swift in Sources */,
+				F64BF4A521D227B2009AE92C /* CollectionExtensions.swift in Sources */,
 				F60A42D9217EC74800AF9F6B /* StandardConfigurable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
