@@ -73,13 +73,13 @@ public extension StandardLocalizable where Self : RawRepresentable, Self.RawValu
 	}
 }
 
-// MARK: - Runtime
-protocol DynamicObjectAssociatable {
+// MARK: - ObjC Runtime
+public protocol DynamicObjectAssociatable {
 	func setAssociatedObject(_ object:Any?, forKey key:UnsafeRawPointer, withPolicy policy:objc_AssociationPolicy)
 	func associatedObject(forKey key:UnsafeRawPointer) -> Any?
 }
 
-extension DynamicObjectAssociatable {
+public extension DynamicObjectAssociatable {
 	func setAssociatedObject(_ object:Any?, forKey key:UnsafeRawPointer, withPolicy policy:objc_AssociationPolicy) {
 		objc_setAssociatedObject(self, key, object, policy)
 	}
