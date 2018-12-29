@@ -72,3 +72,19 @@ public extension StandardLocalizable where Self : RawRepresentable, Self.RawValu
 		return NSLocalizedString(self.rawValue, comment: "")
 	}
 }
+
+// MARK: - Runtime
+protocol DynamicObjectAssociatable {
+	func setAssociatedObject(_ object:Any?, forKey key:UnsafeRawPointer, withPolicy policy:objc_AssociationPolicy)
+	func associatedObject(forKey key:UnsafeRawPointer) -> Any?
+}
+
+extension DynamicObjectAssociatable {
+	func setAssociatedObject(_ object:Any?, forKey key:UnsafeRawPointer, withPolicy policy:objc_AssociationPolicy) {
+		objc_setAssociatedObject(self, key, object, policy)
+	}
+	
+	func associatedObject(forKey key:UnsafeRawPointer) -> Any? {
+		return objc_getAssociatedObject(self, key)
+	}
+}
