@@ -1,5 +1,5 @@
 //
-//  StandardTextView.swift
+//  GeneralTextView.swift
 //  Zench
 //
 //  Created by Jesse Hao on 2018/12/12.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class StandardTextView : BaseTextView {
+open class GeneralTextView : BaseTextView {
 	open class var defaultForegroundTextColor:UIColor { return .black }
 	open class var defaultPlaceholderTextColor:UIColor { return UIColor(red: 144 / 255.0, green: 144 / 255.0, blue: 144 / 255.0, alpha: 1) }
 	
@@ -32,14 +32,14 @@ open class StandardTextView : BaseTextView {
 			}
 		}
 	}
-	open var foregroundTextColor:UIColor? = StandardTextView.defaultForegroundTextColor {
+	open var foregroundTextColor:UIColor? = GeneralTextView.defaultForegroundTextColor {
 		didSet {
 			if self.isPlaceholderHidden {
 				super.textColor = self.foregroundTextColor
 			}
 		}
 	}
-	open var placeholderTextColor:UIColor? = StandardTextView.defaultPlaceholderTextColor {
+	open var placeholderTextColor:UIColor? = GeneralTextView.defaultPlaceholderTextColor {
 		didSet {
 			if !self.isPlaceholderHidden {
 				super.textColor = self.placeholderTextColor
@@ -82,7 +82,7 @@ open class StandardTextView : BaseTextView {
 	// MARK: - Events
 	@objc
 	open func textViewTextDidBeginEditingReceived(notification:Notification) {
-		guard self == notification.object as? StandardTextView else { return }
+		guard self == notification.object as? GeneralTextView else { return }
 		if !self.isPlaceholderHidden {
 			self.hidePlaceholderInContentTextField()
 		}
@@ -90,7 +90,7 @@ open class StandardTextView : BaseTextView {
 	
 	@objc
 	open func textViewTextDidEndEditingNotificationReceived(notification:Notification) {
-		guard self == notification.object as? StandardTextView else { return }
+		guard self == notification.object as? GeneralTextView else { return }
 		if self.text.isEmpty && self.isPlaceholderHidden {
 			self.showPlaceholderInContentTextField()
 		}
@@ -98,7 +98,7 @@ open class StandardTextView : BaseTextView {
 	
 	override open func setup() {
 		super.setup()
-		super.textColor = StandardTextView.defaultForegroundTextColor
+		super.textColor = GeneralTextView.defaultForegroundTextColor
 		self.addToNotificationCenter()
 	}
 	
