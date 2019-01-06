@@ -20,7 +20,7 @@
 		F619948721B785030029EF00 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619948621B785030029EF00 /* Pattern.swift */; };
 		F619948C21B7B6160029EF00 /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619948B21B7B6160029EF00 /* Namespace.swift */; };
 		F619948E21B7C89E0029EF00 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619948D21B7C89E0029EF00 /* ViewExtensions.swift */; };
-		F62E661D218C0661001E7DE9 /* StandardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E661C218C0661001E7DE9 /* StandardTableViewController.swift */; };
+		F62E661D218C0661001E7DE9 /* GeneralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E661C218C0661001E7DE9 /* GeneralTableViewController.swift */; };
 		F62E661F218C06BE001E7DE9 /* StandardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E661E218C06BE001E7DE9 /* StandardTableView.swift */; };
 		F62E6622218C089B001E7DE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E6624218C089B001E7DE9 /* Localizable.strings */; };
 		F62E6627218C0DB8001E7DE9 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E6626218C0DB8001E7DE9 /* Localization.swift */; };
@@ -57,7 +57,7 @@
 		F619948B21B7B6160029EF00 /* Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
 		F619948D21B7C89E0029EF00 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		F619949821BA6FDF0029EF00 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
-		F62E661C218C0661001E7DE9 /* StandardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableViewController.swift; sourceTree = "<group>"; };
+		F62E661C218C0661001E7DE9 /* GeneralTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTableViewController.swift; sourceTree = "<group>"; };
 		F62E661E218C06BE001E7DE9 /* StandardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableView.swift; sourceTree = "<group>"; };
 		F62E6623218C089B001E7DE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F62E6625218C0901001E7DE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 			children = (
 				F60A42C9217EC00C00AF9F6B /* BaseViewController.swift */,
 				F60A42CB217EC0A300AF9F6B /* GeneralViewController.swift */,
-				F62E661C218C0661001E7DE9 /* StandardTableViewController.swift */,
+				F62E661C218C0661001E7DE9 /* GeneralTableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -327,7 +327,7 @@
 				F619948721B785030029EF00 /* Pattern.swift in Sources */,
 				F65D1A7E21806E02006CF3D5 /* BaseView.swift in Sources */,
 				F66242E921C1059500BDDBFF /* StandardTextView.swift in Sources */,
-				F62E661D218C0661001E7DE9 /* StandardTableViewController.swift in Sources */,
+				F62E661D218C0661001E7DE9 /* GeneralTableViewController.swift in Sources */,
 				F66242E721C104F700BDDBFF /* BaseTextView.swift in Sources */,
 				F65D1A802180717F006CF3D5 /* StandardScrollView.swift in Sources */,
 				F65D1A8721807380006CF3D5 /* BaseTableViewCell.swift in Sources */,

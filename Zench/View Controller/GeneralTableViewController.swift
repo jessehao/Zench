@@ -1,5 +1,5 @@
 //
-//  StandardTableViewController.swift
+//  GeneralTableViewController.swift
 //  Zench
 //
 //  Created by Jesse Hao on 2018/11/2.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class StandardTableViewController: GeneralViewController<UIView>, StandardTableViewDelegate, StandardTableViewDataSource {
+open class GeneralTableViewController: GeneralViewController<UIView>, StandardTableViewDelegate, StandardTableViewDataSource {
 	// MARK: - Interface
 	open var style:UITableView.Style { return .plain }
 	open private(set) lazy var tableView = StandardTableView(frame: .zero, style: self.style)
@@ -27,7 +27,6 @@ open class StandardTableViewController: GeneralViewController<UIView>, StandardT
 	
 	open override func viewDidLoad() {
 		super.viewDidLoad()
-		
 		self.view.addSubview(self.tableView)
 		self.tableViewDidAdded()
 		self.makeConstraintsFor(tableView: self.tableView)
