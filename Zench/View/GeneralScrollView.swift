@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class GeneralScrollView: BaseView {
+open class GeneralScrollView: StandardView {
 	var defaultKeyboardDismissMode:UIScrollView.KeyboardDismissMode { return UIScrollView.KeyboardDismissMode.onDrag }
 	
 	// MARK: - Components

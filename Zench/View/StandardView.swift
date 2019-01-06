@@ -1,5 +1,5 @@
 //
-//  BaseView.swift
+//  StandardView.swift
 //  Zench
 //
 //  Created by Jesse Hao on 2018/10/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseView: UIView, ViewPatternProtocol {
+open class StandardView: UIView, ViewPatternProtocol {
 	open var defaultBackgroundColor:UIColor { return .white }
 	
 	// MARK: - Lifecycle
@@ -35,7 +35,7 @@ open class BaseView: UIView, ViewPatternProtocol {
 }
 
 
-open class StandardShapeView: BaseView {
+open class GeneralShapeView: StandardView {
     override open class var layerClass : AnyClass { return CAShapeLayer.self }
 	open var shapeLayer:CAShapeLayer { return self.layer as! CAShapeLayer }
 	
