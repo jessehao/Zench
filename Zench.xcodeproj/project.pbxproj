@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F60A42CA217EC00C00AF9F6B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42C9217EC00C00AF9F6B /* BaseViewController.swift */; };
+		F60A42CA217EC00C00AF9F6B /* StandardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42C9217EC00C00AF9F6B /* StandardViewController.swift */; };
 		F60A42CC217EC0A300AF9F6B /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42CB217EC0A300AF9F6B /* GeneralViewController.swift */; };
 		F60A42CE217EC15C00AF9F6B /* StandardKeyboardNotificationUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42CD217EC15C00AF9F6B /* StandardKeyboardNotificationUserInfo.swift */; };
 		F60A42D0217EC1D800AF9F6B /* StandardSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A42CF217EC1D800AF9F6B /* StandardSize.swift */; };
@@ -43,7 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F60A42C9217EC00C00AF9F6B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F60A42C9217EC00C00AF9F6B /* StandardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardViewController.swift; sourceTree = "<group>"; };
 		F60A42CB217EC0A300AF9F6B /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
 		F60A42CD217EC15C00AF9F6B /* StandardKeyboardNotificationUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardKeyboardNotificationUserInfo.swift; sourceTree = "<group>"; };
 		F60A42CF217EC1D800AF9F6B /* StandardSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardSize.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		F60A42C4217EBF9D00AF9F6B /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F60A42C9217EC00C00AF9F6B /* BaseViewController.swift */,
+				F60A42C9217EC00C00AF9F6B /* StandardViewController.swift */,
 				F60A42CB217EC0A300AF9F6B /* GeneralViewController.swift */,
 				F62E661C218C0661001E7DE9 /* GeneralTableViewController.swift */,
 			);
@@ -302,7 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F60A42CA217EC00C00AF9F6B /* BaseViewController.swift in Sources */,
+				F60A42CA217EC00C00AF9F6B /* StandardViewController.swift in Sources */,
 				F60A42DB217EC7DB00AF9F6B /* Extensions.swift in Sources */,
 				F62E661F218C06BE001E7DE9 /* StandardTableView.swift in Sources */,
 				F60A42D0217EC1D800AF9F6B /* StandardSize.swift in Sources */,

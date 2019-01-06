@@ -1,5 +1,5 @@
 //
-//  BaseViewController.swift
+//  StandardViewController.swift
 //  Zench
 //
 //  Created by Jesse Hao on 2018/10/23.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseViewController: UIViewController, ViewControllerPatternProtocol {
+open class StandardViewController: UIViewController, ViewControllerPatternProtocol {
 	open var defaultContentSize:CGSize? { return nil }
 	public private(set) var viewDidLoaded:Bool = false
 	
