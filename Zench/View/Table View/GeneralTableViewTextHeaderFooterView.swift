@@ -1,5 +1,5 @@
 //
-//  StandardTableViewTextHeaderFooterView.swift
+//  GeneralTableViewTextHeaderFooterView.swift
 //  Zench
 //
 //  Created by Jesse Hao on 2018/10/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class StandardTableViewTextHeaderFooterView: BaseTableViewHeaderFooterView {
+open class GeneralTableViewTextHeaderFooterView: BaseTableViewHeaderFooterView {
 	// MARK: - Interface
 	open var title:String? {
 		get { return self.label.text }
