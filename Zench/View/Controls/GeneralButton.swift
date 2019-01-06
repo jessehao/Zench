@@ -1,5 +1,5 @@
 //
-//  StandardButton.swift
+//  GeneralButton.swift
 //  Zench
 //
 //  Created by Jesse Hao on 2018/10/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class StandardButton: BaseButton {
+open class GeneralButton: BaseButton {
 	private var backgroundColorDict:[UIControl.State:UIColor] = [:]
 	
 	// MARK: - Interface
