@@ -1,5 +1,5 @@
 //
-//  BaseCollectionViewCell.swift
+//  StandardCollectionViewCell.swift
 //  Zench
 //
 //  Created by Jesse Hao on 2018/10/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseCollectionViewCell: UICollectionViewCell, ViewPatternProtocol {
+open class StandardCollectionViewCell: UICollectionViewCell, ViewPatternProtocol {
 	open var indexPath:IndexPath?
 	
 	// MARK: - Lifecycle

@@ -33,7 +33,7 @@
 		F65D1A8421807353006CF3D5 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8321807353006CF3D5 /* BaseButton.swift */; };
 		F65D1A8721807380006CF3D5 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8621807380006CF3D5 /* BaseTableViewCell.swift */; };
 		F65D1A89218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A88218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift */; };
-		F65D1A8B218073AB006CF3D5 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8A218073AB006CF3D5 /* BaseCollectionViewCell.swift */; };
+		F65D1A8B218073AB006CF3D5 /* StandardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8A218073AB006CF3D5 /* StandardCollectionViewCell.swift */; };
 		F65D1A8D218073BC006CF3D5 /* GeneralTableViewTextHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8C218073BC006CF3D5 /* GeneralTableViewTextHeaderFooterView.swift */; };
 		F65D1A8F218074AC006CF3D5 /* GeneralButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8E218074AC006CF3D5 /* GeneralButton.swift */; };
 		F66242E721C104F700BDDBFF /* BaseTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66242E621C104F700BDDBFF /* BaseTextView.swift */; };
@@ -71,7 +71,7 @@
 		F65D1A8321807353006CF3D5 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		F65D1A8621807380006CF3D5 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		F65D1A88218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
-		F65D1A8A218073AB006CF3D5 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		F65D1A8A218073AB006CF3D5 /* StandardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardCollectionViewCell.swift; sourceTree = "<group>"; };
 		F65D1A8C218073BC006CF3D5 /* GeneralTableViewTextHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTableViewTextHeaderFooterView.swift; sourceTree = "<group>"; };
 		F65D1A8E218074AC006CF3D5 /* GeneralButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralButton.swift; sourceTree = "<group>"; };
 		F66242E621C104F700BDDBFF /* BaseTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextView.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 				F65D1A8521807363006CF3D5 /* Controls */,
 				F65D1A7D21806E02006CF3D5 /* StandardView.swift */,
 				F65D1A7F2180717F006CF3D5 /* GeneralScrollView.swift */,
-				F65D1A8A218073AB006CF3D5 /* BaseCollectionViewCell.swift */,
+				F65D1A8A218073AB006CF3D5 /* StandardCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -314,7 +314,7 @@
 				F62E6627218C0DB8001E7DE9 /* Localization.swift in Sources */,
 				F60A42D7217EC65B00AF9F6B /* StandardDiscretable.swift in Sources */,
 				F60A42D3217EC3C200AF9F6B /* ViewControllerExtensions.swift in Sources */,
-				F65D1A8B218073AB006CF3D5 /* BaseCollectionViewCell.swift in Sources */,
+				F65D1A8B218073AB006CF3D5 /* StandardCollectionViewCell.swift in Sources */,
 				F64BF4A721D22891009AE92C /* StringExtensions.swift in Sources */,
 				F65D1A89218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift in Sources */,
 				F65D1A8F218074AC006CF3D5 /* GeneralButton.swift in Sources */,
