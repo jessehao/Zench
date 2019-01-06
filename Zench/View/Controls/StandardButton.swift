@@ -1,5 +1,5 @@
 //
-//  BaseButton.swift
+//  StandardButton.swift
 //  Zench
 //
 //  Created by Jesse Hao on 2018/10/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseButton: UIButton, ViewPatternProtocol {
+open class StandardButton: UIButton, ViewPatternProtocol {
 	// MARK: - Lifecycle
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -30,7 +30,7 @@ open class BaseButton: UIButton, ViewPatternProtocol {
 	open func prepareTargets() {}
 }
 
-class StandardShapeButton: BaseButton {
+class GeneralShapeButton: StandardButton {
 	override class var layerClass : AnyClass { return CAShapeLayer.self }
 	var shapeLayer:CAShapeLayer { return self.layer as! CAShapeLayer }
 	
@@ -47,4 +47,4 @@ class StandardShapeButton: BaseButton {
 	}
 }
 
-// TODO: Standard Gradient Button
+// TODO: General Gradient Button

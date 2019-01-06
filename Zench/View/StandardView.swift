@@ -52,4 +52,4 @@ open class GeneralShapeView: StandardView {
 	}
 }
 
-// TODO: Standard Gradient View
+// TODO: General Gradient View

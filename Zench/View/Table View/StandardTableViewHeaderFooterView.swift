@@ -1,5 +1,5 @@
 //
-//  BaseTableViewHeaderFooterView.swift
+//  StandardTableViewHeaderFooterView.swift
 //  Zench
 //
 //  Created by Jesse Hao on 2018/10/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseTableViewHeaderFooterView: UITableViewHeaderFooterView, ViewPatternProtocol {
+open class StandardTableViewHeaderFooterView: UITableViewHeaderFooterView, ViewPatternProtocol {
 	
 	// MARK: - Lifecycle
 	public override init(reuseIdentifier: String?) {

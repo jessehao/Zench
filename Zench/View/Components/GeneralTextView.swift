@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class GeneralTextView : BaseTextView {
+open class GeneralTextView : StandardTextView {
 	open class var defaultForegroundTextColor:UIColor { return .black }
 	open class var defaultPlaceholderTextColor:UIColor { return UIColor(red: 144 / 255.0, green: 144 / 255.0, blue: 144 / 255.0, alpha: 1) }
 	

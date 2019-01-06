@@ -29,14 +29,14 @@
 		F64BF4A921D228D5009AE92C /* NumericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BF4A821D228D5009AE92C /* NumericExtensions.swift */; };
 		F65D1A7E21806E02006CF3D5 /* StandardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A7D21806E02006CF3D5 /* StandardView.swift */; };
 		F65D1A802180717F006CF3D5 /* GeneralScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A7F2180717F006CF3D5 /* GeneralScrollView.swift */; };
-		F65D1A8221807347006CF3D5 /* BaseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8121807347006CF3D5 /* BaseControl.swift */; };
-		F65D1A8421807353006CF3D5 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8321807353006CF3D5 /* BaseButton.swift */; };
-		F65D1A8721807380006CF3D5 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8621807380006CF3D5 /* BaseTableViewCell.swift */; };
-		F65D1A89218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A88218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift */; };
+		F65D1A8221807347006CF3D5 /* StandardControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8121807347006CF3D5 /* StandardControl.swift */; };
+		F65D1A8421807353006CF3D5 /* StandardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8321807353006CF3D5 /* StandardButton.swift */; };
+		F65D1A8721807380006CF3D5 /* StandardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8621807380006CF3D5 /* StandardTableViewCell.swift */; };
+		F65D1A89218073A1006CF3D5 /* StandardTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A88218073A1006CF3D5 /* StandardTableViewHeaderFooterView.swift */; };
 		F65D1A8B218073AB006CF3D5 /* StandardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8A218073AB006CF3D5 /* StandardCollectionViewCell.swift */; };
 		F65D1A8D218073BC006CF3D5 /* GeneralTableViewTextHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8C218073BC006CF3D5 /* GeneralTableViewTextHeaderFooterView.swift */; };
 		F65D1A8F218074AC006CF3D5 /* GeneralButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8E218074AC006CF3D5 /* GeneralButton.swift */; };
-		F66242E721C104F700BDDBFF /* BaseTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66242E621C104F700BDDBFF /* BaseTextView.swift */; };
+		F66242E721C104F700BDDBFF /* StandardTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66242E621C104F700BDDBFF /* StandardTextView.swift */; };
 		F66242E921C1059500BDDBFF /* GeneralTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66242E821C1059500BDDBFF /* GeneralTextView.swift */; };
 		F6A73FCD21BA837E00C091A4 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = F619949821BA6FDF0029EF00 /* Preference.swift */; };
 		F6D2A4122179FDD800B1B934 /* Zench.h in Headers */ = {isa = PBXBuildFile; fileRef = F6D2A4102179FDD800B1B934 /* Zench.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -67,14 +67,14 @@
 		F64BF4A821D228D5009AE92C /* NumericExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericExtensions.swift; sourceTree = "<group>"; };
 		F65D1A7D21806E02006CF3D5 /* StandardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardView.swift; sourceTree = "<group>"; };
 		F65D1A7F2180717F006CF3D5 /* GeneralScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralScrollView.swift; sourceTree = "<group>"; };
-		F65D1A8121807347006CF3D5 /* BaseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControl.swift; sourceTree = "<group>"; };
-		F65D1A8321807353006CF3D5 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
-		F65D1A8621807380006CF3D5 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		F65D1A88218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
+		F65D1A8121807347006CF3D5 /* StandardControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardControl.swift; sourceTree = "<group>"; };
+		F65D1A8321807353006CF3D5 /* StandardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardButton.swift; sourceTree = "<group>"; };
+		F65D1A8621807380006CF3D5 /* StandardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableViewCell.swift; sourceTree = "<group>"; };
+		F65D1A88218073A1006CF3D5 /* StandardTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		F65D1A8A218073AB006CF3D5 /* StandardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardCollectionViewCell.swift; sourceTree = "<group>"; };
 		F65D1A8C218073BC006CF3D5 /* GeneralTableViewTextHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTableViewTextHeaderFooterView.swift; sourceTree = "<group>"; };
 		F65D1A8E218074AC006CF3D5 /* GeneralButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralButton.swift; sourceTree = "<group>"; };
-		F66242E621C104F700BDDBFF /* BaseTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextView.swift; sourceTree = "<group>"; };
+		F66242E621C104F700BDDBFF /* StandardTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardTextView.swift; sourceTree = "<group>"; };
 		F66242E821C1059500BDDBFF /* GeneralTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTextView.swift; sourceTree = "<group>"; };
 		F6D2A40D2179FDD800B1B934 /* Zench.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zench.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D2A4102179FDD800B1B934 /* Zench.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Zench.h; sourceTree = "<group>"; };
@@ -161,8 +161,8 @@
 		F65D1A8521807363006CF3D5 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				F65D1A8121807347006CF3D5 /* BaseControl.swift */,
-				F65D1A8321807353006CF3D5 /* BaseButton.swift */,
+				F65D1A8121807347006CF3D5 /* StandardControl.swift */,
+				F65D1A8321807353006CF3D5 /* StandardButton.swift */,
 				F65D1A8E218074AC006CF3D5 /* GeneralButton.swift */,
 			);
 			path = Controls;
@@ -171,8 +171,8 @@
 		F65D1A90218075F8006CF3D5 /* Table View */ = {
 			isa = PBXGroup;
 			children = (
-				F65D1A8621807380006CF3D5 /* BaseTableViewCell.swift */,
-				F65D1A88218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift */,
+				F65D1A8621807380006CF3D5 /* StandardTableViewCell.swift */,
+				F65D1A88218073A1006CF3D5 /* StandardTableViewHeaderFooterView.swift */,
 				F65D1A8C218073BC006CF3D5 /* GeneralTableViewTextHeaderFooterView.swift */,
 				F62E661E218C06BE001E7DE9 /* StandardTableView.swift */,
 			);
@@ -182,7 +182,7 @@
 		F66242E521C104E100BDDBFF /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				F66242E621C104F700BDDBFF /* BaseTextView.swift */,
+				F66242E621C104F700BDDBFF /* StandardTextView.swift */,
 				F66242E821C1059500BDDBFF /* GeneralTextView.swift */,
 			);
 			path = Components;
@@ -316,21 +316,21 @@
 				F60A42D3217EC3C200AF9F6B /* ViewControllerExtensions.swift in Sources */,
 				F65D1A8B218073AB006CF3D5 /* StandardCollectionViewCell.swift in Sources */,
 				F64BF4A721D22891009AE92C /* StringExtensions.swift in Sources */,
-				F65D1A89218073A1006CF3D5 /* BaseTableViewHeaderFooterView.swift in Sources */,
+				F65D1A89218073A1006CF3D5 /* StandardTableViewHeaderFooterView.swift in Sources */,
 				F65D1A8F218074AC006CF3D5 /* GeneralButton.swift in Sources */,
 				F6A73FCD21BA837E00C091A4 /* Preference.swift in Sources */,
 				F60A42CC217EC0A300AF9F6B /* GeneralViewController.swift in Sources */,
 				F60A42DD217ED28E00AF9F6B /* StandardTimer.swift in Sources */,
-				F65D1A8221807347006CF3D5 /* BaseControl.swift in Sources */,
-				F65D1A8421807353006CF3D5 /* BaseButton.swift in Sources */,
+				F65D1A8221807347006CF3D5 /* StandardControl.swift in Sources */,
+				F65D1A8421807353006CF3D5 /* StandardButton.swift in Sources */,
 				F619948E21B7C89E0029EF00 /* ViewExtensions.swift in Sources */,
 				F619948721B785030029EF00 /* Pattern.swift in Sources */,
 				F65D1A7E21806E02006CF3D5 /* StandardView.swift in Sources */,
 				F66242E921C1059500BDDBFF /* GeneralTextView.swift in Sources */,
 				F62E661D218C0661001E7DE9 /* GeneralTableViewController.swift in Sources */,
-				F66242E721C104F700BDDBFF /* BaseTextView.swift in Sources */,
+				F66242E721C104F700BDDBFF /* StandardTextView.swift in Sources */,
 				F65D1A802180717F006CF3D5 /* GeneralScrollView.swift in Sources */,
-				F65D1A8721807380006CF3D5 /* BaseTableViewCell.swift in Sources */,
+				F65D1A8721807380006CF3D5 /* StandardTableViewCell.swift in Sources */,
 				F64BF4A521D227B2009AE92C /* CollectionExtensions.swift in Sources */,
 				F60A42D9217EC74800AF9F6B /* StandardConfigurable.swift in Sources */,
 			);

@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class GeneralButton: BaseButton {
+open class GeneralButton: StandardButton {
 	private var backgroundColorDict:[UIControl.State:UIColor] = [:]
 	
 	// MARK: - Interface

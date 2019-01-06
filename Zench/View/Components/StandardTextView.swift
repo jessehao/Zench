@@ -1,5 +1,5 @@
 //
-//  BaseTextView.swift
+//  StandardTextView.swift
 //  Zench
 //
 //  Created by Jesse Hao on 2018/12/12.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class BaseTextView : UITextView, ViewPatternProtocol {
+open class StandardTextView : UITextView, ViewPatternProtocol {
 	public override init(frame: CGRect, textContainer: NSTextContainer?) {
 		super.init(frame: frame, textContainer: textContainer)
 		self.setup()

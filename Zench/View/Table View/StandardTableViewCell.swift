@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseTableViewCell: UITableViewCell, ViewPatternProtocol {
+open class StandardTableViewCell: UITableViewCell, ViewPatternProtocol {
 	
 	open var defaultSelectionStyle:UITableViewCell.SelectionStyle { return .default }
 	open var indexPath:IndexPath?

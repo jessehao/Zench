@@ -1,5 +1,5 @@
 //
-//  BaseControl.swift
+//  StandardControl.swift
 //  Zench
 //
 //  Created by Jesse Hao on 2018/10/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseControl: UIControl, ViewPatternProtocol {
+open class StandardControl: UIControl, ViewPatternProtocol {
 	
 	// MARK: - Lifecycle
 	public override init(frame: CGRect) {
