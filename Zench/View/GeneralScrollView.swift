@@ -1,5 +1,5 @@
 //
-//  StandardScrollView.swift
+//  GeneralScrollView.swift
 //  Zench
 //
 //  Created by Jesse Hao on 2018/10/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class StandardScrollView: BaseView {
+open class GeneralScrollView: BaseView {
 	var defaultKeyboardDismissMode:UIScrollView.KeyboardDismissMode { return UIScrollView.KeyboardDismissMode.onDrag }
 	
 	// MARK: - Components
@@ -54,7 +54,7 @@ open class StandardScrollView: BaseView {
 	}
 }
 
-class StandardVerticalScrollView: StandardScrollView {
+class GeneralVerticalScrollView: GeneralScrollView {
 	var alwaysBounce:Bool { return false }
 	
 	// MARK: - Operations
@@ -71,7 +71,7 @@ class StandardVerticalScrollView: StandardScrollView {
 	}
 }
 
-class StandardHorizontalScrollView: StandardScrollView {
+class GeneralHorizontalScrollView: GeneralScrollView {
 	var alwaysBounce:Bool { return false }
 	
 	// MARK: - Operations

@@ -28,7 +28,7 @@
 		F64BF4A721D22891009AE92C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BF4A621D22891009AE92C /* StringExtensions.swift */; };
 		F64BF4A921D228D5009AE92C /* NumericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BF4A821D228D5009AE92C /* NumericExtensions.swift */; };
 		F65D1A7E21806E02006CF3D5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A7D21806E02006CF3D5 /* BaseView.swift */; };
-		F65D1A802180717F006CF3D5 /* StandardScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A7F2180717F006CF3D5 /* StandardScrollView.swift */; };
+		F65D1A802180717F006CF3D5 /* GeneralScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A7F2180717F006CF3D5 /* GeneralScrollView.swift */; };
 		F65D1A8221807347006CF3D5 /* BaseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8121807347006CF3D5 /* BaseControl.swift */; };
 		F65D1A8421807353006CF3D5 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8321807353006CF3D5 /* BaseButton.swift */; };
 		F65D1A8721807380006CF3D5 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D1A8621807380006CF3D5 /* BaseTableViewCell.swift */; };
@@ -66,7 +66,7 @@
 		F64BF4A621D22891009AE92C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		F64BF4A821D228D5009AE92C /* NumericExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericExtensions.swift; sourceTree = "<group>"; };
 		F65D1A7D21806E02006CF3D5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		F65D1A7F2180717F006CF3D5 /* StandardScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardScrollView.swift; sourceTree = "<group>"; };
+		F65D1A7F2180717F006CF3D5 /* GeneralScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralScrollView.swift; sourceTree = "<group>"; };
 		F65D1A8121807347006CF3D5 /* BaseControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControl.swift; sourceTree = "<group>"; };
 		F65D1A8321807353006CF3D5 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		F65D1A8621807380006CF3D5 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 				F65D1A90218075F8006CF3D5 /* Table View */,
 				F65D1A8521807363006CF3D5 /* Controls */,
 				F65D1A7D21806E02006CF3D5 /* BaseView.swift */,
-				F65D1A7F2180717F006CF3D5 /* StandardScrollView.swift */,
+				F65D1A7F2180717F006CF3D5 /* GeneralScrollView.swift */,
 				F65D1A8A218073AB006CF3D5 /* BaseCollectionViewCell.swift */,
 			);
 			path = View;
@@ -329,7 +329,7 @@
 				F66242E921C1059500BDDBFF /* StandardTextView.swift in Sources */,
 				F62E661D218C0661001E7DE9 /* GeneralTableViewController.swift in Sources */,
 				F66242E721C104F700BDDBFF /* BaseTextView.swift in Sources */,
-				F65D1A802180717F006CF3D5 /* StandardScrollView.swift in Sources */,
+				F65D1A802180717F006CF3D5 /* GeneralScrollView.swift in Sources */,
 				F65D1A8721807380006CF3D5 /* BaseTableViewCell.swift in Sources */,
 				F64BF4A521D227B2009AE92C /* CollectionExtensions.swift in Sources */,
 				F60A42D9217EC74800AF9F6B /* StandardConfigurable.swift in Sources */,
