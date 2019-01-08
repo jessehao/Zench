@@ -11,6 +11,8 @@ import UIKit
 public protocol StandardTableViewDataSource: UITableViewDataSource {
 	func tableViewWillLoadData()
 	func tableViewDidLoadData()
+	func tableViewWillBeginUpdate()
+	func tableViewDidEndUpdate()
 }
 
 public extension StandardTableViewDataSource {
