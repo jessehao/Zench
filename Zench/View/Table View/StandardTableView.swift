@@ -43,6 +43,8 @@ open class StandardTableView: UITableView {
 	
 	open override func endUpdates() {
 		super.endUpdates()
-		self.standardDataSource?.tableViewDidEndUpdate()
+		DispatchQueue.main.async { [weak self] in
+			self?.standardDataSource?.tableViewDidEndUpdate()
+		}
 	}
 }

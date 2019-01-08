@@ -43,6 +43,8 @@ open class GeneralTableViewController: GeneralViewController<UIView>, StandardTa
 	open func tableViewDidLoadData() {
 		self.hasLoadedData = true
 	}
+	open func tableViewWillBeginUpdate() {}
+	open func tableViewDidEndUpdate() {}
 	
 	// MARK: - UITableView Data Source
 	open func numberOfSections(in tableView: UITableView) -> Int { return 1 }
