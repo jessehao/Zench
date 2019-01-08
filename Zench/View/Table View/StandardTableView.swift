@@ -16,6 +16,8 @@ public protocol StandardTableViewDataSource: UITableViewDataSource {
 public extension StandardTableViewDataSource {
 	func tableViewWillLoadData() {}
 	func tableViewDidLoadData() {}
+	func tableViewWillBeginUpdate() {}
+	func tableViewDidEndUpdate() {}
 }
 
 public protocol StandardTableViewDelegate: UITableViewDelegate {}
@@ -30,5 +32,15 @@ open class StandardTableView: UITableView {
 		DispatchQueue.main.async { [weak self] in
 			self?.standardDataSource?.tableViewDidLoadData()
 		}
+	}
+	
+	open override func beginUpdates() {
+		self.standardDataSource?.tableViewWillBeginUpdate()
+		super.beginUpdates()
+	}
+	
+	open override func endUpdates() {
+		super.endUpdates()
+		self.standardDataSource?.tableViewDidEndUpdate()
 	}
 }
