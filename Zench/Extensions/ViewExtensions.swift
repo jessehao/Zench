@@ -112,20 +112,48 @@ public extension UISwitch {
 	}
 }
 
+public extension UIScrollView {
+	/// Zench: Scroll to bottom of TableView.
+	///
+	/// - Parameter animated: set true to animate scroll (default is true).
+	public func scrollToBottom(animated: Bool = true) {
+		let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height)
+		setContentOffset(bottomOffset, animated: animated)
+	}
+	
+	/// Zench: Scroll to top of TableView.
+	///
+	/// - Parameter animated: set true to animate scroll (default is true).
+	public func scrollToTop(animated: Bool = true) {
+		setContentOffset(CGPoint.zero, animated: animated)
+	}
+}
+
 public extension UITableView {
 	var hasCell:Bool {
-		return self.numberOfSections > 0 && self.numberOfRows(inSection: 0) > 0
+		let sectionCount = self.numberOfSections
+		guard sectionCount > 0 else { return false }
+		return (0..<sectionCount).contains { self.numberOfRows(inSection: $0) > 0 }
+	}
+	
+	/// Zench: Number of all rows in all sections of tableView.
+	///
+	/// - Returns: The count of all rows in the tableView.
+	public func numberOfRows() -> Int {
+		let sectionCount = self.numberOfSections
+		guard sectionCount > 0 else { return 0 }
+		return (0..<sectionCount).reduce(0) { $0 + self.numberOfRows(inSection: $1) }
 	}
 	
 	func registerCells(withDictionary dict:[String:AnyClass]) {
 		dict.forEach { self.register($1, forCellReuseIdentifier: $0) }
 	}
 	
-	var lastSection:Int? {
+	var lastSectionIndex:Int? {
 		return self.numberOfSections > 0 ? self.numberOfSections - 1 : nil
 	}
 	
-	func lastRow(inSection section:Int) -> Int? {
+	func lastRowIndex(inSection section:Int) -> Int? {
 		let count = self.numberOfRows(inSection: section)
 		return count > 0 ? count - 1 : nil
 	}
@@ -152,6 +180,17 @@ public extension UITableView {
 	func scrollToBottomRow(animated:Bool = true) {
 		guard let indexPath = self.indexPathForLastCell() else { return }
 		self.scrollToRow(at: indexPath, at: .bottom, animated: animated)
+	}
+	
+	/// Reload data with a completion handler.
+	///
+	/// - Parameter completion: completion handler to run after reloadData finishes.
+	public func reloadData(_ completion: @escaping () -> Void) {
+		UIView.animate(withDuration: 0, animations: {
+			self.reloadData()
+		}, completion: { _ in
+			completion()
+		})
 	}
 }
 
