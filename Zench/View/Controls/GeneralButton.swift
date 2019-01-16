@@ -65,7 +65,7 @@ open class GeneralButton: StandardButton {
 	}
 	
 	open func setLoadingEnable(_ enable:Bool) {
-		self.isEnabled = !enable
+		self.isEnabled = self.isEnabled && !enable
 		self.isTitleLabelHidden = enable
 		if enable {
 			self.activityIndicator.startAnimating()
