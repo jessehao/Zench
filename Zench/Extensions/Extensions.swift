@@ -8,9 +8,6 @@
 
 // MARK: - NSObject
 extension NSObject : StandardNoParameterInitializable, StandardClassConfigurable, StandardClassConfigurableInitializer, StandardNotificationSupport {}
-extension NSObject {
-	var className:String { return object_getClassName(self).string }
-}
 
 // MARK: - Bundle
 extension Bundle {
