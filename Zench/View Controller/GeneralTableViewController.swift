@@ -89,10 +89,6 @@ open class GeneralTableViewController: GeneralViewController<UIView>, StandardTa
 	open func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle { return .none }
 	open func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? { return Localization.delete.localizedDescription() }
 	
-	// MARK: - Actions
-	@objc open func refreshHeaderPulled() {}
-	@objc open func refreshFooterPulled() {}
-	
 	// MARK: - Operation
 	open func customBaseView() -> UIView? { return nil }
 	
