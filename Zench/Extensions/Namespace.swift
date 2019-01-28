@@ -23,14 +23,14 @@ public extension ZenchNamespaceWrappable {
 
 public protocol ZenchTypeWrapperProtocol {
 	associatedtype WrappedType
-	var wrappedValue: WrappedType { get }
+	var unwrapped: WrappedType { get }
 	init(value: WrappedType)
 }
 
 public struct ZenchNamespaceWrapper<T> : ZenchTypeWrapperProtocol {
-	public var wrappedValue: T
+	public var unwrapped: T
 	public init(value: T) {
-		self.wrappedValue = value
+		self.unwrapped = value
 	}
 }
 

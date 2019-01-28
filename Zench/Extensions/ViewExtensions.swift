@@ -206,12 +206,12 @@ public extension UITextView {
 extension UITextView : ZenchNamespaceWrappable {}
 public extension ZenchNamespaceWrapper where T : UITextView {
 	func shouldTextIncrease(afterChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-		return (range.location >= self.wrappedValue.text.count && range.length > 0)
-			|| (range.location < self.wrappedValue.text.count && range.length < text.count)
+		return (range.location >= self.unwrapped.text.count && range.length > 0)
+			|| (range.location < self.unwrapped.text.count && range.length < text.count)
 	}
 	
 	func shouldTextDecrease(afterChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-		return range.location < self.wrappedValue.text.count
+		return range.location < self.unwrapped.text.count
 			&& range.length > text.count
 	}
 }
