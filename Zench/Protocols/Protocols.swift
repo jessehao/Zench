@@ -10,6 +10,23 @@ public protocol StandardNoParameterInitializable {
     init()
 }
 
+// MARK: - Standard Nullable
+public protocol StandardNullable {
+	var orNil:Self? { get }
+}
+
+// MARK: - Standard Collection Support
+public protocol StandardCollectionSupport : StandardNullable {}
+extension Array : StandardCollectionSupport {}
+extension Dictionary : StandardCollectionSupport {}
+extension Set : StandardCollectionSupport {}
+
+public extension Collection where Self : StandardCollectionSupport {
+	var orNil:Self? {
+		return self.isEmpty ? nil : self
+	}
+}
+
 // MARK: - Copying
 public protocol StandardDuplicatable {
     func duplicate() throws -> Self
