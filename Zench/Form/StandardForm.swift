@@ -374,9 +374,9 @@ public extension StandardForm.Row {
 	convenience init(withCell cell:UITableViewCell) {
 		self.init()
 		self.cell = cell
-		if let standardCell = cell as? StandardTableViewCell {
-			self.height = StandardTableViewCell.defaultHeight(forCell: standardCell)
-			self.estimatedHeight = StandardTableViewCell.defaultEstimatedHeight(forCell: standardCell)
+		if let standardType = type(of: cell) as? StandardTableViewCell.Type {
+			self.height = standardType.defaultHeight
+			self.estimatedHeight = standardType.defaultEstimatedHeight
 		}
 	}
 	
