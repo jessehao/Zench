@@ -62,6 +62,14 @@ open class StandardFormController<FormType:StandardForm>: GeneralTableViewContro
 	}
 	
 	// MARK: - UITableView Delegate
+	public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return self.form[indexPath].row.height
+	}
+	
+	public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+		return self.form[indexPath].row.estimatedHeight
+	}
+	
 	override open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		return nil
 	}

@@ -37,4 +37,13 @@ open class StandardTableViewCell: UITableViewCell, ViewPatternProtocol {
 	open func prepareSubviews() {}
 	open func makeConstraints() {}
 	open func prepareTargets() {}
+	
+	// MARK: - CLASS
+	open class var defaultHeight:CGFloat { return UITableView.automaticDimension }
+	open class var defaultEstimatedHeight:CGFloat { return 44 }
+}
+
+extension StandardTableViewCell {
+	static func defaultHeight<T:StandardTableViewCell>(forCell cell:T) -> CGFloat { return T.defaultHeight }
+	static func defaultEstimatedHeight<T:StandardTableViewCell>(forCell cell:T) -> CGFloat { return T.defaultEstimatedHeight }
 }

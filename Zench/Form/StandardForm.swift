@@ -353,6 +353,8 @@ extension StandardForm {
 		open var isValid:Bool { return self.cell != nil || self.isDynamic }
 		open var canSelect:Bool = true { didSet { self.cell?.selectionStyle = self.canSelect ? .default : .none } }
 		open var canDelete:Bool = false
+		open var height:CGFloat = UITableView.automaticDimension
+		open var estimatedHeight:CGFloat = 48
 		// Static
 		open private(set) var cell:UITableViewCell?
 		open var didSelectRowEventHandler:(() -> Void)?
@@ -372,7 +374,12 @@ public extension StandardForm.Row {
 	convenience init(withCell cell:UITableViewCell) {
 		self.init()
 		self.cell = cell
+		if let standardCell = cell as? StandardTableViewCell {
+			self.height = StandardTableViewCell.defaultHeight(forCell: standardCell)
+			self.estimatedHeight = StandardTableViewCell.defaultEstimatedHeight(forCell: standardCell)
+		}
 	}
+	
 	@discardableResult func didSelect(_ handler:@escaping () -> Void) -> StandardForm.Row {
 		self.didSelectRowEventHandler = handler
 		return self
