@@ -6,24 +6,24 @@
 //  Copyright © 2019 Snoware. All rights reserved.
 //
 
-class StandardFormController<FormType:StandardForm>: GeneralTableViewController {
-	override var style: UITableView.Style { return .grouped }
+open class StandardFormController<FormType:StandardForm>: GeneralTableViewController {
+	override open var style: UITableView.Style { return .grouped }
 	
-	let headerIdentifier = "HeaderIdentifier"
+	public let headerIdentifier = "HeaderIdentifier"
 	
-	let form:FormType = FormType()
+	public let form:FormType = FormType()
 	
-	var selectedIndexPath:IndexPath?
-	var editingIndexPath:IndexPath?
+	open var selectedIndexPath:IndexPath?
+	open var editingIndexPath:IndexPath?
 	
 	// MARK: - Lifecycle
-	override func viewDidLoad() {
+	override open func viewDidLoad() {
 		super.viewDidLoad()
 		self.configForm(self.form)
 		self.registerDynamicRows()
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
+	override open func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.clearsSelectionIfNeeded()
 	}
@@ -38,11 +38,11 @@ class StandardFormController<FormType:StandardForm>: GeneralTableViewController 
 	func willDeleteDynamicCell(forIdentifier identifier:String, at index:Int) {}
 	
 	// MARK: - UITableView Data Source
-	override func numberOfSections(in tableView: UITableView) -> Int {
+	override open func numberOfSections(in tableView: UITableView) -> Int {
 		return self.form.count
 	}
 	
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		let sec = self.form[section]
 		let retval = sec.reduce(0) { sum, row in
 			row.dynamicRowCount = row.isDynamic ? self.numberOfRows(forDynamicCellReuseIdentifier: row.reuseIdentifier!) : 1
@@ -51,7 +51,7 @@ class StandardFormController<FormType:StandardForm>: GeneralTableViewController 
 		return retval
 	}
 	
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let rowWithOffset = self.form[indexPath]
 		if rowWithOffset.row.isDynamic, let identifier = rowWithOffset.row.reuseIdentifier {
 			let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
@@ -62,19 +62,19 @@ class StandardFormController<FormType:StandardForm>: GeneralTableViewController 
 	}
 	
 	// MARK: - UITableView Delegate
-	override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+	override open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		return nil
 	}
 	
-	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+	override open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		return self.form[section].header ?? " "
 	}
 	
-	override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+	override open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 		return nil
 	}
 	
-	override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+	override open func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
 		let rowWithOffset = self.form[indexPath]
 		if rowWithOffset.row.canSelect {
 			return indexPath
@@ -82,7 +82,7 @@ class StandardFormController<FormType:StandardForm>: GeneralTableViewController 
 		return nil
 	}
 	
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+	override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		super.tableView(tableView, didSelectRowAt: indexPath)
 		let rowWithOffset = self.form[indexPath]
 		if rowWithOffset.row.isDynamic {
@@ -92,32 +92,32 @@ class StandardFormController<FormType:StandardForm>: GeneralTableViewController 
 		}
 	}
 	
-	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+	override open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		return UITableView.automaticDimension
 	}
 	
-	override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+	override open func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
 		return 10
 	}
 	
-	override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+	override open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
 		return self.form[section].footer != nil ? UITableView.automaticDimension : CGFloat.leastNormalMagnitude
 	}
 	
-	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+	override open func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
 		return self.form[section].footer ?? " "
 	}
 	
-	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+	override open func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 		return self.form[indexPath].row.canDelete
 	}
 	
-	override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+	override open func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
 		if self.form[indexPath].row.canDelete { return .delete }
 		return .none
 	}
 	
-	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+	override open func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		let rowWithOffset = self.form[indexPath]
 		if rowWithOffset.row.canDelete {
 			if rowWithOffset.row.isDynamic {
@@ -131,7 +131,7 @@ class StandardFormController<FormType:StandardForm>: GeneralTableViewController 
 	}
 	
 	// MARK: - Actions
-	override func keyboardWillShow(userInfo: StandardKeyboardNotificationUserInfo) {
+	override open func keyboardWillShow(userInfo: StandardKeyboardNotificationUserInfo) {
 		let keyboardRect = userInfo.beginFrame
 		let keyboardSize = keyboardRect?.size ?? .zero
 		var contentInsets:UIEdgeInsets
@@ -152,7 +152,7 @@ class StandardFormController<FormType:StandardForm>: GeneralTableViewController 
 		}
 	}
 	
-	override func keyboardWillHide(userInfo: StandardKeyboardNotificationUserInfo) {
+	override open func keyboardWillHide(userInfo: StandardKeyboardNotificationUserInfo) {
 		let rate = userInfo.animationDuration ?? 0
 		UIView.animate(withDuration: rate) {
 			self.tableView.contentInset = .zero
@@ -161,12 +161,12 @@ class StandardFormController<FormType:StandardForm>: GeneralTableViewController 
 	}
 	
 	// MARK: - Operations
-	override func configTableView(_ tableView: StandardTableView) {
+	override open func configTableView(_ tableView: StandardTableView) {
 		super.configTableView(tableView)
 		tableView.keyboardDismissMode = .onDrag
 	}
 	
-	func registerDynamicRows() {
+	open func registerDynamicRows() {
 		self.form.allDynamicRows().forEach {
 			guard let identifier = $0.reuseIdentifier else { return }
 			self.tableView.register($0.cellType, forCellReuseIdentifier: identifier)
@@ -175,37 +175,37 @@ class StandardFormController<FormType:StandardForm>: GeneralTableViewController 
 }
 
 extension StandardFormController : StandardFormDelegate {
-	func form(_ form: StandardForm, sectionsAddedAt indexes: IndexSet) {
+	public func form(_ form: StandardForm, sectionsAddedAt indexes: IndexSet) {
 		self.tableView.beginUpdates()
 		self.tableView.insertSections(indexes, with: .fade)
 		self.tableView.endUpdates()
 	}
 	
-	func form(_ form: StandardForm, sectionsRemovedAt indexes: IndexSet) {
+	public func form(_ form: StandardForm, sectionsRemovedAt indexes: IndexSet) {
 		self.tableView.beginUpdates()
 		self.tableView.deleteSections(indexes, with: .fade)
 		self.tableView.endUpdates()
 	}
 	
-	func form(_ form: StandardForm, sectionsUpdatedAt indexes: IndexSet) {
+	public func form(_ form: StandardForm, sectionsUpdatedAt indexes: IndexSet) {
 		self.tableView.beginUpdates()
 		self.tableView.reloadSections(indexes, with: .automatic)
 		self.tableView.endUpdates()
 	}
 	
-	func form(_ form: StandardForm, rowsAddedAt indexPaths: [IndexPath]) {
+	public func form(_ form: StandardForm, rowsAddedAt indexPaths: [IndexPath]) {
 		self.tableView.beginUpdates()
 		self.tableView.insertRows(at: indexPaths, with: .middle)
 		self.tableView.endUpdates()
 	}
 	
-	func form(_ form: StandardForm, rowsRemovedAt indexPaths: [IndexPath]) {
+	public func form(_ form: StandardForm, rowsRemovedAt indexPaths: [IndexPath]) {
 		self.tableView.beginUpdates()
 		self.tableView.deleteRows(at: indexPaths, with: .top)
 		self.tableView.endUpdates()
 	}
 	
-	func form(_ form: StandardForm, rowsUpdatedAt indexPaths: [IndexPath]) {
+	public func form(_ form: StandardForm, rowsUpdatedAt indexPaths: [IndexPath]) {
 		self.tableView.beginUpdates()
 		self.tableView.reloadRows(at: indexPaths, with: .automatic)
 		self.tableView.endUpdates()
