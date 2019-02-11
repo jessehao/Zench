@@ -54,6 +54,10 @@ open class GeneralTableViewController: GeneralViewController<UIView>, StandardTa
 	}
 	
 	// MARK: - UITableView Delegate
+	open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { return UITableView.automaticDimension }
+	
+	open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat { return 44 }
+	
 	open func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? { return indexPath }
 	
 	open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
