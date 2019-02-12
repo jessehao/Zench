@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Zench"
-  s.version      = "0.4.0"
+  s.version      = "0.4.1"
   s.summary      = "An iOS develop framework for creative swifters."
 
   # This description is used to generate tags and improve search results.
