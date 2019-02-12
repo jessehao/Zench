@@ -218,4 +218,8 @@ extension StandardFormController : StandardFormDelegate {
 		self.tableView.reloadRows(at: indexPaths, with: .automatic)
 		self.tableView.endUpdates()
 	}
+	
+	public func needsToReloadData(for form: StandardForm) {
+		self.tableView.reloadData()
+	}
 }

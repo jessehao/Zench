@@ -13,6 +13,7 @@ public protocol StandardFormDelegate : class {
 	func form(_ form:StandardForm, rowsAddedAt indexPaths:[IndexPath])
 	func form(_ form:StandardForm, rowsRemovedAt indexPaths:[IndexPath])
 	func form(_ form:StandardForm, rowsUpdatedAt indexPaths:[IndexPath])
+	func needsToReloadData(for form:StandardForm)
 }
 
 open class StandardForm : NSObject {
@@ -180,6 +181,14 @@ extension StandardForm {
 		public typealias ArrayLiteralElement = StandardForm.Row
 		public required init(arrayLiteral elements: StandardForm.Row...) {
 			self.rows = elements
+		}
+		open func reloadData() {
+			guard let form = self.form else { return }
+			guard let index = form.firstIndex(of: self) else {
+				form.delegate?.needsToReloadData(for: form)
+				return
+			}
+			form.delegate?.form(form, sectionsUpdatedAt: [index])
 		}
 	}
 }

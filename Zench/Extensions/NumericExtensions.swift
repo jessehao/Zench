@@ -9,6 +9,46 @@
 public extension Numeric {
 	/// false if 0
 	var bool:Bool { return self != 0 }
+	
+	/// 1: true; 0: false; else: nil
+	var strictBool:Bool? {
+		if self == 0 {
+			return false
+		} else if self == 1 {
+			return true
+		} else { return nil }
+	}
+}
+
+extension Numeric where Self : Comparable {
+	var trimmedPositive:Self { return self >= 0 ? self : 0 }
+	func trim(withMin min:Self, max:Self) -> Self {
+		if self < min {
+			return min
+		} else if self > max {
+			return max
+		} else {
+			return self
+		}
+	}
+	func trim(_ range:ClosedRange<Self>) -> Self {
+		return self.trim(withMin: range.lowerBound, max: range.upperBound)
+	}
+	func trimOrNil(withMin min:Self, max:Self) -> Self? {
+		return (min...max).contains(self) ? self : nil
+	}
+	func trimOrNil(_ range:ClosedRange<Self>) -> Self? {
+		return self.trimOrNil(withMin: range.lowerBound, max: range.upperBound)
+	}
+}
+
+extension Numeric where Self : Strideable, Self.Stride : SignedInteger {
+	func trim(_ range:CountableClosedRange<Self>) -> Self {
+		return self.trim(withMin: range.lowerBound, max: range.upperBound)
+	}
+	func trimOrNil(_ range:CountableClosedRange<Self>) -> Self? {
+		return self.trimOrNil(withMin: range.lowerBound, max: range.upperBound)
+	}
 }
 
 // MARK: - Integer
