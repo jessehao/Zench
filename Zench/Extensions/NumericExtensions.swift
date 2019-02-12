@@ -22,7 +22,7 @@ public extension Numeric {
 
 public extension Numeric where Self : Comparable {
 	var trimmedPositive:Self { return self >= 0 ? self : 0 }
-	func trim(withMin min:Self, max:Self) -> Self {
+	func trimmed(min:Self, max:Self) -> Self {
 		if self < min {
 			return min
 		} else if self > max {
@@ -31,23 +31,29 @@ public extension Numeric where Self : Comparable {
 			return self
 		}
 	}
-	func trim(_ range:ClosedRange<Self>) -> Self {
-		return self.trim(withMin: range.lowerBound, max: range.upperBound)
+	func trimmed(min:Self) -> Self {
+		return self < min ? min : self
 	}
-	func trimOrNil(withMin min:Self, max:Self) -> Self? {
+	func trimmed(max:Self) -> Self {
+		return self > max ? max : self
+	}
+	func trimmed(_ range:ClosedRange<Self>) -> Self {
+		return self.trimmed(min: range.lowerBound, max: range.upperBound)
+	}
+	func orNil(min:Self, max:Self) -> Self? {
 		return (min...max).contains(self) ? self : nil
 	}
-	func trimOrNil(_ range:ClosedRange<Self>) -> Self? {
-		return self.trimOrNil(withMin: range.lowerBound, max: range.upperBound)
+	func orNil(_ range:ClosedRange<Self>) -> Self? {
+		return self.orNil(min: range.lowerBound, max: range.upperBound)
 	}
 }
 
 public extension Numeric where Self : Strideable, Self.Stride : SignedInteger {
-	func trim(_ range:CountableClosedRange<Self>) -> Self {
-		return self.trim(withMin: range.lowerBound, max: range.upperBound)
+	func trimmed(_ range:CountableClosedRange<Self>) -> Self {
+		return self.trimmed(min: range.lowerBound, max: range.upperBound)
 	}
-	func trimOrNil(_ range:CountableClosedRange<Self>) -> Self? {
-		return self.trimOrNil(withMin: range.lowerBound, max: range.upperBound)
+	func orNil(_ range:CountableClosedRange<Self>) -> Self? {
+		return self.orNil(min: range.lowerBound, max: range.upperBound)
 	}
 }
 
