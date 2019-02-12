@@ -71,7 +71,7 @@ open class StandardFormController<FormType:StandardForm>: GeneralTableViewContro
 	}
 	
 	override open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		return nil
+		return self.form[section].headerView
 	}
 	
 	override open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -79,7 +79,7 @@ open class StandardFormController<FormType:StandardForm>: GeneralTableViewContro
 	}
 	
 	override open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-		return nil
+		return self.form[section].footerView
 	}
 	
 	override open func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {

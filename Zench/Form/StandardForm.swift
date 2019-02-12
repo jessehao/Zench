@@ -174,6 +174,8 @@ extension StandardForm {
 		open private(set) var rows:[Row] = []
 		open var header:String?
 		open var footer:String?
+		open var headerView:UITableViewHeaderFooterView?
+		open var footerView:UITableViewHeaderFooterView?
 		// Expressible By Array Literal
 		public typealias ArrayLiteralElement = StandardForm.Row
 		public required init(arrayLiteral elements: StandardForm.Row...) {
