@@ -7,8 +7,8 @@
 Zench is an iOS develop framework for creative swifters.
 
 ## Installation
-```
-pod 'zench'
+```ruby
+pod 'Zench', :git => 'https://github.com/jessehao/Zench.git'
 ```
 
 ## Todos
