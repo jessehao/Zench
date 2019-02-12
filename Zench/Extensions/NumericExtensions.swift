@@ -20,7 +20,7 @@ public extension Numeric {
 	}
 }
 
-extension Numeric where Self : Comparable {
+public extension Numeric where Self : Comparable {
 	var trimmedPositive:Self { return self >= 0 ? self : 0 }
 	func trim(withMin min:Self, max:Self) -> Self {
 		if self < min {
@@ -42,7 +42,7 @@ extension Numeric where Self : Comparable {
 	}
 }
 
-extension Numeric where Self : Strideable, Self.Stride : SignedInteger {
+public extension Numeric where Self : Strideable, Self.Stride : SignedInteger {
 	func trim(_ range:CountableClosedRange<Self>) -> Self {
 		return self.trim(withMin: range.lowerBound, max: range.upperBound)
 	}
