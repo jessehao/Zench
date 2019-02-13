@@ -16,12 +16,14 @@ public protocol StandardSelfIncreasable {
 }
 
 public extension StandardSelfIncreasable {
-	@discardableResult public static prefix func ++ (value:inout Self) -> Self {
+	@discardableResult
+	public static prefix func ++ (value:inout Self) -> Self {
 		value.selfIncrease()
 		return value
 	}
 	
-	@discardableResult public static postfix func ++ (value:inout  Self) -> Self {
+	@discardableResult
+	public static postfix func ++ (value:inout  Self) -> Self {
 		defer { value.selfIncrease() }
 		return value
 	}
@@ -32,12 +34,14 @@ public protocol StandardSelfDecreasable {
 }
 
 public extension StandardSelfDecreasable {
-	@discardableResult public static prefix func -- (value:inout Self) -> Self {
+	@discardableResult
+	public static prefix func -- (value:inout Self) -> Self {
 		value.selfDecrease()
 		return value
 	}
 	
-	@discardableResult public static postfix func -- (value:inout  Self) -> Self {
+	@discardableResult
+	public static postfix func -- (value:inout  Self) -> Self {
 		defer { value.selfDecrease() }
 		return value
 	}

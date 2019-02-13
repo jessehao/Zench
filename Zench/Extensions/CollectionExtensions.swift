@@ -43,6 +43,10 @@ public extension RangeReplaceableCollection {
 		}
 		return false
 	}
+	
+	static func += (collection:inout Self, newElement:Element) {
+		collection.append(newElement)
+	}
 }
 
 public extension RangeReplaceableCollection where Element : Equatable {
