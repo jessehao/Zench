@@ -10,10 +10,9 @@ public protocol BasePatternProtocol {
 	func setup()
 }
 
-public protocol ViewPatternProtocol : BasePatternProtocol {
+public protocol ViewPatternProtocol : BasePatternProtocol, TargetActionPatternProtocol {
 	func prepareSubviews()
 	func makeConstraints()
-	func prepareTargets()
 }
 
 public extension ViewPatternProtocol {
@@ -24,4 +23,8 @@ public extension ViewPatternProtocol {
 	}
 }
 
-public protocol ViewControllerPatternProtocol : BasePatternProtocol {}
+public protocol ViewControllerPatternProtocol : BasePatternProtocol, TargetActionPatternProtocol {}
+
+public protocol TargetActionPatternProtocol {
+	func prepareTargets()
+}

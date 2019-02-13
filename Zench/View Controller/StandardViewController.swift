@@ -31,6 +31,11 @@ open class StandardViewController: UIViewController, ViewControllerPatternProtoc
 		super.viewWillAppear(animated)
 	}
 	
+	open override func viewDidLoad() {
+		super.viewDidLoad()
+		self.prepareTargets()
+	}
+	
 	deinit { self.removeFromNotificationCenter() }
 	
 	// MARK: - Operations
@@ -40,6 +45,9 @@ open class StandardViewController: UIViewController, ViewControllerPatternProtoc
 			self.preferredContentSize = size
 		}
 	}
+	
+	/// override and fills with Target-Actions in.
+	open func prepareTargets() {}
 	
 	open func endEditing(force:Bool = false) {
 		self.view.endEditing(force)

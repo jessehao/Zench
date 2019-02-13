@@ -44,7 +44,6 @@ open class GeneralViewController<ViewType:UIView>: StandardViewController, UIGes
 		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
 		self.configNavigationItem(self.navigationItem)
 		self.configMainView(self.mainView)
-		self.prepareTargets()
 		self.addToNotificationCenter()
 	}
 	
@@ -133,9 +132,6 @@ open class GeneralViewController<ViewType:UIView>: StandardViewController, UIGes
 			self.keyboardDidShow(userInfo: StandardKeyboardNotificationUserInfo(withUserInfoDict: $0.userInfo!))
 		}
 	}
-	
-	/// override and fills with Target-Actions in.
-	open func prepareTargets() {}
 	
 	open func startLoading() {
 		self.setLoadingEnable(true)
