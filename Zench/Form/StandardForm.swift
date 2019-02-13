@@ -368,7 +368,7 @@ extension StandardForm {
 		open var estimatedHeight:CGFloat = 48
 		// Static
 		open private(set) var cell:UITableViewCell?
-		open var didSelectRowEventHandler:(() -> Void)?
+		open var onSelectRowEventHandler:(() -> Void)?
 		// Dynamic
 		/// The type for dynamic cell which inherits from `UITableViewCell`
 		open private(set) var cellType:AnyClass?
@@ -391,8 +391,9 @@ public extension StandardForm.Row {
 		}
 	}
 	
-	@discardableResult func didSelect(_ handler:@escaping () -> Void) -> StandardForm.Row {
-		self.didSelectRowEventHandler = handler
+	@discardableResult
+	func onSelect(_ handler:@escaping () -> Void) -> StandardForm.Row {
+		self.onSelectRowEventHandler = handler
 		return self
 	}
 }

@@ -96,7 +96,7 @@ open class StandardFormController<FormType:StandardForm>: GeneralTableViewContro
 		if rowWithOffset.row.isDynamic {
 			self.didSelectDynamicRow(forIdentifier: rowWithOffset.row.reuseIdentifier!, at: rowWithOffset.offset)
 		} else {
-			rowWithOffset.row.didSelectRowEventHandler?()
+			rowWithOffset.row.onSelectRowEventHandler?()
 		}
 	}
 	
