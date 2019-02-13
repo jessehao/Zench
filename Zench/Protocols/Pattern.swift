@@ -6,17 +6,17 @@
 //  Copyright © 2018 Snoware. All rights reserved.
 //
 
-protocol BasePatternProtocol {
+public protocol BasePatternProtocol {
 	func setup()
 }
 
-protocol ViewPatternProtocol : BasePatternProtocol {
+public protocol ViewPatternProtocol : BasePatternProtocol {
 	func prepareSubviews()
 	func makeConstraints()
 	func prepareTargets()
 }
 
-extension ViewPatternProtocol {
+public extension ViewPatternProtocol {
 	func setup() {
 		self.prepareSubviews()
 		self.makeConstraints()
@@ -24,4 +24,4 @@ extension ViewPatternProtocol {
 	}
 }
 
-protocol ViewControllerPatternProtocol : BasePatternProtocol {}
+public protocol ViewControllerPatternProtocol : BasePatternProtocol {}
