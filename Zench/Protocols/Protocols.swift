@@ -21,6 +21,12 @@ extension Array : StandardCollectionSupport {}
 extension Dictionary : StandardCollectionSupport {}
 extension Set : StandardCollectionSupport {}
 
+extension String : StandardNullable {
+	public var orNil: String? {
+		return self.isEmpty ? nil : self
+	}
+}
+
 public extension Collection where Self : StandardCollectionSupport {
 	var orNil:Self? {
 		return self.isEmpty ? nil : self
