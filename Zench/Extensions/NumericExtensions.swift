@@ -43,6 +43,12 @@ public extension Numeric where Self : Comparable {
 	func orNil(min:Self, max:Self) -> Self? {
 		return (min...max).contains(self) ? self : nil
 	}
+	func orNil(min:Self) -> Self? {
+		return self < min ? nil : self
+	}
+	func orNil(max:Self) -> Self? {
+		return self > max ? nil : self
+	}
 	func orNil(_ range:ClosedRange<Self>) -> Self? {
 		return self.orNil(min: range.lowerBound, max: range.upperBound)
 	}
