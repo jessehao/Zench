@@ -43,6 +43,18 @@ public extension UIViewController {
 	public func withNavigationController() -> UINavigationController {
 		return UINavigationController(rootViewController: self)
 	}
+	
+	func close(completion:(() -> Void)? = nil) {
+		self.view.endEditing(true)
+		if self.canPopSelfFromNavigationController {
+			self.navigationController?.popViewController(animated: true)
+			completion?()
+		} else {
+			self.dismiss(animated: true) {
+				completion?()
+			}
+		}
+	}
 }
 
 public extension UINavigationController {
