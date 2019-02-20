@@ -16,6 +16,9 @@ open class StandardFormController<FormType:StandardForm>: GeneralTableViewContro
 	open var selectedIndexPath:IndexPath?
 	open var editingIndexPath:IndexPath?
 	
+	private var _tempContentInsets:UIEdgeInsets = .zero
+	private var _tempScrollIndicatorInsets:UIEdgeInsets = .zero
+	
 	// MARK: - Lifecycle
 	override open func viewDidLoad() {
 		super.viewDidLoad()
@@ -151,6 +154,8 @@ open class StandardFormController<FormType:StandardForm>: GeneralTableViewContro
 		}
 		let rate = userInfo.animationDuration ?? 0
 		UIView.animate(withDuration: rate) {
+			self._tempContentInsets = self.tableView.contentInset
+			self._tempScrollIndicatorInsets = self.tableView.scrollIndicatorInsets
 			self.tableView.contentInset = contentInsets
 			self.tableView.scrollIndicatorInsets = contentInsets
 		}
@@ -163,8 +168,8 @@ open class StandardFormController<FormType:StandardForm>: GeneralTableViewContro
 	override open func keyboardWillHide(userInfo: StandardKeyboardNotificationUserInfo) {
 		let rate = userInfo.animationDuration ?? 0
 		UIView.animate(withDuration: rate) {
-			self.tableView.contentInset = .zero
-			self.tableView.scrollIndicatorInsets = .zero
+			self.tableView.contentInset = self._tempContentInsets
+			self.tableView.scrollIndicatorInsets = self._tempScrollIndicatorInsets
 		}
 	}
 	
