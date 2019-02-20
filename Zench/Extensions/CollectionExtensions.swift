@@ -44,6 +44,19 @@ public extension RangeReplaceableCollection {
 		return false
 	}
 	
+	@discardableResult
+	mutating func appendIfNonnull<S:Sequence>(contentsOf newElements: S?) -> Bool where Self.Element == S.Element {
+		if let new = newElements {
+			self.append(contentsOf: new)
+			return true
+		}
+		return false
+	}
+	
+	mutating func appendIfElementNonnull<S:Sequence>(contentsOf newElements: S) where S.Element == Self.Element? {
+		self.append(contentsOf: newElements.compactMap { $0 })
+	}
+	
 	static func += (collection:inout Self, newElement:Element) {
 		collection.append(newElement)
 	}

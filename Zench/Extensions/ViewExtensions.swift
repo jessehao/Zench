@@ -113,7 +113,7 @@ public extension UISwitch {
 }
 
 public extension UIScrollView {
-	/// Zench: Scroll to bottom of TableView.
+	/// Zench: Scroll to bottom of scrollView.
 	///
 	/// - Parameter animated: set true to animate scroll (default is true).
 	public func scrollToBottom(animated: Bool = true) {
@@ -121,7 +121,7 @@ public extension UIScrollView {
 		setContentOffset(bottomOffset, animated: animated)
 	}
 	
-	/// Zench: Scroll to top of TableView.
+	/// Zench: Scroll to top of scrollView.
 	///
 	/// - Parameter animated: set true to animate scroll (default is true).
 	public func scrollToTop(animated: Bool = true) {
