@@ -14,6 +14,7 @@ public protocol StandardFormDelegate : class {
 	func form(_ form:StandardForm, rowsRemovedAt indexPaths:[IndexPath])
 	func form(_ form:StandardForm, rowsUpdatedAt indexPaths:[IndexPath])
 	func needsToReloadData(for form:StandardForm)
+	func form(_ form:StandardForm, dynamicRowsNeedsToRegister:StandardForm.Row)
 }
 
 open class StandardForm : NSObject {
@@ -57,6 +58,12 @@ public extension StandardForm {
 		var retval:[Row] = []
 		self.forEach { retval.append(contentsOf: $0.allDynamicRows()) }
 		return retval
+	}
+	
+	func registerRowIfNeeded<S>(_ row:S) where S : Sequence, S.Element : Row {
+		row.filter { $0.isDynamic }.forEach {
+			self.delegate?.form(self, dynamicRowsNeedsToRegister: $0)
+		}
 	}
 }
 
@@ -114,29 +121,40 @@ public extension StandardForm {
 	func insert(_ newElement: StandardForm.Section, at i: Int) {
 		newElement.form = self
 		self.sections.insert(newElement, at: i)
+		self.registerRowIfNeeded(newElement.rows)
 		self.delegate?.form(self, sectionsAddedAt: [i])
 	}
 	
 	func insert<C>(contentsOf newElements: C, at i: Int) where C : Collection, StandardForm.Element == C.Element {
-		newElements.forEach { $0.form = self }
+		newElements.forEach {
+			$0.form = self
+			self.registerRowIfNeeded($0.rows)
+		}
 		self.sections.insert(contentsOf: newElements, at: i)
 		self.delegate?.form(self, sectionsAddedAt: self.indexes(ForPosition: i, count: newElements.count))
 	}
 	
 	func append(_ newElement: StandardForm.Section) {
 		newElement.form = self
+		self.registerRowIfNeeded(newElement.rows)
 		self.sections.append(newElement)
 		self.delegate?.form(self, sectionsAddedAt: [self.appendingIndex])
 	}
 	
 	func append<S>(contentsOf newElements: S) where S : Sequence, StandardForm.Element == S.Element {
-		newElements.forEach { $0.form = self }
+		newElements.forEach {
+			$0.form = self
+			self.registerRowIfNeeded($0.rows)
+		}
 		self.sections.append(contentsOf: newElements)
 		self.delegate?.form(self, sectionsAddedAt: self.indexes(ForPosition: self.appendingIndex, count: newElements.underestimatedCount))
 	}
 	
 	func replaceSubrange<C, R>(_ subrange: R, with newElements: C) where C : Collection, R : RangeExpression, StandardForm.Element == C.Element, StandardForm.Index == R.Bound {
-		newElements.forEach { $0.form = self }
+		newElements.forEach {
+			$0.form = self
+			self.registerRowIfNeeded($0.rows)
+		}
 		self.sections[subrange].forEach { $0.form = nil }
 		self.sections.replaceSubrange(subrange, with: newElements)
 		let range = subrange.relative(to: self.sections)
@@ -277,6 +295,7 @@ public extension StandardForm.Section {
 	func insert(_ newElement: StandardForm.Row, at i: Int) {
 		self.rows.insert(newElement, at: i)
 		guard let form = self.form, let section = form.index(of: self) else { return }
+		form.registerRowIfNeeded([newElement])
 		if newElement.isDynamic {
 			form.delegate?.form(form, sectionsUpdatedAt: [section])
 		} else {
@@ -288,6 +307,7 @@ public extension StandardForm.Section {
 	func insert<C>(contentsOf newElements: C, at i: Int) where C : Collection, StandardForm.Section.Element == C.Element {
 		self.rows.insert(contentsOf: newElements, at: i)
 		guard let form = self.form, let section = form.index(of: self) else { return }
+		form.registerRowIfNeeded(newElements)
 		if newElements.contains(where: { $0.isDynamic }) {
 			form.delegate?.form(form, sectionsUpdatedAt: [section])
 		} else {
@@ -299,6 +319,7 @@ public extension StandardForm.Section {
 	func append(_ newElement: StandardForm.Row) {
 		self.rows.append(newElement)
 		guard let form = self.form, let section = form.index(of: self) else { return }
+		form.registerRowIfNeeded([newElement])
 		if newElement.isDynamic {
 			form.delegate?.form(form, sectionsUpdatedAt: [section])
 		} else {
@@ -310,6 +331,7 @@ public extension StandardForm.Section {
 	func append<S>(contentsOf newElements: S) where S : Sequence, StandardForm.Section.Element == S.Element {
 		self.rows.append(contentsOf: newElements)
 		guard let form = self.form, let section = form.index(of: self) else { return }
+		form.registerRowIfNeeded(newElements)
 		if newElements.contains(where: { $0.isDynamic }) {
 			form.delegate?.form(form, sectionsUpdatedAt: [section])
 		} else {
@@ -321,6 +343,7 @@ public extension StandardForm.Section {
 	func replaceSubrange<C, R>(_ subrange: R, with newElements: C) where C : Collection, R : RangeExpression, StandardForm.Section.Element == C.Element, StandardForm.Section.Index == R.Bound {
 		self.rows.replaceSubrange(subrange, with: newElements)
 		guard let form = self.form, let section = form.index(of: self) else { return }
+		form.registerRowIfNeeded(newElements)
 		let range = subrange.relative(to: self.rows)
 		if self.rows.contains(where: { $0.isDynamic }) || newElements.contains(where: { $0.isDynamic }) {
 			form.delegate?.form(form, sectionsUpdatedAt: [section])

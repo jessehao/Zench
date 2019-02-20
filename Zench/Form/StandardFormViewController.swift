@@ -222,4 +222,9 @@ extension StandardFormController : StandardFormDelegate {
 	public func needsToReloadData(for form: StandardForm) {
 		self.tableView.reloadData()
 	}
+	
+	public func form(_ form: StandardForm, dynamicRowsNeedsToRegister: StandardForm.Row) {
+		guard let identifier = dynamicRowsNeedsToRegister.reuseIdentifier else { return }
+		self.tableView.register(dynamicRowsNeedsToRegister.cellType, forCellReuseIdentifier: identifier)
+	}
 }
