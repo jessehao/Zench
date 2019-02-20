@@ -16,8 +16,8 @@ open class StandardFormController<FormType:StandardForm>: GeneralTableViewContro
 	open var selectedIndexPath:IndexPath?
 	open var editingIndexPath:IndexPath?
 	
-	private var _tempContentInsets:UIEdgeInsets = .zero
-	private var _tempScrollIndicatorInsets:UIEdgeInsets = .zero
+	private var _tempContentInsetsBottomOffset:CGFloat = 0
+	private var _tempScrollIndicatorInsetsBottomOffset:CGFloat = 0
 	
 	// MARK: - Lifecycle
 	override open func viewDidLoad() {
@@ -145,22 +145,17 @@ open class StandardFormController<FormType:StandardForm>: GeneralTableViewContro
 	override open func keyboardWillShow(userInfo: StandardKeyboardNotificationUserInfo) {
 		let keyboardRect = userInfo.beginFrame
 		let keyboardSize = keyboardRect?.size ?? .zero
-		var contentInsets:UIEdgeInsets
 		let offset:CGFloat = 40
-		if UIApplication.shared.statusBarOrientation.isPortrait {
-			contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height + offset, right: 0)
-		} else {
-			contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.width + offset, right: 0)
-		}
+		let bottomOffset = (UIApplication.shared.statusBarOrientation.isPortrait ? keyboardSize.height : keyboardSize.width) + offset
 		let rate = userInfo.animationDuration ?? 0
+		self._tempContentInsetsBottomOffset = self.tableView.contentInset.bottom
+		self._tempScrollIndicatorInsetsBottomOffset = self.tableView.scrollIndicatorInsets.bottom
 		UIView.animate(withDuration: rate) {
-			self._tempContentInsets = self.tableView.contentInset
-			self._tempScrollIndicatorInsets = self.tableView.scrollIndicatorInsets
-			self.tableView.contentInset = contentInsets
-			self.tableView.scrollIndicatorInsets = contentInsets
+			self.tableView.contentInset.bottom += bottomOffset
+			self.tableView.scrollIndicatorInsets.bottom += bottomOffset
 		}
 		if let indexPath = self.editingIndexPath {
-			self.tableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.top, animated: true)
+			self.tableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.bottom, animated: true)
 			self.editingIndexPath = nil
 		}
 	}
@@ -168,8 +163,8 @@ open class StandardFormController<FormType:StandardForm>: GeneralTableViewContro
 	override open func keyboardWillHide(userInfo: StandardKeyboardNotificationUserInfo) {
 		let rate = userInfo.animationDuration ?? 0
 		UIView.animate(withDuration: rate) {
-			self.tableView.contentInset = self._tempContentInsets
-			self.tableView.scrollIndicatorInsets = self._tempScrollIndicatorInsets
+			self.tableView.contentInset.bottom = self._tempContentInsetsBottomOffset
+			self.tableView.scrollIndicatorInsets.bottom = self._tempScrollIndicatorInsetsBottomOffset
 		}
 	}
 	
