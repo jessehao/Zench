@@ -70,14 +70,14 @@ public extension StandardPasteboardSupport {
 /// 1. write `func rightNavigationBarButtonItemTouched(sender:UIBarButtonItem)` in your adopter body.
 ///	2. if adopted by a UIViewController or its subclass, invoke `setRightNavigationBarButtonItem(_ onConfig:(UIBarButtonItem) -> Void)` after the navigation controller loaded the destination view controller.
 @objc
-protocol ConvenientRightNavigationBarButtonItemSupport : class {
+public protocol ConvenientRightNavigationBarButtonItemSupport : class {
 	@objc
 	func rightNavigationBarButtonItemTouched(sender:UIBarButtonItem)
 	
 	var navigationItem: UINavigationItem { get }
 }
 
-extension ConvenientRightNavigationBarButtonItemSupport {
+public extension ConvenientRightNavigationBarButtonItemSupport {
 	func setRightNavigationBarButtonItem(_ onConfig:(UIBarButtonItem) -> Void) {
 		let item = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(self.rightNavigationBarButtonItemTouched(sender:)))
 		onConfig(item)
