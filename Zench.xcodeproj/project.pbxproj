@@ -26,6 +26,7 @@
 		F62E661F218C06BE001E7DE9 /* StandardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E661E218C06BE001E7DE9 /* StandardTableView.swift */; };
 		F62E6622218C089B001E7DE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E6624218C089B001E7DE9 /* Localizable.strings */; };
 		F62E6627218C0DB8001E7DE9 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E6626218C0DB8001E7DE9 /* Localization.swift */; };
+		F6399CAC221EB7C900D2FF9D /* Supports.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6399CAB221EB7C900D2FF9D /* Supports.swift */; };
 		F64BF4A521D227B2009AE92C /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BF4A421D227B2009AE92C /* CollectionExtensions.swift */; };
 		F64BF4A721D22891009AE92C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BF4A621D22891009AE92C /* StringExtensions.swift */; };
 		F64BF4A921D228D5009AE92C /* NumericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BF4A821D228D5009AE92C /* NumericExtensions.swift */; };
@@ -66,6 +67,7 @@
 		F62E6623218C089B001E7DE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F62E6625218C0901001E7DE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F62E6626218C0DB8001E7DE9 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		F6399CAB221EB7C900D2FF9D /* Supports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supports.swift; sourceTree = "<group>"; };
 		F64BF4A421D227B2009AE92C /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		F64BF4A621D22891009AE92C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		F64BF4A821D228D5009AE92C /* NumericExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericExtensions.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				F60A42D6217EC65B00AF9F6B /* StandardDiscretable.swift */,
 				F60A42D8217EC74800AF9F6B /* StandardConfigurable.swift */,
 				F619948621B785030029EF00 /* Pattern.swift */,
+				F6399CAB221EB7C900D2FF9D /* Supports.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				F65D1A8721807380006CF3D5 /* StandardTableViewCell.swift in Sources */,
 				F64BF4A521D227B2009AE92C /* CollectionExtensions.swift in Sources */,
 				F60A42D9217EC74800AF9F6B /* StandardConfigurable.swift in Sources */,
+				F6399CAC221EB7C900D2FF9D /* Supports.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
