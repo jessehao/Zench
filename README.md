@@ -1,27 +1,12 @@
 # Zench
 
 [![Swift Version](https://img.shields.io/badge/swift-4.2-orange.svg)](https://swift.org/blog/swift-4-2-released/)
-[![Cocoapods Version](https://img.shields.io/cocoapods/v/zench.svg)](https://cocoapods.org/pods/zench)
-[![Cocoapods Platform](http://img.shields.io/cocoapods/p/zench.svg)](https://www.apple.com/ios/)
 
-Zench is an iOS develop framework for creative swifters.
+Zench(= Zé + Bench) is a development kit from my consistent personal accumulation.
+
+composed by `extensions`, `protocols`, `supports(protocols which could append functions on Structs or Classes)` etc.
 
 ## Installation
 ```ruby
 pod 'Zench', :git => 'https://github.com/jessehao/Zench.git'
 ```
-
-## Todos
-
-#### Main Queue
-
-- [x] Basic Kit
-- [x] CocoaPods Support
-- [x] Table View
-
-
-
-## Ideas
-
-- I'm not sure if **extension namespace** is actually necessary.
-
