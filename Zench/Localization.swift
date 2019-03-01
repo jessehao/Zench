@@ -13,7 +13,7 @@ enum Localization : String {
 }
 
 extension Localization : StandardLocalizable {
-	func localizedDescription() -> String {
+	var localized: String {
 		return Bundle.zench?.localizedString(forKey: self.rawValue, value: nil, table: nil) ?? self.rawValue
 	}
 }

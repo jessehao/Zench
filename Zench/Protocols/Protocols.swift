@@ -26,17 +26,17 @@ public extension StandardDuplicatable where Self : Codable {
 
 // MARK: - Localizable
 public protocol StandardLocalizable {
-	func localizedDescription() -> String
+	var localized: String { get }
 }
 
 public extension StandardLocalizable {
 	static func combinedLocalizedDescription(for localizables:StandardLocalizable...) -> String {
-		return localizables.reduce("") { $0 + $1.localizedDescription() }
+		return localizables.reduce("") { $0 + $1.localized }
 	}
 }
 
 public extension StandardLocalizable where Self : RawRepresentable, Self.RawValue == String {
-	func localizedDescription() -> String {
+	var localized: String {
 		return NSLocalizedString(self.rawValue, comment: "")
 	}
 }

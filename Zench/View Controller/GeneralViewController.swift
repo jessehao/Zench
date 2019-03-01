@@ -107,7 +107,7 @@ open class GeneralViewController<ViewType:UIView>: StandardViewController, UIGes
 			
 		}
 		if self.forceUsingCancelBarButtonItem == true || (self.forceUsingCancelBarButtonItem == nil && !self.canPopSelfFromNavigationController) {
-			navigationItem.leftBarButtonItem = UIBarButtonItem(title: Localization.cancel.localizedDescription(), style: .plain, target: self, action: #selector(cancelBarButtonTouched))
+			navigationItem.leftBarButtonItem = UIBarButtonItem(title: Localization.cancel.localized, style: .plain, target: self, action: #selector(cancelBarButtonTouched))
 		}
 	}
 	
