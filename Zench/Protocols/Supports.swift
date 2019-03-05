@@ -84,3 +84,12 @@ public extension ConvenientRightNavigationBarButtonItemSupport {
 		self.navigationItem.rightBarButtonItem = item
 	}
 }
+
+public protocol TableViewUpdateSupport {}
+public extension TableViewUpdateSupport where Self : UITableView {
+	func updates(_ operation:((Self) -> Void)? = nil) {
+		self.beginUpdates()
+		operation?(self)
+		self.endUpdates()
+	}
+}
