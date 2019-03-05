@@ -136,6 +136,10 @@ public extension UIScrollView {
 }
 
 public extension UITableView {
+	convenience init(style:Style) {
+		self.init(frame: .zero, style: style)
+	}
+	
 	var hasCell:Bool {
 		let sectionCount = self.numberOfSections
 		guard sectionCount > 0 else { return false }
@@ -191,7 +195,7 @@ public extension UITableView {
 	/// Reload data with a completion handler.
 	///
 	/// - Parameter completion: completion handler to run after reloadData finishes.
-	public func reloadData(_ completion: @escaping () -> Void) {
+	func reloadData(_ completion: @escaping () -> Void) {
 		UIView.animate(withDuration: 0, animations: {
 			self.reloadData()
 		}, completion: { _ in
@@ -199,6 +203,8 @@ public extension UITableView {
 		})
 	}
 }
+
+extension UITableView : TableViewUpdateSupport {}
 
 public extension UITextView {
 	func selectedIndexRange() -> Range<String.Index> {
