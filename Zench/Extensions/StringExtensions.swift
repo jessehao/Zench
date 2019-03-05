@@ -26,6 +26,9 @@ public extension String {
 		}
 		return nil
 	}
+	func withFormatArguments(_ args:CVarArg...) -> String {
+		return String(format: self, arguments: args)
+	}
 }
 
 public extension StringProtocol {

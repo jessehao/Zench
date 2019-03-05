@@ -97,11 +97,13 @@ public extension BinaryFloatingPoint {
 	var date:Date { return Date(timeIntervalSince1970: self.double) }
 }
 
-public extension BinaryFloatingPoint where Self : CVarArg & LosslessStringConvertible {
+public extension BinaryFloatingPoint where Self : CVarArg {
 	func formattedString(withDecimalPlace place:UInt) -> String {
 		return String(format: "%.\(place)f", self)
 	}
-	
+}
+
+public extension BinaryFloatingPoint where Self : CVarArg & LosslessStringConvertible {
 	func withDecimalPlace(_ place:UInt) -> Self {
 		return Self(self.formattedString(withDecimalPlace: place))!
 	}

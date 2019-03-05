@@ -74,6 +74,12 @@ public extension UIView {
 	}
 }
 
+extension Array where Element : UIView {
+	func withStackView() -> UIStackView {
+		return UIStackView(arrangedSubviews: self)
+	}
+}
+
 public extension UILabel {
 	convenience init(withFont font:UIFont, color:UIColor, text:@autoclosure () -> String? = nil) {
 		self.init()
