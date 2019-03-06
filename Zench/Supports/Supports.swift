@@ -27,29 +27,22 @@ public extension Collection where Self : StandardCollectionSupport {
 }
 
 // MARK: - Notification Support
-public protocol StandardNotificationSupport {
+public protocol NotificationCenterSubscriptionSupport {}
+public extension NotificationCenterSubscriptionSupport {
 	/// add specific selector to observe a specific notification name of notification center.
 	///
 	/// - Parameters:
 	///   - selector: the target selector when the notification received
 	///   - notificationName: the notification name that you wanna observe
-	func addSelector(_ selector:Selector, onNotificationName notificationName:Notification.Name)
-	/// Listen to a specific notification name and handles event when received
-	///
-	/// - Parameters:
-	///   - notificationName: the notification name that you wanna listen to
-	///   - handler: a handler called when notification received
-	func listenToNotificationName(_ notificationName:Notification.Name, using handler:@escaping (Notification) -> Void)
-}
-
-public extension StandardNotificationSupport {
 	func addSelector(_ selector:Selector, onNotificationName notificationName:Notification.Name) {
 		NotificationCenter.default.addObserver(self, selector: selector, name: notificationName, object: nil)
 	}
-	
+}
+
+public extension NotificationCenterSubscriptionSupport where Self : NotificationCenter {
 	func listenToNotificationName(_ notificationName:Notification.Name, using handler:@escaping (Notification) -> Void) -> NotificationTokenManager {
 		let manager = NotificationTokenManager()
-		manager.notificationCenter = NotificationCenter.default
+		manager.notificationCenter = self
 		manager.addNotificationName(notificationName, using: handler)
 		return manager
 	}

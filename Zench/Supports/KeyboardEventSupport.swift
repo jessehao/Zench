@@ -87,3 +87,13 @@ public extension NotificationTokenManager {
 		}
 	}
 }
+
+public extension NotificationTokenManager {
+	func append(anotherManger:NotificationTokenManager) {
+		self.tokens.append(contentsOf: anotherManger.tokens)
+	}
+	
+	static func += (manager:NotificationTokenManager, another:NotificationTokenManager) {
+		manager.append(anotherManger: another)
+	}
+}

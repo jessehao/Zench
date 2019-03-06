@@ -7,7 +7,7 @@
 //
 
 // MARK: - NSObject
-extension NSObject : StandardNoParameterInitializable, StandardClassConfigurable, StandardClassConfigurableInitializer, StandardNotificationSupport {}
+extension NSObject : StandardNoParameterInitializable, StandardClassConfigurable, StandardClassConfigurableInitializer {}
 
 // MARK: - Bundle
 extension Bundle {

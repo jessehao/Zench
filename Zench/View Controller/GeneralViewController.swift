@@ -67,23 +67,6 @@ open class GeneralViewController<ViewType:UIView>: StandardViewController, UIGes
 	/// the touch event handler of the cancel bar button item.
 	@objc open func cancelBarButtonTouched() { self.dismiss(animated: true) }
 	
-	/// Called immediately prior to the display of the keyboard. **configured in `GeneralViewController.addToNotificationCenter`**
-	///
-	/// - Parameter userInfo: The userInfo contains information about the keyboard.
-	open func keyboardWillShow(userInfo:StandardKeyboardNotificationUserInfo) {}
-	
-	/// Called immediately prior to the dismissal of the keyboard.  **configured in `GeneralViewController.addToNotificationCenter`**
-	///
-	/// - Parameter userInfo: The userInfo contains information about the keyboard.
-	open func keyboardWillHide(userInfo:StandardKeyboardNotificationUserInfo) {}
-	
-	/// Called immediately prior to a change in the keyboard’s frame.  **configured in `GeneralViewController.addToNotificationCenter`**
-	///
-	/// - Parameter userInfo: The userInfo contains information about the keyboard.
-	open func keyboardWillChangeFrame(userInfo:StandardKeyboardNotificationUserInfo) {}
-	
-	open func keyboardDidShow(userInfo:StandardKeyboardNotificationUserInfo) {}
-	
 	// MARK: - Operations
 	open override func setup() {
 		super.setup()
@@ -114,24 +97,7 @@ open class GeneralViewController<ViewType:UIView>: StandardViewController, UIGes
 	open func configTabBarItem(_ tabBarItem:UITabBarItem) {}
 	
 	/// override when you need to observe some `Notification.Name` s, and you don't have to remove them because the `GeneralViewController` will handle it.
-	open func addToNotificationCenter() {
-		self.listenToNotificationName(UIResponder.keyboardWillShowNotification) { [weak self] in
-			guard let `self` = self else { return }
-			self.keyboardWillShow(userInfo: StandardKeyboardNotificationUserInfo(withUserInfoDict: $0.userInfo!))
-		}
-		self.listenToNotificationName(UIResponder.keyboardWillHideNotification) { [weak self] in
-			guard let `self` = self else { return }
-			self.keyboardWillHide(userInfo: StandardKeyboardNotificationUserInfo(withUserInfoDict: $0.userInfo!))
-		}
-		self.listenToNotificationName(UIResponder.keyboardWillChangeFrameNotification) { [weak self] in
-			guard let `self` = self else { return }
-			self.keyboardWillChangeFrame(userInfo: StandardKeyboardNotificationUserInfo(withUserInfoDict: $0.userInfo!))
-		}
-		self.listenToNotificationName(UIResponder.keyboardDidShowNotification) { [weak self] in
-			guard let self = self else { return }
-			self.keyboardDidShow(userInfo: StandardKeyboardNotificationUserInfo(withUserInfoDict: $0.userInfo!))
-		}
-	}
+	open func addToNotificationCenter() {}
 	
 	open func startLoading() {
 		self.setLoadingEnable(true)
