@@ -63,7 +63,30 @@ public extension StandardPasteboardSupport {
 	}
 }
 
-// MARK: - Convenient RightNavigationBarButtonItem Support
+// MARK: - ViewController Automatic Close BarButtonItem Support
+@objc
+protocol ViewControllerAutomaticCloseBarButtonItemSupport : class {
+	@objc
+	func cancelBarButtonTouched()
+}
+
+extension ViewControllerAutomaticCloseBarButtonItemSupport where Self : UIViewController {
+	@discardableResult
+	func prepareAutomaticCloseBarButtonItemSupport() -> UIBarButtonItem? {
+		if !self.canPopSelfFromNavigationController {
+			let retval = UIBarButtonItem(image: UIImage(named: "task_icon_close"), style: .plain, target: self, action: #selector(self.cancelBarButtonTouched))
+			self.navigationItem.leftBarButtonItem = retval
+			return retval
+		}
+		return nil
+	}
+	
+	func cancelBarButtonTouched() {
+		self.dismiss(animated: true)
+	}
+}
+
+// MARK: - Convenient Right NavigationBarButtonItem Support
 /// Conform this protocol could help you set right navigation bar button item really fast.
 ///
 ///	all you need to do is:
