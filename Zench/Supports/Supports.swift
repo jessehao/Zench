@@ -114,13 +114,13 @@ public protocol ConvenientRefreshControlSupport : class {
 
 public extension ConvenientRefreshControlSupport {
 	@discardableResult
-	func prepareRefreshControlSupport(for scrollView:UIScrollView) -> UIRefreshControl {
+	func prepareRefreshControlSupport(for scrollView:UIScrollView? = nil) -> UIRefreshControl {
 		let refreshControl = UIRefreshControl()
 		refreshControl.addTarget(self, action: #selector(self.refreshControlValueChanged(sender:)), for: .valueChanged)
 		if #available(iOS 10.0, *) {
-			scrollView.refreshControl = refreshControl
+			scrollView?.refreshControl = refreshControl
 		} else {
-			scrollView.addSubview(refreshControl)
+			scrollView?.addSubview(refreshControl)
 		}
 		return refreshControl
 	}
