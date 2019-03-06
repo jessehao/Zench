@@ -63,7 +63,7 @@ public extension StandardPasteboardSupport {
 	}
 }
 
-// MARK: - ConvenientRightNavigationBarButtonItemSupport
+// MARK: - Convenient RightNavigationBarButtonItem Support
 /// Conform this protocol could help you set right navigation bar button item really fast.
 ///
 ///	all you need to do is:
@@ -78,13 +78,36 @@ public protocol ConvenientRightNavigationBarButtonItemSupport : class {
 }
 
 public extension ConvenientRightNavigationBarButtonItemSupport {
-	func setRightNavigationBarButtonItem(_ onConfig:(UIBarButtonItem) -> Void) {
-		let item = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(self.rightNavigationBarButtonItemTouched(sender:)))
-		onConfig(item)
+	@discardableResult
+	func prepareRightNavigationBarButtonItemSupport(_ title:String? = nil) -> UIBarButtonItem {
+		let item = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(self.rightNavigationBarButtonItemTouched(sender:)))
 		self.navigationItem.rightBarButtonItem = item
+		return item
 	}
 }
 
+// MARK: - Convenient RefreshControl Support
+@objc
+public protocol ConvenientRefreshControlSupport : class {
+	@objc
+	func refreshControlValueChanged(sender:UIRefreshControl)
+}
+
+public extension ConvenientRefreshControlSupport {
+	@discardableResult
+	func prepareRefreshControlSupport(for scrollView:UIScrollView) -> UIRefreshControl {
+		let refreshControl = UIRefreshControl()
+		refreshControl.addTarget(self, action: #selector(self.refreshControlValueChanged(sender:)), for: .valueChanged)
+		if #available(iOS 10.0, *) {
+			scrollView.refreshControl = refreshControl
+		} else {
+			scrollView.addSubview(refreshControl)
+		}
+		return refreshControl
+	}
+}
+
+// MARK: - TableView Update Support
 public protocol TableViewUpdateSupport {}
 public extension TableViewUpdateSupport where Self : UITableView {
 	func updates(_ operation:((Self) -> Void)? = nil) {
