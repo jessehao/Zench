@@ -65,12 +65,12 @@ public extension StandardPasteboardSupport {
 
 // MARK: - ViewController Automatic Close BarButtonItem Support
 @objc
-protocol ViewControllerAutomaticCloseBarButtonItemSupport : class {
+public protocol ViewControllerAutomaticCloseBarButtonItemSupport : class {
 	@objc
 	func cancelBarButtonTouched()
 }
 
-extension ViewControllerAutomaticCloseBarButtonItemSupport where Self : UIViewController {
+public extension ViewControllerAutomaticCloseBarButtonItemSupport where Self : UIViewController {
 	@discardableResult
 	func prepareAutomaticCloseBarButtonItemSupport() -> UIBarButtonItem? {
 		if !self.canPopSelfFromNavigationController {
