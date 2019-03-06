@@ -80,10 +80,6 @@ public extension ViewControllerAutomaticCloseBarButtonItemSupport where Self : U
 		}
 		return nil
 	}
-	
-	func cancelBarButtonTouched() {
-		self.dismiss(animated: true)
-	}
 }
 
 // MARK: - Convenient Right NavigationBarButtonItem Support
