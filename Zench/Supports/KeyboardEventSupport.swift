@@ -75,9 +75,9 @@ public final class NotificationTokenManager {
 
 public extension NotificationTokenManager {
 	@discardableResult
-	func addNotificationName(_ name:Notification.Name, object:Any? = nil, queue:OperationQueue? = nil, using:@escaping (Notification) -> Void) -> Bool {
+	func addNotificationName(_ name:Notification.Name, object:Any? = nil, queue:OperationQueue? = nil, using handler:@escaping (Notification) -> Void) -> Bool {
 		guard let center = self.notificationCenter else { return false }
-		self.tokens += center.addObserver(forName: name, object: object, queue: queue, using: using)
+		self.tokens += center.addObserver(forName: name, object: object, queue: queue, using: handler)
 		return true
 	}
 	

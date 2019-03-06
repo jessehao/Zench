@@ -47,8 +47,11 @@ public extension StandardNotificationSupport {
 		NotificationCenter.default.addObserver(self, selector: selector, name: notificationName, object: nil)
 	}
 	
-	func listenToNotificationName(_ notificationName:Notification.Name, using handler:@escaping (Notification) -> Void) {
-		NotificationCenter.default.addObserver(forName: notificationName, object: nil, queue: nil, using: handler)
+	func listenToNotificationName(_ notificationName:Notification.Name, using handler:@escaping (Notification) -> Void) -> NotificationTokenManager {
+		let manager = NotificationTokenManager()
+		manager.notificationCenter = NotificationCenter.default
+		manager.addNotificationName(notificationName, using: handler)
+		return manager
 	}
 }
 
