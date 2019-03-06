@@ -25,6 +25,7 @@
 		F62E6622218C089B001E7DE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62E6624218C089B001E7DE9 /* Localizable.strings */; };
 		F62E6627218C0DB8001E7DE9 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62E6626218C0DB8001E7DE9 /* Localization.swift */; };
 		F6399CAC221EB7C900D2FF9D /* Supports.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6399CAB221EB7C900D2FF9D /* Supports.swift */; };
+		F64AECC8222FCE4F00A7A26E /* KeyboardEventSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64AECC7222FCE4F00A7A26E /* KeyboardEventSupport.swift */; };
 		F64BF4A521D227B2009AE92C /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BF4A421D227B2009AE92C /* CollectionExtensions.swift */; };
 		F64BF4A721D22891009AE92C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BF4A621D22891009AE92C /* StringExtensions.swift */; };
 		F64BF4A921D228D5009AE92C /* NumericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64BF4A821D228D5009AE92C /* NumericExtensions.swift */; };
@@ -64,6 +65,7 @@
 		F62E6625218C0901001E7DE9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F62E6626218C0DB8001E7DE9 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		F6399CAB221EB7C900D2FF9D /* Supports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supports.swift; sourceTree = "<group>"; };
+		F64AECC7222FCE4F00A7A26E /* KeyboardEventSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardEventSupport.swift; sourceTree = "<group>"; };
 		F64BF4A421D227B2009AE92C /* CollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		F64BF4A621D22891009AE92C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		F64BF4A821D228D5009AE92C /* NumericExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericExtensions.swift; sourceTree = "<group>"; };
@@ -124,7 +126,6 @@
 				F60A42D6217EC65B00AF9F6B /* StandardDiscretable.swift */,
 				F60A42D8217EC74800AF9F6B /* StandardConfigurable.swift */,
 				F619948621B785030029EF00 /* Pattern.swift */,
-				F6399CAB221EB7C900D2FF9D /* Supports.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -159,6 +160,15 @@
 				F619949821BA6FDF0029EF00 /* Preference.swift */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		F64AECC6222FCE2C00A7A26E /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				F6399CAB221EB7C900D2FF9D /* Supports.swift */,
+				F64AECC7222FCE4F00A7A26E /* KeyboardEventSupport.swift */,
+			);
+			path = Supports;
 			sourceTree = "<group>";
 		};
 		F65D1A8521807363006CF3D5 /* Controls */ = {
@@ -214,6 +224,7 @@
 				F60A42D1217EC3B000AF9F6B /* Extensions */,
 				F60A42C8217EBFE900AF9F6B /* Infrastructure */,
 				F60A42C7217EBFDF00AF9F6B /* Protocols */,
+				F64AECC6222FCE2C00A7A26E /* Supports */,
 				F60A42C5217EBFD200AF9F6B /* View */,
 				F60A42C4217EBF9D00AF9F6B /* View Controller */,
 				F6D2A4102179FDD800B1B934 /* Zench.h */,
@@ -310,6 +321,7 @@
 				F62E661F218C06BE001E7DE9 /* StandardTableView.swift in Sources */,
 				F60A42D0217EC1D800AF9F6B /* StandardSize.swift in Sources */,
 				F64BF4A921D228D5009AE92C /* NumericExtensions.swift in Sources */,
+				F64AECC8222FCE4F00A7A26E /* KeyboardEventSupport.swift in Sources */,
 				F60A42CE217EC15C00AF9F6B /* StandardKeyboardNotificationUserInfo.swift in Sources */,
 				F65D1A8D218073BC006CF3D5 /* GeneralTableViewTextHeaderFooterView.swift in Sources */,
 				F60A42D5217EC5E600AF9F6B /* Protocols.swift in Sources */,
