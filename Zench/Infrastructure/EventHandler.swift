@@ -11,6 +11,9 @@ import Foundation
 open class EventHandler<ParamType> {
 	public typealias Action = (ParamType) -> Void
 	private var actionMap:[UUID:Action] = [:]
+	
+	public init() {}
+	
 	open func execute(param:ParamType) {
 		self.actionMap.forEach { _, handler in
 			handler(param)
