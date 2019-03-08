@@ -69,7 +69,7 @@ public protocol ViewControllerAutomaticCloseBarButtonItemSupport : class {
 public extension ViewControllerAutomaticCloseBarButtonItemSupport where Self : UIViewController {
 	@discardableResult
 	func prepareAutomaticCloseBarButtonItemSupport() -> UIBarButtonItem? {
-		if !self.canPopSelfFromNavigationController {
+		if !self.canPopFromNavigationController {
 			let retval = UIBarButtonItem(image: UIImage(named: "task_icon_close"), style: .plain, target: self, action: #selector(self.cancelBarButtonTouched))
 			self.navigationItem.leftBarButtonItem = retval
 			return retval

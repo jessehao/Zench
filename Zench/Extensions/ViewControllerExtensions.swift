@@ -32,7 +32,7 @@ public extension UIViewController {
 	
 	public var keyWindow:UIWindow? { return UIApplication.shared.keyWindow }
 	
-	public var canPopSelfFromNavigationController:Bool {
+	public var canPopFromNavigationController:Bool {
 		return self.navigationController != nil && self.navigationController?.rootViewController != self
 	}
 	
@@ -46,7 +46,7 @@ public extension UIViewController {
 	
 	func close(completion:(() -> Void)? = nil) {
 		self.view.endEditing(true)
-		if self.canPopSelfFromNavigationController {
+		if self.canPopFromNavigationController {
 			self.navigationController?.popViewController(animated: true)
 			completion?()
 		} else {
