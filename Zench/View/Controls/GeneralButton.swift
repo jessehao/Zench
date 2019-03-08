@@ -17,13 +17,6 @@ open class GeneralButton: StandardButton {
 		set { self.setTitleColor(newValue, for: .normal) }
 	}
 	
-	open var isLoading:Bool = false {
-		didSet {
-			guard self.isLoading != oldValue else { return }
-			self.setLoadingEnable(self.isLoading)
-		}
-	}
-	
 	open override var isEnabled: Bool {
 		get { return super.isEnabled }
 		set {
@@ -50,19 +43,34 @@ open class GeneralButton: StandardButton {
 	
 	open var isTitleLabelHidden:Bool = false { didSet { self.titleLabel?.layer.opacity = self.isTitleLabelHidden ? 0 : 1 } }
 	
-	// MARK: - Components
+	// MARK: - Operations
+	open func setBackgroundColor(_ color: UIColor?, for state: UIControl.State) {
+		self.backgroundColorDict[state] = color
+		if self.state == state {
+			self.redrawBackgroundColor()
+		}
+	}
+	
+	open func redrawBackgroundColor() {
+		self.backgroundColor = self.backgroundColorDict[self.state] ?? self.backgroundColorDict[.normal]
+	}
+}
+
+// MARK: - LoadingButton
+open class LoadingButton : GeneralButton {
+	open var isLoading:Bool {
+		get { return !self.activityIndicator.isHidden }
+		set {
+			self.setLoadingEnable(newValue)
+		}
+	}
+	
 	public let activityIndicator:UIActivityIndicatorView = {
 		let retval = UIActivityIndicatorView()
 		retval.stopAnimating()
 		retval.hidesWhenStopped = true
 		return retval
 	}()
-	
-	// MARK: - Operations
-	open override func setup() {
-		super.setup()
-		self.titleLabel?.font = UIFont.pingFangSCFont(ofSize: 15, weight: .medium)
-	}
 	
 	open func setLoadingEnable(_ enable:Bool) {
 		self.isEnabled = self.isEnabled && !enable
@@ -74,15 +82,12 @@ open class GeneralButton: StandardButton {
 		}
 	}
 	
-	open func setBackgroundColor(_ color: UIColor?, for state: UIControl.State) {
-		self.backgroundColorDict[state] = color
-		if self.state == state {
-			self.redrawBackgroundColor()
-		}
+	open func startLoading() {
+		self.setLoadingEnable(true)
 	}
 	
-	open func redrawBackgroundColor() {
-		self.backgroundColor = self.backgroundColorDict[self.state] ?? self.backgroundColorDict[.normal]
+	open func stopLoading() {
+		self.setLoadingEnable(false)
 	}
 	
 	open override func prepareSubviews() {
