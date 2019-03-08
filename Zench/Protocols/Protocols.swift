@@ -11,7 +11,7 @@ public protocol StandardNoParameterInitializable {
 }
 
 // MARK: - Standard Nullable
-public protocol StandardNullable {
+public protocol StandardNullable : NullableSupport {
 	var orNil:Self? { get }
 }
 

@@ -131,3 +131,15 @@ public extension TableViewUpdateSupport where Self : UITableView {
 		self.endUpdates()
 	}
 }
+
+public protocol NullableSupport {}
+
+public extension NullableSupport {
+	/// Return nil if condition is false
+	///
+	/// - Parameter condition: condition closure
+	/// - Returns: This object
+	func orNil(condition:(Self) -> Bool) -> Self? {
+		return condition(self) ? self : nil
+	}
+}
