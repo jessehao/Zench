@@ -32,8 +32,8 @@ public protocol KeyboardEventSupport : class {
 }
 
 public extension KeyboardEventSupport {
-	func registerKeyboardEvent() -> NotificationTokenManager {
-		let retval = NotificationTokenManager()
+	func registerKeyboardEvent() -> NotificationTokenBag {
+		let retval = NotificationTokenBag()
 		let notificationCenter = NotificationCenter.default
 		retval.notificationCenter = notificationCenter
 		retval.addNotificationName(UIResponder.keyboardWillShowNotification) { [weak self] in
@@ -64,7 +64,7 @@ public extension KeyboardEventSupport {
 	func keyboardDidChangeFrame(userInfo:StandardKeyboardNotificationUserInfo) {}
 }
 
-public final class NotificationTokenManager {
+public final class NotificationTokenBag {
 	var tokens:[NSObjectProtocol] = []
 	weak var notificationCenter:NotificationCenter?
 	
@@ -73,7 +73,7 @@ public final class NotificationTokenManager {
 	}
 }
 
-public extension NotificationTokenManager {
+public extension NotificationTokenBag {
 	@discardableResult
 	func addNotificationName(_ name:Notification.Name, object:Any? = nil, queue:OperationQueue? = nil, using handler:@escaping (Notification) -> Void) -> Bool {
 		guard let center = self.notificationCenter else { return false }
@@ -88,12 +88,12 @@ public extension NotificationTokenManager {
 	}
 }
 
-public extension NotificationTokenManager {
-	func append(anotherManger:NotificationTokenManager) {
+public extension NotificationTokenBag {
+	func append(anotherManger:NotificationTokenBag) {
 		self.tokens.append(contentsOf: anotherManger.tokens)
 	}
 	
-	static func += (manager:NotificationTokenManager, another:NotificationTokenManager) {
+	static func += (manager:NotificationTokenBag, another:NotificationTokenBag) {
 		manager.append(anotherManger: another)
 	}
 }

@@ -40,8 +40,8 @@ public extension NotificationCenterSubscriptionSupport {
 }
 
 public extension NotificationCenterSubscriptionSupport where Self : NotificationCenter {
-	func listenToNotificationName(_ notificationName:Notification.Name, using handler:@escaping (Notification) -> Void) -> NotificationTokenManager {
-		let manager = NotificationTokenManager()
+	func listenToNotificationName(_ notificationName:Notification.Name, using handler:@escaping (Notification) -> Void) -> NotificationTokenBag {
+		let manager = NotificationTokenBag()
 		manager.notificationCenter = self
 		manager.addNotificationName(notificationName, using: handler)
 		return manager
