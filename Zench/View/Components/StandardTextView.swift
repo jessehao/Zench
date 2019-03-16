@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class StandardTextView : UITextView, ViewPatternProtocol {
+class StandardTextView : UITextView, ViewPatternProtocol {
 	public override init(frame: CGRect, textContainer: NSTextContainer?) {
 		super.init(frame: frame, textContainer: textContainer)
 		self.setup()

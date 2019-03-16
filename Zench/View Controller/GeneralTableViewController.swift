@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class GeneralTableViewController: GeneralViewController<UIView>, StandardTableViewDelegate, StandardTableViewDataSource {
+class GeneralTableViewController: GeneralViewController<UIView>, StandardTableViewDelegate, StandardTableViewDataSource {
 	// MARK: - Interface
 	open var style:UITableView.Style { return .plain }
 	open private(set) lazy var tableView = StandardTableView(frame: .zero, style: self.style)

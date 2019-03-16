@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class GeneralTableViewTextHeaderFooterView: StandardTableViewHeaderFooterView {
+class GeneralTableViewTextHeaderFooterView: StandardTableViewHeaderFooterView {
 	// MARK: - Interface
 	open var title:String? {
 		get { return self.label.text }

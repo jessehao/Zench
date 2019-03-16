@@ -8,23 +8,23 @@
 
 import UIKit
 
-public protocol StandardTableViewDataSource: UITableViewDataSource {
+protocol StandardTableViewDataSource: UITableViewDataSource {
 	func tableViewWillLoadData()
 	func tableViewDidLoadData()
 	func tableViewWillBeginUpdate()
 	func tableViewDidEndUpdate()
 }
 
-public extension StandardTableViewDataSource {
+extension StandardTableViewDataSource {
 	func tableViewWillLoadData() {}
 	func tableViewDidLoadData() {}
 	func tableViewWillBeginUpdate() {}
 	func tableViewDidEndUpdate() {}
 }
 
-public protocol StandardTableViewDelegate: UITableViewDelegate {}
+protocol StandardTableViewDelegate: UITableViewDelegate {}
 
-open class StandardTableView: UITableView {
+class StandardTableView: UITableView {
 	open weak var standardDataSource:StandardTableViewDataSource? { didSet { self.dataSource = self.standardDataSource } }
 	open weak var standardDelegate:StandardTableViewDelegate? { didSet { self.delegate = self.standardDelegate } }
 	

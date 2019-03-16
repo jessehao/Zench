@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class StandardButton: UIButton, ViewPatternProtocol {
+class StandardButton: UIButton, ViewPatternProtocol {
 	// MARK: - Lifecycle
 	public override init(frame: CGRect) {
 		super.init(frame: frame)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class StandardTableViewHeaderFooterView: UITableViewHeaderFooterView, ViewPatternProtocol {
+class StandardTableViewHeaderFooterView: UITableViewHeaderFooterView, ViewPatternProtocol {
 	
 	// MARK: - Lifecycle
 	public override init(reuseIdentifier: String?) {

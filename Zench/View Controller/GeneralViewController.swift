@@ -10,7 +10,7 @@ import UIKit
 
 /// The base view controller of Zench. `ViewType` is type of the view which the controller retained.
 /// **DO NOT** override initializer if you **REALLY** need to.
-open class GeneralViewController<ViewType:UIView>: StandardViewController, UIGestureRecognizerDelegate {
+class GeneralViewController<ViewType:UIView>: StandardViewController, UIGestureRecognizerDelegate {
 	// MARK: - Interface
 	/// The unique main view which the controller retained. Use this property after `viewDidLoad`.
 	public let mainView = ViewType()
@@ -113,7 +113,7 @@ open class GeneralViewController<ViewType:UIView>: StandardViewController, UIGes
 }
 
 // MARK: - Generic Helper
-public extension GeneralViewController {
+extension GeneralViewController {
 	public func dial(number:String) -> Bool {
 		let tel = "telprompt://" + number
 		guard let url = URL(string: tel) else { return false }

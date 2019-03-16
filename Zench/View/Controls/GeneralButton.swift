@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class GeneralButton: StandardButton {
+class GeneralButton: StandardButton {
 	private var backgroundColorDict:[UIControl.State:UIColor] = [:]
 	
 	// MARK: - Interface
@@ -57,7 +57,7 @@ open class GeneralButton: StandardButton {
 }
 
 // MARK: - LoadingButton
-open class LoadingButton : GeneralButton {
+class LoadingButton : GeneralButton {
 	open var isLoading:Bool {
 		get { return !self.activityIndicator.isHidden }
 		set {

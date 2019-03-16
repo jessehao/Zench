@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class StandardView: UIView, ViewPatternProtocol {
+class StandardView: UIView, ViewPatternProtocol {
 	open var defaultBackgroundColor:UIColor { return .white }
 	
 	// MARK: - Lifecycle
@@ -35,8 +35,8 @@ open class StandardView: UIView, ViewPatternProtocol {
 }
 
 
-open class GeneralShapeView: StandardView {
-    override open class var layerClass : AnyClass { return CAShapeLayer.self }
+class GeneralShapeView: StandardView {
+    override class var layerClass : AnyClass { return CAShapeLayer.self }
 	open var shapeLayer:CAShapeLayer { return self.layer as! CAShapeLayer }
 	
 	open func setDashedBorder(withThickness thickness:CGFloat,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class StandardControl: UIControl, ViewPatternProtocol {
+class StandardControl: UIControl, ViewPatternProtocol {
 	
 	// MARK: - Lifecycle
 	public override init(frame: CGRect) {

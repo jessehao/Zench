@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class StandardTableViewCell: UITableViewCell, ViewPatternProtocol {
+class StandardTableViewCell: UITableViewCell, ViewPatternProtocol {
 	
 	open var defaultSelectionStyle:UITableViewCell.SelectionStyle { return .default }
 	open var indexPath:IndexPath?
@@ -39,6 +39,6 @@ open class StandardTableViewCell: UITableViewCell, ViewPatternProtocol {
 	open func prepareTargets() {}
 	
 	// MARK: - CLASS
-	open class var defaultHeight:CGFloat { return UITableView.automaticDimension }
-	open class var defaultEstimatedHeight:CGFloat { return 44 }
+	class var defaultHeight:CGFloat { return UITableView.automaticDimension }
+	class var defaultEstimatedHeight:CGFloat { return 44 }
 }
