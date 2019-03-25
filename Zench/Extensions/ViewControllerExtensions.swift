@@ -63,7 +63,7 @@ public extension UINavigationController {
 
 extension UIAlertController : ZenchNamespaceWrappable {}
 public extension ZenchNamespaceWrapper where T : UIAlertController {
-	static func notice(title:String? = nil, message:String?, buttonTitle:String, handler:@escaping (UIAlertAction) -> Void) -> ZenchNamespaceWrapper<T> {
+	static func notice(title:String? = nil, message:String?, buttonTitle:String, handler:((UIAlertAction) -> Void)? = nil) -> ZenchNamespaceWrapper<T> {
 		let retval = T(title: title, message: message, preferredStyle: .alert)
 		let action = UIAlertAction(title: buttonTitle, style: .cancel, handler: handler)
 		retval.addAction(action)
