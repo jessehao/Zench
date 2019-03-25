@@ -60,3 +60,27 @@ public extension UIViewController {
 public extension UINavigationController {
 	public var rootViewController:UIViewController? { return self.viewControllers.first }
 }
+
+extension UIAlertController : ZenchNamespaceWrappable {}
+public extension ZenchNamespaceWrapper where T : UIAlertController {
+	static func notice(title:String? = nil, message:String?, buttonTitle:String, handler:@escaping (UIAlertAction) -> Void) -> ZenchNamespaceWrapper<T> {
+		let retval = T(title: title, message: message, preferredStyle: .alert)
+		let action = UIAlertAction(title: buttonTitle, style: .cancel, handler: handler)
+		retval.addAction(action)
+		return retval.zench
+	}
+	
+	static func confirmationAlert(title:String? = nil,
+								  message:String?,
+								  confirmButtonTitle:String,
+								  confirmButtonStyle:UIAlertAction.Style = .default,
+								  cancelButtonTitle:String,
+								  confirmationHandler:@escaping (UIAlertAction) -> Void) -> ZenchNamespaceWrapper<T> {
+		let retval = T(title: title, message: message, preferredStyle: .alert)
+		let cancel = UIAlertAction(title: cancelButtonTitle, style: .cancel)
+		let confirm = UIAlertAction(title: confirmButtonTitle, style: confirmButtonStyle, handler: confirmationHandler)
+		retval.addAction(cancel)
+		retval.addAction(confirm)
+		return retval.zench
+	}
+}
