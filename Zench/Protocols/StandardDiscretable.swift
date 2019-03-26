@@ -17,13 +17,13 @@ public protocol StandardSelfIncreasable {
 
 public extension StandardSelfIncreasable {
 	@discardableResult
-	public static prefix func ++ (value:inout Self) -> Self {
+	static prefix func ++ (value:inout Self) -> Self {
 		value.selfIncrease()
 		return value
 	}
 	
 	@discardableResult
-	public static postfix func ++ (value:inout  Self) -> Self {
+	static postfix func ++ (value:inout  Self) -> Self {
 		defer { value.selfIncrease() }
 		return value
 	}
@@ -35,13 +35,13 @@ public protocol StandardSelfDecreasable {
 
 public extension StandardSelfDecreasable {
 	@discardableResult
-	public static prefix func -- (value:inout Self) -> Self {
+	static prefix func -- (value:inout Self) -> Self {
 		value.selfDecrease()
 		return value
 	}
 	
 	@discardableResult
-	public static postfix func -- (value:inout  Self) -> Self {
+	static postfix func -- (value:inout  Self) -> Self {
 		defer { value.selfDecrease() }
 		return value
 	}
@@ -50,13 +50,13 @@ public extension StandardSelfDecreasable {
 
 
 public extension BinaryInteger where Self : StandardSelfIncreasable {
-    mutating public func selfIncrease() {
+    mutating func selfIncrease() {
 		self += 1
 	}
 }
 
 public extension BinaryInteger where Self : StandardSelfDecreasable {
-	mutating public func selfDecrease() {
+	mutating func selfDecrease() {
 		self -= 1
 	}
 }

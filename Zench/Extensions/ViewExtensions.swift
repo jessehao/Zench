@@ -122,7 +122,7 @@ public extension UIScrollView {
 	/// Zench: Scroll to bottom of scrollView.
 	///
 	/// - Parameter animated: set true to animate scroll (default is true).
-	public func scrollToBottom(animated: Bool = true) {
+	func scrollToBottom(animated: Bool = true) {
 		let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height)
 		setContentOffset(bottomOffset, animated: animated)
 	}
@@ -130,7 +130,7 @@ public extension UIScrollView {
 	/// Zench: Scroll to top of scrollView.
 	///
 	/// - Parameter animated: set true to animate scroll (default is true).
-	public func scrollToTop(animated: Bool = true) {
+	func scrollToTop(animated: Bool = true) {
 		setContentOffset(CGPoint.zero, animated: animated)
 	}
 }
@@ -149,7 +149,7 @@ public extension UITableView {
 	/// Zench: Number of all rows in all sections of tableView.
 	///
 	/// - Returns: The count of all rows in the tableView.
-	public func numberOfRows() -> Int {
+	func numberOfRows() -> Int {
 		let sectionCount = self.numberOfSections
 		guard sectionCount > 0 else { return 0 }
 		return (0..<sectionCount).reduce(0) { $0 + self.numberOfRows(inSection: $1) }
@@ -244,7 +244,7 @@ extension UIControl.State : Hashable {
 }
 
 public extension UIFont {
-	public class func pingFangSCFont(ofSize size:CGFloat, weight:UIFont.Weight) -> UIFont {
+	class func pingFangSCFont(ofSize size:CGFloat, weight:UIFont.Weight) -> UIFont {
 		var fontStr = "PingFangSC-"
 		switch weight {
 		case Weight.semibold:
@@ -265,5 +265,5 @@ public extension UIFont {
 }
 
 public extension UICollectionView.ScrollPosition {
-	public static var none:UICollectionView.ScrollPosition { return UICollectionView.ScrollPosition(rawValue: 0) }
+	static var none:UICollectionView.ScrollPosition { return UICollectionView.ScrollPosition(rawValue: 0) }
 }

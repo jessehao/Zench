@@ -42,8 +42,8 @@ public extension DateFormatter {
 // MARK: Namespaced
 extension DateFormatter : ZenchNamespaceWrappable {}
 public extension ZenchNamespaceWrapper where T == DateFormatter {
-	public static let shared = DateFormatter()
-	public static let defaultDateStringParsingSet:Set<String> = [
+	static let shared = DateFormatter()
+	static let defaultDateStringParsingSet:Set<String> = [
 		"y/MM/dd",
 		"y-MM-dd",
 		"y-MM"
@@ -59,7 +59,7 @@ extension NotificationCenter {
 
 // MARK: - JSONSerialization.WritingOptions
 public extension JSONSerialization.WritingOptions {
-	public static var plain:JSONSerialization.WritingOptions { return JSONSerialization.WritingOptions(rawValue: 0) }
+	static var plain:JSONSerialization.WritingOptions { return JSONSerialization.WritingOptions(rawValue: 0) }
 }
 
 // MARK: - UnsafePointer

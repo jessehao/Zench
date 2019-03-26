@@ -13,10 +13,10 @@ public protocol ZenchNamespaceWrappable {
 }
 
 public extension ZenchNamespaceWrappable {
-	public var zench:ZenchNamespaceWrapper<Self> {
+	var zench:ZenchNamespaceWrapper<Self> {
 		return ZenchNamespaceWrapper(value: self)
 	}
-	public static var zench:ZenchNamespaceWrapper<Self>.Type {
+	static var zench:ZenchNamespaceWrapper<Self>.Type {
 		return ZenchNamespaceWrapper.self
 	}
 }

@@ -21,7 +21,7 @@ public protocol StandardDuplicatable {
 }
 
 public extension StandardDuplicatable where Self : Codable {
-	public func duplicate() throws -> Self { return try JSONDecoder().decode(Self.self, from: try JSONEncoder().encode(self)) }
+	func duplicate() throws -> Self { return try JSONDecoder().decode(Self.self, from: try JSONEncoder().encode(self)) }
 }
 
 // MARK: - Localizable

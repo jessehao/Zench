@@ -9,7 +9,7 @@
 import Foundation
 
 public extension UIViewController {
-    public static func currentViewController() -> UIViewController? {
+	static func currentViewController() -> UIViewController? {
 		var controller = UIApplication.shared.keyWindow?.rootViewController
 		while true {
 			if controller is UITabBarController {
@@ -30,17 +30,17 @@ public extension UIViewController {
 		return controller
 	}
 	
-	public var keyWindow:UIWindow? { return UIApplication.shared.keyWindow }
+	var keyWindow:UIWindow? { return UIApplication.shared.keyWindow }
 	
-	public var canPopFromNavigationController:Bool {
+	var canPopFromNavigationController:Bool {
 		return self.navigationController != nil && self.navigationController?.rootViewController != self
 	}
 	
-	public func removeFromNotificationCenter() {
+	func removeFromNotificationCenter() {
 		NotificationCenter.default.removeObserver(self)
 	}
 	
-	public func withNavigationController() -> UINavigationController {
+	func withNavigationController() -> UINavigationController {
 		return UINavigationController(rootViewController: self)
 	}
 	
@@ -58,7 +58,7 @@ public extension UIViewController {
 }
 
 public extension UINavigationController {
-	public var rootViewController:UIViewController? { return self.viewControllers.first }
+	var rootViewController:UIViewController? { return self.viewControllers.first }
 }
 
 extension UIAlertController : ZenchNamespaceWrappable {}

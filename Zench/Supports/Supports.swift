@@ -26,6 +26,17 @@ public extension Collection where Self : StandardCollectionSupport {
 	}
 }
 
+// MARK: - ConversionSupport
+public protocol ConversionSupport {
+	func convert<T>(_ handler:(Self) -> T) -> T
+}
+
+public extension ConversionSupport {
+	func convert<T>(_ handler:(Self) -> T) -> T {
+		return handler(self)
+	}
+}
+
 // MARK: - Notification Support
 public protocol NotificationCenterSubscriptionSupport {}
 public extension NotificationCenterSubscriptionSupport {
