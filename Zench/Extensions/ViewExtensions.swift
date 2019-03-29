@@ -74,6 +74,14 @@ public extension UIView {
 	}
 }
 
+extension UIView : ZenchNamespaceWrappable {}
+public extension ZenchNamespaceWrapper where T : UIView {
+	func add(to superview:UIView) -> ZenchNamespaceWrapper {
+		superview.addSubview(self.unwrapped)
+		return self
+	}
+}
+
 extension Array where Element : UIView {
 	func withStackView() -> UIStackView {
 		return UIStackView(arrangedSubviews: self)

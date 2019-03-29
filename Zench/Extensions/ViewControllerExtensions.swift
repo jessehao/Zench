@@ -57,6 +57,14 @@ public extension UIViewController {
 	}
 }
 
+extension UIViewController : ZenchNamespaceWrappable {}
+public extension ZenchNamespaceWrapper where T : UIViewController {
+	func presentBy(_ presenting:UIViewController, animated: Bool = true, completion:(() -> Void)? = nil) -> ZenchNamespaceWrapper {
+		presenting.present(self.unwrapped, animated: animated, completion: completion)
+		return self
+	}
+}
+
 public extension UINavigationController {
 	var rootViewController:UIViewController? { return self.viewControllers.first }
 }
