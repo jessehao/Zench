@@ -76,6 +76,7 @@ public extension UIView {
 
 extension UIView : ZenchNamespaceWrappable {}
 public extension ZenchNamespaceWrapper where T : UIView {
+	@discardableResult
 	func add(to superview:UIView) -> ZenchNamespaceWrapper {
 		superview.addSubview(self.unwrapped)
 		return self

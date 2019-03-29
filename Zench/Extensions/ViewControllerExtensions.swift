@@ -59,6 +59,7 @@ public extension UIViewController {
 
 extension UIViewController : ZenchNamespaceWrappable {}
 public extension ZenchNamespaceWrapper where T : UIViewController {
+	@discardableResult
 	func presentBy(_ presenting:UIViewController, animated: Bool = true, completion:(() -> Void)? = nil) -> ZenchNamespaceWrapper {
 		presenting.present(self.unwrapped, animated: animated, completion: completion)
 		return self
